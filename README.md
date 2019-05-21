@@ -2,15 +2,13 @@
 [![release](https://img.shields.io/github/release/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
 
-<img width="400" alt="GitHub Actions for Hugo" src="./images/ogp.svg">
+<img width="400" alt="GitHub Actions for Hugo extended" src="./images/ogp.svg">
 
 
 
-## GitHub Actions for Hugo
+## GitHub Actions for Hugo extended
 
 - [gohugoio/hugo: The world’s fastest framework for building websites.](https://github.com/gohugoio/hugo)
-
-This action runs the following commands.
 
 
 

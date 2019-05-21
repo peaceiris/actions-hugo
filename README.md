@@ -16,15 +16,35 @@
 
 ### Create `main.workflow`
 
+An example with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
+
+[GitHub Actions for deploying to GitHub Pages with Static Site Generators]: https://github.com/peaceiris/actions-gh-pages
+
 ```hcl
-workflow "Main workflow" {
+workflow "GitHub Pages" {
   on = "push"
-  resolves = ["hugo"]
+  resolves = ["deploy"]
 }
 
-action "hugo" {
+action "is-branch-master" {
+  uses = "actions/bin/filter@master"
+  args = "branch master"
+}
+
+action "build" {
+  needs = "is-branch-master"
   uses = "peaceiris/actions-hugo@v0.55.6"
   args = ["--gc", "--minify", "--cleanDestinationDir"]
+}
+
+action "deploy" {
+  needs = "build"
+  uses = "peaceiris/actions-gh-pages@v1.0.0"
+  env = {
+    PUBLISH_DIR = "./public"
+    PUBLISH_BRANCH = "gh-pages"
+  }
+  secrets = ["ACTIONS_DEPLOY_KEY"]
 }
 ```
 

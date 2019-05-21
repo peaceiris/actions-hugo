@@ -20,7 +20,7 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install "./${HUGO_NAME}.deb" && \
     rm -rf "./${HUGO_NAME}.deb" "${HUGO_NAME}" && \
     apt-get remove -y "${BUILD_DEPS}" && \
-    apt-get autoremove && \
+    apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

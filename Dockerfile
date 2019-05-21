@@ -15,7 +15,7 @@ ENV HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION
 ENV BUILD_DEPS="wget"
 
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y "${BUILD_DEPS}" && \
+    apt-get install -y git "${BUILD_DEPS}" && \
     wget "${HUGO_URL}" && \
     apt-get install "./${HUGO_NAME}.deb" && \
     rm -rf "./${HUGO_NAME}.deb" "${HUGO_NAME}" && \

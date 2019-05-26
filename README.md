@@ -20,6 +20,9 @@ An example with [GitHub Actions for deploying to GitHub Pages with Static Site G
 
 [GitHub Actions for deploying to GitHub Pages with Static Site Generators]: https://github.com/peaceiris/actions-gh-pages
 
+![peaceiris/actions-hugo latest version](https://img.shields.io/github/release/peaceiris/actions-hugo.svg?label=peaceiris%2Factions-hugo)
+![peaceiris/actions-gh-pages latest version](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg?label=peaceiris%2Factions-gh-pages)
+
 ```hcl
 workflow "GitHub Pages" {
   on = "push"
@@ -39,7 +42,7 @@ action "build" {
 
 action "deploy" {
   needs = "build"
-  uses = "peaceiris/actions-gh-pages@v1.0.0"
+  uses = "peaceiris/actions-gh-pages@v1.0.1"
   env = {
     PUBLISH_DIR = "./public"
     PUBLISH_BRANCH = "gh-pages"

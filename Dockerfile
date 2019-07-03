@@ -14,10 +14,10 @@ ENV HUGO_NAME="hugo_extended_${HUGO_VERSION}_Linux-64bit"
 ENV HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_NAME}.deb"
 ENV BUILD_DEPS="wget"
 
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y git "${BUILD_DEPS}" && \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git "${BUILD_DEPS}" && \
     wget "${HUGO_URL}" && \
-    apt-get install "./${HUGO_NAME}.deb" && \
+    apt-get install -y --no-install-recommends "./${HUGO_NAME}.deb" && \
     rm -rf "./${HUGO_NAME}.deb" "${HUGO_NAME}" && \
     apt-get remove -y "${BUILD_DEPS}" && \
     apt-get autoremove -y && \

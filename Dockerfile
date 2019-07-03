@@ -19,7 +19,7 @@ RUN apt-get update && \
     wget "${HUGO_URL}" && \
     apt-get install -y --no-install-recommends "./${HUGO_NAME}.deb" && \
     rm -rf "./${HUGO_NAME}.deb" "${HUGO_NAME}" && \
-    apt-get remove -y "${BUILD_DEPS}" && \
+    apt-get remove -y ${BUILD_DEPS} && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

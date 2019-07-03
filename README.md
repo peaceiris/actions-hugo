@@ -36,7 +36,7 @@ action "is-branch-master" {
 
 action "build" {
   needs = "is-branch-master"
-  uses = "peaceiris/actions-hugo@v0.55.6"
+  uses = "peaceiris/actions-hugo@v0.55.6-1"
   args = ["--gc", "--minify", "--cleanDestinationDir"]
 }
 

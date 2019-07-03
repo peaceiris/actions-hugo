@@ -12,7 +12,7 @@ LABEL "maintainer"="peaceiris"
 ENV HUGO_VERSION='0.55.6'
 ENV HUGO_NAME="hugo_extended_${HUGO_VERSION}_Linux-64bit"
 ENV HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_NAME}.deb"
-ENV BUILD_DEPS="wget"
+ENV BUILD_DEPS="wget ca-certificates"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends git "${BUILD_DEPS}" && \

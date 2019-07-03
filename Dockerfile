@@ -15,7 +15,7 @@ ENV HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION
 ENV BUILD_DEPS="wget ca-certificates"
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends git "${BUILD_DEPS}" && \
+    apt-get install -y --no-install-recommends git ${BUILD_DEPS} && \
     wget "${HUGO_URL}" && \
     apt-get install -y --no-install-recommends "./${HUGO_NAME}.deb" && \
     rm -rf "./${HUGO_NAME}.deb" "${HUGO_NAME}" && \

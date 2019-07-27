@@ -1,7 +1,7 @@
-FROM debian:9-slim
+FROM golang:1.12.7-buster
 
-LABEL "com.github.actions.name"="Hugo extended action"
-LABEL "com.github.actions.description"="GitHub Actions for Hugo extended version"
+LABEL "com.github.actions.name"="Hugo action"
+LABEL "com.github.actions.description"="GitHub Actions for Hugo extended and Hugo Modules"
 LABEL "com.github.actions.icon"="package"
 LABEL "com.github.actions.color"="yellow"
 
@@ -10,18 +10,10 @@ LABEL "homepage"="https://github.com/peaceiris/actions-hugo"
 LABEL "maintainer"="peaceiris"
 
 ENV HUGO_VERSION='0.56.0'
-ENV HUGO_NAME="hugo_extended_${HUGO_VERSION}_Linux-64bit"
-ENV HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_NAME}.deb"
-ENV BUILD_DEPS="wget ca-certificates"
+ENV HUGO_URL='https://github.com/gohugoio/hugo.git'
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends git ${BUILD_DEPS} && \
-    wget "${HUGO_URL}" && \
-    apt-get install -y --no-install-recommends "./${HUGO_NAME}.deb" && \
-    rm -rf "./${HUGO_NAME}.deb" "${HUGO_NAME}" && \
-    apt-get remove -y ${BUILD_DEPS} && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN git clone ${HUGO_URL} -b v${HUGO_VERSION} --depth 1 /hugo && \
+    cd /hugo && \
+    go install --tags extended
 
-ENTRYPOINT [ "/usr/local/bin/hugo" ]
+ENTRYPOINT [ "/go/bin/hugo" ]

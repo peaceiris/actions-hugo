@@ -6,7 +6,7 @@
 
 
 
-## GitHub Actions for Hugo extended
+## GitHub Actions for Hugo extended and Modules
 
 - [gohugoio/hugo: The world’s fastest framework for building websites.](https://github.com/gohugoio/hugo)
 
@@ -36,7 +36,7 @@ action "is-branch-master" {
 
 action "build" {
   needs = "is-branch-master"
-  uses = "peaceiris/actions-hugo@v0.56.0"
+  uses = "peaceiris/actions-hugo@v0.56.0-mod"
   args = ["--gc", "--minify", "--cleanDestinationDir"]
 }
 

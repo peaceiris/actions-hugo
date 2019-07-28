@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/peaceiris/actions-hugo"
 LABEL "homepage"="https://github.com/peaceiris/actions-hugo"
 LABEL "maintainer"="peaceiris"
 
-ENV HUGO_VERSION='0.56.0'
+ENV HUGO_VERSION='0.56.1'
 ENV HUGO_URL='https://github.com/gohugoio/hugo.git'
 
 RUN git clone ${HUGO_URL} -b v${HUGO_VERSION} --depth 1 /hugo && \

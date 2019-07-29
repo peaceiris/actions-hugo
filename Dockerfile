@@ -12,8 +12,8 @@ LABEL "maintainer"="peaceiris"
 ENV HUGO_VERSION='0.56.1'
 ENV HUGO_NAME="hugo_extended_${HUGO_VERSION}_Linux-64bit"
 ENV HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_NAME}.tar.gz"
-WORKDIR /hugo
 RUN wget "${HUGO_URL}" && \
-    tar -zxvf "${HUGO_NAME}.tar.gz"
+    tar -zxvf "${HUGO_NAME}.tar.gz" && \
+    mv ./hugo /go/bin/
 
 ENTRYPOINT [ "/go/bin/hugo" ]

@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/peaceiris/actions-hugo"
 LABEL "homepage"="https://github.com/peaceiris/actions-hugo"
 LABEL "maintainer"="peaceiris"
 
-ENV HUGO_VERSION='0.56.2'
+ENV HUGO_VERSION='0.56.3'
 ENV HUGO_NAME="hugo_extended_${HUGO_VERSION}_Linux-64bit"
 ENV HUGO_URL="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_NAME}.tar.gz"
 RUN wget "${HUGO_URL}" && \

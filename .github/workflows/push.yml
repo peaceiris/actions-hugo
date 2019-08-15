@@ -6,16 +6,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
       if:
         github.event.deleted == false &&
         github.event_name != 'create' &&
         contains(github.event.commits[0].message, '[skip ci]') == false
+    - uses: actions/checkout@master
     - name: Dump GitHub context
       env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
         GITHUB_CONTEXT_COMMIT_MSG: ${{ github.event.commits[0].message }}
         GITHUB_CONTEXT_COMMIT_MSG_COND: ${{ contains(github.event.commits[0].message, '[skip ci]') }}
+        GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "$GITHUB_CONTEXT"
         echo "$GITHUB_CONTEXT_COMMIT_MSG"

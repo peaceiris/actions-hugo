@@ -12,8 +12,8 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Docker build
-      if: github.event_name != 'delete' && github.event_name != 'create'
+      if: github.event.deleted == false
       run: docker build -t peaceiris/actions-hugo .
     - name: Check Hugo version
-      if: github.event_name != 'delete' && github.event_name != 'create'
+      if: github.event.deleted == false
       run: docker run peaceiris/actions-hugo:latest version

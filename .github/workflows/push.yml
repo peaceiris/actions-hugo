@@ -8,8 +8,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Docker build
-      if: github.delete == false
+      if: github.event.deleted == false && github.event.created == false
       run: docker build -t peaceiris/actions-hugo .
     - name: Check Hugo version
-      if: github.delete == false
+      if: github.event.deleted == false && github.event.created == false
       run: docker run peaceiris/actions-hugo:latest version

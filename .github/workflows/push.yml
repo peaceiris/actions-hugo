@@ -6,10 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      if:
-        github.event.deleted == false &&
-        github.event_name != 'create' &&
-        contains(github.event.commits[0].message, '[skip ci]') == false
     - uses: actions/checkout@master
     - name: Dump GitHub context
       env:
@@ -21,6 +17,10 @@ jobs:
         echo "$GITHUB_CONTEXT_COMMIT_MSG"
         echo "$GITHUB_CONTEXT_COMMIT_MSG_COND"
     - name: Docker build
+      if:
+        github.event.deleted == false &&
+        github.event_name != 'create' &&
+        contains(github.event.commits[0].message, '[skip ci]') == false
       run: docker build -t peaceiris/actions-hugo .
     - name: Check Hugo version
       run: docker run peaceiris/actions-hugo:latest version

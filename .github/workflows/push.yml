@@ -7,13 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+      if:
+        github.event.deleted == false &&
+        contains(github.event.commits.message, '[skip ci]') == false
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Docker build
-      if: github.event.deleted == false
       run: docker build -t peaceiris/actions-hugo .
     - name: Check Hugo version
-      if: github.event.deleted == false
       run: docker run peaceiris/actions-hugo:latest version

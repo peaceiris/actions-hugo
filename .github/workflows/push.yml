@@ -14,7 +14,7 @@ jobs:
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-        GITHUB_CONTEXT_COMMIT_MSG: ${{ toJson(github.event.commits.message) }}
+        GITHUB_CONTEXT_COMMIT_MSG: ${{ github.event.commits.message }}
         GITHUB_CONTEXT_COMMIT_MSG_COND: ${{ contains(github.event.commits.message, '[skip ci]') }}
       run: |
         echo "$GITHUB_CONTEXT"

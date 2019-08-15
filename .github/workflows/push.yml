@@ -9,6 +9,7 @@ jobs:
     - uses: actions/checkout@master
       if:
         github.event.deleted == false &&
+        github.event_name != 'create' &&
         contains(github.event.commits.message, '[skip ci]') == false
     - name: Dump GitHub context
       env:

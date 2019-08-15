@@ -20,7 +20,8 @@ jobs:
       if:
         github.event.deleted == false &&
         github.event_name != 'create' &&
-        contains(github.event.commits[0].message, '[skip ci]') == false
+        contains(github.event.commits[*].message, '[skip ci]') == false
       run: docker build -t peaceiris/actions-hugo .
     - name: Check Hugo version
+      if: success
       run: docker run peaceiris/actions-hugo:latest version

@@ -36,18 +36,18 @@ action "is-branch-master" {
 
 action "build" {
   needs = "is-branch-master"
-  uses = "peaceiris/actions-hugo@v0.56.3"
+  uses = "peaceiris/actions-hugo@v0.57.0"
   args = ["--gc", "--minify", "--cleanDestinationDir"]
 }
 
 action "deploy" {
   needs = "build"
-  uses = "peaceiris/actions-gh-pages@v1.0.1"
+  uses = "peaceiris/actions-gh-pages@v1.1.0"
   env = {
     PUBLISH_DIR = "./public"
     PUBLISH_BRANCH = "gh-pages"
   }
-  secrets = ["ACTIONS_DEPLOY_KEY"]
+  secrets = ["GITHUB_TOKEN]
 }
 ```
 

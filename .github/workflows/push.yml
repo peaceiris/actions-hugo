@@ -10,7 +10,7 @@ jobs:
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT_COMMIT_MSG: ${{ toJson(github.event.commits) }}
-        GITHUB_CONTEXT_COMMIT_MSG_COND: ${{ contains(github.event.commits, '[skip ci]') }}
+        GITHUB_CONTEXT_COMMIT_MSG_COND: ${{ contains(join(github.event.commits), '[skip ci]') }}
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "$GITHUB_CONTEXT_COMMIT_MSG"
@@ -20,10 +20,10 @@ jobs:
       if:
         github.event.deleted == false &&
         github.event_name != 'create' &&
-        contains(github.event.commits, '[skip ci]') == false
+        contains(join(github.event.commits), '[skip ci]') == false
       run: docker build -t peaceiris/actions-hugo .
     - name: Check Hugo version
       if:
         success() &&
-        contains(github.event.commits, '[skip ci]') == false
+        contains(join(github.event.commits), '[skip ci]') == false
       run: docker run peaceiris/actions-hugo:latest version

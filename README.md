@@ -14,7 +14,7 @@
 
 ## Getting started
 
-### Create `main.workflow`
+### Create `.github/workflows/push.yml`
 
 An example with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
 
@@ -23,39 +23,37 @@ An example with [GitHub Actions for deploying to GitHub Pages with Static Site G
 ![peaceiris/actions-hugo latest version](https://img.shields.io/github/release/peaceiris/actions-hugo.svg?label=peaceiris%2Factions-hugo)
 ![peaceiris/actions-gh-pages latest version](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg?label=peaceiris%2Factions-gh-pages)
 
-```hcl
-workflow "GitHub Pages" {
-  on = "push"
-  resolves = ["deploy"]
-}
+```yaml
+name: Main workflow
 
-action "is-branch-master" {
-  uses = "actions/bin/filter@master"
-  args = "branch master"
-}
+on:
+  push:
+    branches:
+    - master
 
-action "build" {
-  needs = "is-branch-master"
-  uses = "peaceiris/actions-hugo@v0.56.3"
-  args = ["--gc", "--minify", "--cleanDestinationDir"]
-}
-
-action "deploy" {
-  needs = "build"
-  uses = "peaceiris/actions-gh-pages@v1.0.1"
-  env = {
-    PUBLISH_DIR = "./public"
-    PUBLISH_BRANCH = "gh-pages"
-  }
-  secrets = ["ACTIONS_DEPLOY_KEY"]
-}
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: build
+      uses: peaceiris/actions-hugo@v0.57.0
+      with:
+        args: --gc --minify --cleanDestinationDir
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v1.1.0
+      if: contains(github.ref, 'master')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./public
 ```
 
 
 
 ## License
 
-[MIT License - peaceiris/actions-hugo]
+- [MIT License - peaceiris/actions-hugo]
 
 [MIT License - peaceiris/actions-hugo]: https://github.com/peaceiris/actions-hugo/blob/master/LICENSE
 
@@ -64,5 +62,3 @@ action "deploy" {
 ## About the author
 
 - [peaceiris's homepage](https://peaceiris.com/)
-
-<a href="https://www.patreon.com/peaceiris"><img src="./images/patreon.jpg" alt="peaceiris - Patreon" width="150px"></a>

@@ -1,0 +1,13 @@
+name: Push workflow
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Docker build
+      run: docker build -t peaceiris/actions-hugo .
+    - name: Check Hugo version
+      run: docker run peaceiris/actions-hugo:latest version

@@ -1,6 +1,9 @@
 name: Push workflow
 
-on: [push]
+on:
+  push:
+    tags:
+    - invalid-tag
 
 jobs:
   test:
@@ -8,8 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Docker build
-      if: github.event_name != 'delete' && github.event_name != 'create'
+      if:
+        github.event.deleted == false
       run: docker build -t peaceiris/actions-hugo .
     - name: Check Hugo version
-      if: github.event_name != 'delete' && github.event_name != 'create'
+      if: success()
       run: docker run peaceiris/actions-hugo:latest version

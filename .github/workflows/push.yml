@@ -15,4 +15,4 @@ jobs:
       run: |
         docker build -t peaceiris/actions-hugo . &&
         docker run peaceiris/actions-hugo:latest version ||
-        echo -e "\e[33mjob skipped\e[m"
+        (echo -e "\e[31mfailed to build\e[m" && exit 1)

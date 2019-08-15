@@ -8,10 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Docker build
-      uses: actions/docker/cli@master
-      with:
-        args: build -t peaceiris/actions-hugo .
+      run: docker build -t peaceiris/actions-hugo .
     - name: Check Hugo version
-      uses: actions/docker/cli@master
-      with:
-        args: run peaceiris/actions-hugo:latest version
+      run: docker run peaceiris/actions-hugo:latest version

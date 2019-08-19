@@ -1,6 +1,7 @@
 [![license](https://img.shields.io/github/license/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
+[![GitHub Actions status](https://github.com/peaceiris/actions-hugo/workflows/Push%20workflow/badge.svg)](https://github.com/peaceiris/actions-hugo/actions)
 
 <img width="400" alt="GitHub Actions for Hugo extended" src="./images/ogp.svg">
 
@@ -37,7 +38,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: build
-      uses: peaceiris/actions-hugo@v0.57.1
+      uses: peaceiris/actions-hugo@v0.57.2
       with:
         args: --gc --minify --cleanDestinationDir
     - name: deploy

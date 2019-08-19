@@ -7,12 +7,14 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
     - name: Docker build and print Hugo version
       if: github.event.deleted == false
+      env:
+        DOCKER_IMAGE: ${{ github.repository }}:${{ github.sha }}
       run: |
-        docker build -t peaceiris/actions-hugo . &&
-        docker run peaceiris/actions-hugo:latest version ||
-        (echo -e "\e[31mfailed to build\e[m" && exit 1)
+        docker build . --file Dockerfile --tag ${DOCKER_IMAGE} &&
+        docker run ${DOCKER_IMAGE} version ||
+        (echo -e "\e[31m[${GITHUB_WORKFLOW}] failed to build\e[m" && exit 1)

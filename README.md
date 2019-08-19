@@ -38,7 +38,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: build
-      uses: peaceiris/actions-hugo@v0.57.1
+      uses: peaceiris/actions-hugo@v0.57.2
       with:
         args: --gc --minify --cleanDestinationDir
     - name: deploy

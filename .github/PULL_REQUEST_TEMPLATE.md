@@ -1,3 +1,3 @@
 - [ ] upgrade: hugo to ``
 - [ ] update: tag on readme
-- [ ] release: `` with **master** branch
+- [ ] release: from **master** branch

@@ -25,7 +25,7 @@ An example with [GitHub Actions for deploying to GitHub Pages with Static Site G
 ![peaceiris/actions-gh-pages latest version](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg?label=peaceiris%2Factions-gh-pages)
 
 ```yaml
-name: Main workflow
+name: github-pages
 
 on:
   push:
@@ -34,16 +34,17 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
     - name: build
       uses: peaceiris/actions-hugo@v0.57.2
+      if: github.event.deleted == false
       with:
         args: --gc --minify --cleanDestinationDir
     - name: deploy
       uses: peaceiris/actions-gh-pages@v1.1.0
-      if: contains(github.ref, 'master')
+      if: success()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages

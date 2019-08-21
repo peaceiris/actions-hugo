@@ -25,7 +25,7 @@ An example with [GitHub Actions for deploying to GitHub Pages with Static Site G
 ![peaceiris/actions-gh-pages latest version](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg?label=peaceiris%2Factions-gh-pages)
 
 ```yaml
-name: github-pages
+name: github pages
 
 on:
   push:

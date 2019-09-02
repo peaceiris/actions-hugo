@@ -2,6 +2,7 @@
 [![release](https://img.shields.io/github/release/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
 [![GitHub Actions status](https://github.com/peaceiris/actions-hugo/workflows/Push%20workflow/badge.svg)](https://github.com/peaceiris/actions-hugo/actions)
+[![Docker Hub Build Status](https://img.shields.io/docker/cloud/build/peaceiris/gha-hugo.svg)](https://hub.docker.com/r/peaceiris/gha-hugo)
 
 <img width="400" alt="GitHub Actions for Hugo extended" src="./images/ogp.svg">
 

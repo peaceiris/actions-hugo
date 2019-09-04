@@ -1,4 +1,4 @@
-FROM golang:1.12.7-buster
+FROM golang:1.13.0-buster
 
 LABEL "com.github.actions.name"="Hugo action"
 LABEL "com.github.actions.description"="GitHub Actions for Hugo extended and Hugo Modules"

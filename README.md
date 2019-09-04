@@ -38,14 +38,14 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
+
     - name: build
       uses: peaceiris/actions-hugo@v0.58.0
-      if: github.event.deleted == false
       with:
         args: --gc --minify --cleanDestinationDir
+
     - name: deploy
       uses: peaceiris/actions-gh-pages@v1.1.0
-      if: success()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages

@@ -5,14 +5,13 @@ on:
     branches:
     - master
     - 'release-v*'
-    tags:
-    - invalid-tag
 
 jobs:
   test:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
+
     - name: Docker build and print Hugo version
       env:
         DOCKER_IMAGE: ${{ github.repository }}:${{ github.sha }}

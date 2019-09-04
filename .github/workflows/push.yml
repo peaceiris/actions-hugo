@@ -2,6 +2,9 @@ name: Push workflow
 
 on:
   push:
+    branches:
+    - master
+    - 'release-v*'
     tags:
     - invalid-tag
 
@@ -11,7 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Docker build and print Hugo version
-      if: github.event.deleted == false
       env:
         DOCKER_IMAGE: ${{ github.repository }}:${{ github.sha }}
       run: |

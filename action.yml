@@ -1,0 +1,9 @@
+name: 'Hugo build action'
+description: 'GitHub Actions for Hugo extended and Hugo Modules'
+author: 'peaceiris'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'package'
+  color: 'yellow'

@@ -45,7 +45,7 @@ jobs:
         args: --gc --minify --cleanDestinationDir
 
     - name: deploy
-      uses: peaceiris/actions-gh-pages@v1.1.0
+      uses: peaceiris/actions-gh-pages@v2.1.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages

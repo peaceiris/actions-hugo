@@ -19,3 +19,12 @@ jobs:
         docker build . --file Dockerfile --tag ${DOCKER_IMAGE} &&
         docker run ${DOCKER_IMAGE} version ||
         (echo -e "\e[31m[${GITHUB_WORKFLOW}] failed to build\e[m" && exit 1)
+
+  hadolint:
+    runs-on: macOS-10.14
+    steps:
+    - uses: actions/checkout@master
+    - name: hadolint
+      run: |
+        brew install hadolint
+        hadolint ./Dockerfile

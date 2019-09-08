@@ -45,7 +45,7 @@ jobs:
         args: --gc --minify --cleanDestinationDir
 
     - name: deploy
-      uses: peaceiris/actions-gh-pages@v2.1.0
+      uses: peaceiris/actions-gh-pages@v2.2.0
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages

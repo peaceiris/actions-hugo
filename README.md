@@ -16,11 +16,13 @@
 
 ## Getting started
 
-### Create `.github/workflows/push.yml`
+### Create `.github/workflows/gh-pages.yml`
 
 An example with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
 
 [GitHub Actions for deploying to GitHub Pages with Static Site Generators]: https://github.com/peaceiris/actions-gh-pages
+
+[![peaceiris/actions-gh-pages - GitHub](https://gh-card.dev/repos/peaceiris/actions-gh-pages.svg?fullname)](https://github.com/peaceiris/actions-gh-pages)
 
 ![peaceiris/actions-hugo latest version](https://img.shields.io/github/release/peaceiris/actions-hugo.svg?label=peaceiris%2Factions-hugo)
 ![peaceiris/actions-gh-pages latest version](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg?label=peaceiris%2Factions-gh-pages)

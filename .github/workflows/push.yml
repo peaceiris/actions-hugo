@@ -1,10 +1,6 @@
 name: Push workflow
 
-on:
-  push:
-    branches:
-    - master
-    - 'release-v*'
+on: [push]
 
 jobs:
   test:

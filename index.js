@@ -1,6 +1,7 @@
 const core = require('@actions/core');
-const wait = require('./wait');
+// const wait = require('./wait');
 
+let hugoVersion = '';
 
 // most @actions toolkit packages have async methods
 async function run() {
@@ -14,7 +15,10 @@ async function run() {
 
     // core.setOutput('time', new Date().toTimeString());
 
-    const hugoVersion = core.getInput('hugo-version');
+    hugoVersion = core.getInput('hugo-version');
+    if (!hugoVersion) {
+      hugoVersion = 'latest';
+    }
     console.log('Hugo version:', hugoVersion);
 
     const extended = core.getInput('extended');

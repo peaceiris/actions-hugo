@@ -30,8 +30,10 @@ jobs:
 
     strategy:
       matrix:
-        hugo-version: [null, 'latest', '0.58.2']
-        extended: [null, false, true]
+        hugo-version: [null, '0.58.2']
+        # hugo-version: [null, 'latest', '0.58.2']
+        extended: [null, true]
+        # extended: [null, false, true]
 
     steps:
     - uses: actions/checkout@v1

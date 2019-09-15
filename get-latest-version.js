@@ -1,7 +1,7 @@
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 function getLatestVersion() {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     const url = "https://api.github.com/repos/gohugoio/hugo/releases/latest";
     xhr.open("GET", url);
@@ -15,11 +15,11 @@ function getLatestVersion() {
 
         resolve(latestVersion);
       } else {
-        throw new Error(`ERROR: got status ${xhr.status}`);
-        // reject(`ERROR: got status ${xhr.status}`);
+        reject(`ERROR: got status ${xhr.status}`);
       }
     };
   });
 }
 
 module.exports = getLatestVersion;
+v

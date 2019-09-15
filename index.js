@@ -19,7 +19,8 @@ async function run() {
 
     let hugoVersion = core.getInput('hugo-version');
     if (!hugoVersion) {
-      hugoVersion = 'latest';
+      // TODO: get latest version of Hugo
+      hugoVersion = '0.58.2';
     }
     core.debug('Hugo version:', hugoVersion);
 

@@ -1,9 +1,14 @@
 name: 'Hugo build action'
 description: 'GitHub Actions for Hugo extended and Hugo Modules'
 author: 'peaceiris'
+inputs:
+  milliseconds:  # id of input
+    description: 'number of milliseconds to wait'
+    required: true
+    default: '1000'
+outputs:
+  time: # output will be available to future steps
+    description: 'The message to output'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-branding:
-  icon: 'package'
-  color: 'yellow'
+  using: 'node12'
+  main: 'index.js'

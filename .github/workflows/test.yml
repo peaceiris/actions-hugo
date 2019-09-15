@@ -27,9 +27,7 @@ jobs:
 
     strategy:
       matrix:
-        hugo-version: ['0.58.2']
-        # hugo-version: [null, 'latest', '0.58.2']
-        # extended: [null, false]
+        hugo-version: [null, 'latest', '0.58.2']
         extended: [null, true, false]
 
     steps:
@@ -43,5 +41,4 @@ jobs:
 
     - name: Dump
       run: |
-        curl 'https://api.github.com/repos/gohugoio/hugo/releases/latest'
         hugo version

@@ -21,6 +21,8 @@ async function run() {
         extendedStr = "extended_";
       }
 
+      console.log(`Operating System: ${process.platform}`);
+
       const hugoName = `hugo_${extendedStr}${hugoVersion}_Linux-64bit`;
       core.debug(`hugoName: ${hugoName}`);
 

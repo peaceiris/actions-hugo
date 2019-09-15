@@ -8,7 +8,9 @@ async function run() {
   try {
     let hugoVersion = core.getInput("hugo-version");
     if (!hugoVersion) {
-      hugoVersion = "latest";
+      // TODO: get latest version of Hugo
+      // hugoVersion = "latest";
+      hugoVersion = "0.58.2";
     } else if (hugoVersion === "latest") {
       // TODO: get latest version of Hugo
       hugoVersion = "0.58.2";

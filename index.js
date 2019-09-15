@@ -1,7 +1,6 @@
 const core = require("@actions/core");
 const tc = require("@actions/tool-cache");
 const io = require("@actions/io");
-const exec = require("@actions/exec");
 const getLatestVersion = require("./get-latest-version");
 
 // most @actions toolkit packages have async methods
@@ -31,14 +30,15 @@ async function run() {
       const hugoURL = `https://github.com/gohugoio/hugo/releases/download/v${hugoVersion}/${hugoName}.tar.gz`;
       core.debug(`hugoURL: ${hugoURL}`);
 
-      const hugoPath = "/usr/local/bin";
+      const hugoPath = "/home/runner/bin";
       await io.mkdirP(hugoPath);
+      core.addPath(hugoPath);
 
       // Download and extract Hugo binary
       const hugoTarball = await tc.downloadTool(hugoURL);
       const hugoExtractedFolder = await tc.extractTar(hugoTarball, "/tmp");
       core.debug("hugoExtractedFolder:", hugoExtractedFolder);
-      await exec.exec("sudo", ["mv", `${hugoExtractedFolder}/hugo`, hugoPath]);
+      await io.mv(`${hugoExtractedFolder}/hugo`, hugoPath);
     });
   } catch (error) {
     core.setFailed(error.message);

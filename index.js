@@ -2,18 +2,14 @@ const core = require("@actions/core");
 const tc = require("@actions/tool-cache");
 const io = require("@actions/io");
 const exec = require("@actions/exec");
+const getLatestVersion = require("./get-latest-version");
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
     let hugoVersion = core.getInput("hugo-version");
-    if (!hugoVersion) {
-      // TODO: get latest version of Hugo
-      // hugoVersion = "latest";
-      hugoVersion = "0.58.2";
-    } else if (hugoVersion === "latest") {
-      // TODO: get latest version of Hugo
-      hugoVersion = "0.58.2";
+    if (!hugoVersion || hugoVersion === "latest") {
+      hugoVersion = getLatestVersion();
     }
     core.debug("Hugo version:", hugoVersion);
 

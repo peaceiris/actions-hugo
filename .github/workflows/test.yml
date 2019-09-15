@@ -1,17 +1,18 @@
-name: "Run JavaScript Action"
+name: "Test"
+
 on:
   push:
-    branches:    
-      - 'releases/*'   # only run in release distribution branches
+    branches:
+      - 'migrate-javascript-action'
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
 
     - run: npm ci
     - run: npm test
-    - uses: actions/javascript-action@releases/v1
-      with: 
+    - uses: peaceiris/actions-hugo@migrate-javascript-action
+      with:
         milliseconds: 1000

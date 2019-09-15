@@ -1,10 +1,9 @@
 [![license](https://img.shields.io/github/license/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
-[![GitHub Actions status](https://github.com/peaceiris/actions-hugo/workflows/Push%20workflow/badge.svg)](https://github.com/peaceiris/actions-hugo/actions)
-[![Docker Hub Build Status](https://img.shields.io/docker/cloud/build/peaceiris/gha-hugo.svg)](https://hub.docker.com/r/peaceiris/gha-hugo)
+[![GitHub Actions status](https://github.com/peaceiris/actions-hugo/workflows/.github/workflows/test.yml/badge.svg)](https://github.com/peaceiris/actions-hugo/actions)
 
-<img width="400" alt="GitHub Actions for Hugo extended" src="./images/ogp.svg">
+<img width="400" alt="GitHub Actions for Hugo" src="./images/ogp.svg">
 
 
 
@@ -18,7 +17,7 @@
 
 ### Create `.github/workflows/gh-pages.yml`
 
-An example with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
+An example workflow with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
 
 [GitHub Actions for deploying to GitHub Pages with Static Site Generators]: https://github.com/peaceiris/actions-gh-pages
 
@@ -41,18 +40,48 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: build
-      uses: peaceiris/actions-hugo@v0.58.2
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2.0.0
       with:
-        args: --gc --minify --cleanDestinationDir
+        hugo-version: '0.58.2'
 
-    - name: deploy
-      uses: peaceiris/actions-gh-pages@v2.2.0
+    - name: Build
+      run: hugo --gc --minify --cleanDestinationDir
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.3.1
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
 ```
+
+
+
+## Options
+
+### Hugo extended
+
+```yaml
+- name: Setup Hugo
+  uses: peaceiris/actions-hugo@v2.0.0
+  with:
+    hugo-version: '0.58.2'
+    extended: true
+```
+
+### Latest version of Hugo
+
+```yaml
+- name: Setup Hugo
+  uses: peaceiris/actions-hugo@v2.0.0
+  with:
+    hugo-version: 'latest'
+```
+
+**Note**: This action gets a Hugo latest version by GitHub API. Please be aware of [GitHub API Rate limiting]
+
+[GitHub API Rate limiting]: https://developer.github.com/v3/#rate-limiting
 
 
 

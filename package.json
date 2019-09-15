@@ -1,0 +1,37 @@
+{
+  "name": "hugo-action",
+  "version": "0.1.0",
+  "description": "Hugo setup action",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./index.js ./get-latest-version.js",
+    "test": "jest",
+    "build": "npm prune --production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peaceiris/actions-hugo.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript",
+    "Hugo"
+  ],
+  "author": "peaceiris",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peaceiris/actions-hugo/issues"
+  },
+  "homepage": "https://github.com/peaceiris/actions-hugo#readme",
+  "dependencies": {
+    "@actions/core": "^1.1.0",
+    "@actions/io": "^1.0.1",
+    "@actions/tool-cache": "^1.1.1",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0"
+  }
+}

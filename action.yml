@@ -2,6 +2,14 @@ name: 'Hugo build action'
 description: 'GitHub Actions for Hugo extended and Hugo Modules'
 author: 'peaceiris'
 inputs:
+  hugo-version:
+    description: 'The Hugo version to download (if necessary) and use. Example: 0.58.2'
+    required: false
+    default: 'latest'
+  extended:
+    description: 'Download (if necessary) and use Hugo extended version. Example: true'
+    required: false
+    default: 'false'
   milliseconds:  # id of input
     description: 'number of milliseconds to wait'
     required: true

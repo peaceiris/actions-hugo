@@ -1,4 +1,4 @@
-name: "Test"
+name: 'Test'
 
 on:
   push:
@@ -8,11 +8,24 @@ on:
 jobs:
   test:
     runs-on: ubuntu-18.04
+
+    strategy:
+    matrix:
+      hugo-version: ['', 'latest', '0.58.2']
+      extended: ['', false, true]
+
     steps:
     - uses: actions/checkout@v1
 
+    - name: Install dependencies
     - run: npm ci
-    - run: npm test
-    - uses: peaceiris/actions-hugo@migrate-javascript-action
+
+    # - name: Test script
+    # - run: npm test
+
+    - name: Test action
+      uses: peaceiris/actions-hugo@migrate-javascript-action
       with:
-        milliseconds: 1000
+        hugo-version: ${{ matrix.hugo-version }}
+        extended: ${{ matrix.extended }}
+        milliseconds: 100

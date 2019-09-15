@@ -28,3 +28,9 @@ jobs:
       with:
         hugo-version: ${{ matrix.hugo-version }}
         extended: ${{ matrix.extended }}
+
+    - name: Dump
+      run: |
+        ls -la /usr/local
+        ls -la ${GOPATH}
+        #hugo version

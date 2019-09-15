@@ -20,6 +20,9 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: Lint
+      run: npm run lint
+
     # - name: Test script
     #   run: npm test
 
@@ -31,8 +34,5 @@ jobs:
 
     - name: Dump
       run: |
-        echo ${HOME}
         ls -la ${HOME}
-        ls -la
-        echo ${PATH}
         hugo version

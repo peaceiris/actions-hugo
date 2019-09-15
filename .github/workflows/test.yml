@@ -1,10 +1,6 @@
 name: 'Test'
 
-on:
-  push:
-    branches:
-      - master
-      # - 'migrate-javascript-action'
+on: push
 
 jobs:
   test:
@@ -33,8 +29,8 @@ jobs:
       matrix:
         hugo-version: ['0.58.2']
         # hugo-version: [null, 'latest', '0.58.2']
-        extended: [null, true]
-        # extended: [null, false, true]
+        # extended: [null, false]
+        extended: [null, true, false]
 
     steps:
     - uses: actions/checkout@v1
@@ -46,6 +42,4 @@ jobs:
         extended: ${{ matrix.extended }}
 
     - name: Dump
-      run: |
-        ls -la ${HOME}
-        hugo version
+      run: hugo version

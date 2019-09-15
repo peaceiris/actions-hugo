@@ -22,4 +22,3 @@ function getLatestVersion() {
 }
 
 module.exports = getLatestVersion;
-v

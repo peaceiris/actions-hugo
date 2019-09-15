@@ -3,7 +3,8 @@ name: 'Test'
 on:
   push:
     branches:
-      - 'migrate-javascript-action'
+      - master
+      # - 'migrate-javascript-action'
 
 jobs:
   test:

@@ -43,9 +43,8 @@ async function run() {
       function(error) {
         console.error(error);
         console.log(
-          "HINT: GitHub API Rate limiting\n" +
-            "      https://developer.github.com/v3/#rate-limiting\n" +
-            "      Use a specific version of Hugo"
+          "HINT: GitHub API Rate limiting",
+          "https://developer.github.com/v3/#rate-limiting"
         );
       }
     );

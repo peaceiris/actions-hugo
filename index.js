@@ -1,22 +1,11 @@
 const core = require('@actions/core');
-// const exec = require('@actions/exec');
 const tc = require('@actions/tool-cache');
 const io = require('@actions/io');
-// const wait = require('./wait');
 
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    // const ms = core.getInput('milliseconds');
-    // console.log(`Waiting ${ms} milliseconds ...`)
-
-    // core.debug((new Date()).toTimeString())
-    // wait(parseInt(ms));
-    // core.debug((new Date()).toTimeString())
-
-    // core.setOutput('time', new Date().toTimeString());
-
     let hugoVersion = core.getInput('hugo-version');
     if (!hugoVersion) {
       // TODO: get latest version of Hugo
@@ -43,6 +32,9 @@ async function run() {
 
     const hugoPath = '/github/home/bin';
     await io.mkdirP(hugoPath);
+    core.addPath(hugoPath);
+
+    // Download and extract Hugo binary
     const hugoTarball = await tc.downloadTool(hugoURL);
     const hugoExtractedFolder = await tc.extractTar(hugoTarball, '/tmp');
     core.debug('hugoExtractedFolder:', hugoExtractedFolder);

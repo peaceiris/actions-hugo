@@ -27,7 +27,7 @@ jobs:
 
     strategy:
       matrix:
-        hugo-version: [null, 'latest']
+        hugo-version: [null]
         # hugo-version: [null, 'latest', '0.58.2']
         extended: [null]
         # extended: [null, true, false]

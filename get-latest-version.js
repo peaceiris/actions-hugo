@@ -1,3 +1,5 @@
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
 function getLatestVersion() {
   return new Promise((resolve, reject) => {
     // if (typeof milliseconds !== "number") {

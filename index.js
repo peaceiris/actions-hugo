@@ -9,15 +9,18 @@ async function run() {
   try {
     let hugoVersion = core.getInput("hugo-version");
     if (!hugoVersion || hugoVersion === "latest") {
-      hugoVersion = getLatestVersion();
+      hugoVersion = "0.58.2";
+      getLatestVersion().then(function(version) {
+        console.log(version);
+      });
     }
-    core.debug("Hugo version:", hugoVersion);
+    core.debug(`Hugo version: ${hugoVersion}`);
 
     let extended = core.getInput("extended");
     if (!extended) {
       extended = false;
     }
-    core.debug("Hugo extended:", extended);
+    core.debug(`Hugo extended: ${extended}`);
 
     let extendedStr = "";
     if (extended) {
@@ -25,10 +28,10 @@ async function run() {
     }
 
     const hugoName = `hugo_${extendedStr}${hugoVersion}_Linux-64bit`;
-    core.debug("hugoName:", hugoName);
+    core.debug(`hugoName: ${hugoName}`);
 
     const hugoURL = `https://github.com/gohugoio/hugo/releases/download/v${hugoVersion}/${hugoName}.tar.gz`;
-    core.debug("hugoURL:", hugoURL);
+    core.debug(`hugoURL: ${hugoURL}`);
 
     const hugoPath = "/usr/local/bin";
     await io.mkdirP(hugoPath);

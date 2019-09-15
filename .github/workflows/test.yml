@@ -28,4 +28,3 @@ jobs:
       with:
         hugo-version: ${{ matrix.hugo-version }}
         extended: ${{ matrix.extended }}
-        milliseconds: 100

@@ -41,10 +41,12 @@ async function run() {
     const hugoURL = `https://github.com/gohugoio/hugo/releases/download/v${hugoVersion}/${hugoName}.tar.gz`;
     core.debug('hugoURL:', hugoURL);
 
+    const hugoPath = '/github/home/bin';
+    await io.mkdirP(hugoPath);
     const hugoTarball = await tc.downloadTool(hugoURL);
     const hugoExtractedFolder = await tc.extractTar(hugoTarball, '/tmp');
     core.debug('hugoExtractedFolder:', hugoExtractedFolder);
-    await io.mv(`${hugoExtractedFolder}/hugo`, '/usr/local/bin/');
+    await io.mv(`${hugoExtractedFolder}/hugo`, hugoPath);
   }
   catch (error) {
     core.setFailed(error.message);

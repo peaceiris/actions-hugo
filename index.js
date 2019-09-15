@@ -43,7 +43,7 @@ async function run() {
     const hugoTarball = await tc.downloadTool(hugoURL);
     const hugoExtractedFolder = await tc.extractTar(hugoTarball, '/tmp/hugo');
     core.debug('hugoExtractedFolder:', hugoExtractedFolder);
-    await io.mv('/tmp/hugo/hugo', '/usr/local/bin/');
+    await io.mv(`${hugoExtractedFolder}/hugo`, '/usr/local/bin/');
   }
   catch (error) {
     core.setFailed(error.message);

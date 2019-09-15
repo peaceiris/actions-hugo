@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-18.04
 
     strategy:
-    matrix:
-      hugo-version: ['', 'latest', '0.58.2']
-      extended: ['', false, true]
+      matrix:
+        hugo-version: ['', 'latest', '0.58.2']
+        extended: ['', false, true]
 
     steps:
     - uses: actions/checkout@v1

@@ -42,4 +42,6 @@ jobs:
         extended: ${{ matrix.extended }}
 
     - name: Dump
-      run: hugo version
+      run: |
+        curl 'https://api.github.com/repos/gohugoio/hugo/releases/latest'
+        hugo version

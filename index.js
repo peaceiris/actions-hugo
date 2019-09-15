@@ -1,8 +1,9 @@
 const core = require('@actions/core');
+const exec = require('@actions/exec');
+const tc = require('@actions/tool-cache');
+const io = require('@actions/io');
 // const wait = require('./wait');
 
-let hugoVersion = '';
-let extended = '';
 
 // most @actions toolkit packages have async methods
 async function run() {
@@ -16,17 +17,33 @@ async function run() {
 
     // core.setOutput('time', new Date().toTimeString());
 
-    hugoVersion = core.getInput('hugo-version');
+    let hugoVersion = core.getInput('hugo-version');
     if (!hugoVersion) {
       hugoVersion = 'latest';
     }
-    console.log('Hugo version:', hugoVersion);
+    core.debug('Hugo version:', hugoVersion);
 
-    extended = core.getInput('extended');
+    let extended = core.getInput('extended');
     if (!extended) {
       extended = false;
     }
-    console.log('Hugo extended:', extended);
+    core.debug('Hugo extended:', extended);
+
+    let extendedStr = '';
+    if (extended) {
+      extendedStr = 'extended_';
+    }
+
+    const hugoName = `hugo_${extendedStr}${hugoVersion}_Linux-64bit`;
+    core.debug('hugoName:', hugoName);
+
+    const hugoURL = `https://github.com/gohugoio/hugo/releases/download/v${hugoVersion}/${hugoName}.tar.gz`;
+    core.debug('hugoURL:', hugoURL);
+
+    const hugoTarball = await tc.downloadTool(hugoURL);
+    const hugoExtractedFolder = await tc.extractTar(hugoTarball, '/tmp/hugo');
+    core.debug('hugoExtractedFolder:', hugoExtractedFolder);
+    await io.mv('/tmp/hugo/hugo', '/usr/local/bin/');
   }
   catch (error) {
     core.setFailed(error.message);

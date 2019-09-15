@@ -31,6 +31,6 @@ jobs:
 
     - name: Dump
       run: |
-        ls -la /usr/local
-        ls -la ${GOPATH}
-        #hugo version
+        ls -la /usr/local/bin
+        echo ${PATH}
+        hugo version

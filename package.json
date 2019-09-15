@@ -4,7 +4,7 @@
   "description": "Hugo setup action",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./*.js",
+    "lint": "eslint ./index.js ./get-latest-version.js",
     "test": "jest",
     "build": "npm prune --production"
   },

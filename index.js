@@ -7,7 +7,7 @@ const getLatestVersion = require("./get-latest-version");
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    getLatestVersion().then(function(latestVersion) {
+    getLatestVersion().then(async function(latestVersion) {
       let hugoVersion = core.getInput("hugo-version");
       if (!hugoVersion || hugoVersion === "latest") {
         hugoVersion = latestVersion;

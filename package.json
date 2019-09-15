@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
-  "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "name": "hugo-action",
+  "version": "0.1.0",
+  "description": "Hugo setup action",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js",
@@ -9,19 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/peaceiris/actions-hugo.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
-    "JavaScript"
+    "JavaScript",
+    "Hugo"
   ],
   "author": "GitHub",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/peaceiris/actions-hugo/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/peaceiris/actions-hugo#readme",
   "dependencies": {
     "@actions/core": "^1.1.0"
   },

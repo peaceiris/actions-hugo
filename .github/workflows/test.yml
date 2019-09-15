@@ -9,11 +9,6 @@ jobs:
   test:
     runs-on: ubuntu-18.04
 
-    strategy:
-      matrix:
-        hugo-version: ['', 'latest', '0.58.2']
-        extended: ['', false, true]
-
     steps:
     - uses: actions/checkout@v1
 
@@ -25,6 +20,21 @@ jobs:
 
     # - name: Test script
     #   run: npm test
+
+    - name: Build production
+      run: npm run build
+
+
+  test-prod:
+    runs-on: ubuntu-18.04
+
+    strategy:
+      matrix:
+        hugo-version: [null, 'latest', '0.58.2']
+        extended: [null, false, true]
+
+    steps:
+    - uses: actions/checkout@v1
 
     - name: Test action
       uses: ./

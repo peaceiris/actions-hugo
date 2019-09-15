@@ -24,7 +24,7 @@ jobs:
     #   run: npm test
 
     - name: Test action
-      uses: peaceiris/actions-hugo@migrate-javascript-action
+      uses: ./
       with:
         hugo-version: ${{ matrix.hugo-version }}
         extended: ${{ matrix.extended }}

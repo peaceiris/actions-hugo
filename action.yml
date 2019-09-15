@@ -13,3 +13,6 @@ inputs:
 runs:
   using: 'node12'
   main: 'index.js'
+branding:
+  icon: 'package'
+  color: 'yellow'

@@ -1,4 +1,4 @@
-name: 'Hugo build action'
+name: 'Hugo setup action'
 description: 'GitHub Actions for Hugo extended and Hugo Modules'
 author: 'peaceiris'
 inputs:

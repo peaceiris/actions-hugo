@@ -18,6 +18,8 @@ function getLatestVersion() {
         const latestVersion = latestURL.match(/(\d+).(\d+).(\d+)/g)[0];
 
         resolve(latestVersion);
+      } else if (xhr.status !== 200) {
+        reject(`ERROR: got status ${xhr.status}`);
       }
     };
   });

@@ -14,9 +14,6 @@ async function run() {
       core.debug(`Hugo version: ${hugoVersion}`);
 
       let extended = core.getInput("extended");
-      if (!extended) {
-        extended = false;
-      }
       core.debug(`Hugo extended: ${extended}`);
 
       let extendedStr = "";

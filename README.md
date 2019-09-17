@@ -13,15 +13,15 @@
 
 We can run Hugo on a virtual machine of GitHub Actions by this Hugo action. Hugo extended version and Hugo Modules are supported.
 
-From `v2.0.0`, this Hugo action migrated to a JavaScript action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **1 sec**. (Docker base action was taking about 1 min execution time to build or pull.)
+From `v2.0.0`, this Hugo action migrated to a JavaScript action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **2 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
 
 
 
 ## Getting started
 
-### Create `.github/workflows/gh-pages.yml`
+### Create your workflow
 
-An example workflow with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
+An example workflow `.github/workflows/gh-pages.yml` with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
 
 [GitHub Actions for deploying to GitHub Pages with Static Site Generators]: https://github.com/peaceiris/actions-gh-pages
 
@@ -64,7 +64,7 @@ jobs:
 
 ## Options
 
-### Hugo extended
+### Use Hugo extended
 
 ```yaml
 - name: Setup Hugo
@@ -74,7 +74,7 @@ jobs:
     extended: true
 ```
 
-### Latest version of Hugo
+### Use the latest version of Hugo
 
 ```yaml
 - name: Setup Hugo

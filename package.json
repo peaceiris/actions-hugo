@@ -2,9 +2,9 @@
   "name": "hugo-action",
   "version": "2.1.0",
   "description": "Hugo setup action",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint ./index.js ./get-latest-version.js",
+    "lint": "eslint ./lib/**/*",
     "test": "jest",
     "build": "npm prune --production"
   },

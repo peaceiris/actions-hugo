@@ -18,8 +18,8 @@ jobs:
     # - name: Test script
     #   run: npm test
 
-    - name: Build production
-      run: npm run build
+    # - name: Build production
+    #   run: npm run build
 
 
   test-prod:

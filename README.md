@@ -11,6 +11,10 @@
 
 - [gohugoio/hugo: The world’s fastest framework for building websites.](https://github.com/gohugoio/hugo)
 
+We can run Hugo on a virtual machine of GitHub Actions by this Hugo action. Hugo extended version and Hugo Modules are supported.
+
+From `v2.0.0`, this Hugo action migrated to a JavaScript action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **1 sec**. (Docker base action was taking about 1 min execution time to build or pull.)
+
 
 
 ## Getting started

@@ -1,6 +1,7 @@
 const core = require("@actions/core");
 const tc = require("@actions/tool-cache");
 const io = require("@actions/io");
+const exec = require("@actions/exec");
 const getLatestVersion = require("./get-latest-version");
 
 // most @actions toolkit packages have async methods
@@ -38,6 +39,11 @@ async function run() {
         const hugoExtractedFolder = await tc.extractTar(hugoTarball, "/tmp");
         core.debug("hugoExtractedFolder:", hugoExtractedFolder);
         await io.mv(`${hugoExtractedFolder}/hugo`, hugoPath);
+
+        // Show version
+        await exec.exec('hugo version');
+        await exec.exec('go version');
+        await exec.exec('git --version');
       },
       function(error) {
         core.setFailed(error);

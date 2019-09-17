@@ -24,7 +24,7 @@ jobs:
 
   test-prod:
     runs-on: ubuntu-18.04
-
+    needs: test
     strategy:
       matrix:
         hugo-version: [null]

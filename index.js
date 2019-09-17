@@ -11,10 +11,10 @@ async function run() {
       if (!hugoVersion || hugoVersion === "latest") {
         hugoVersion = latestVersion;
       }
-      core.debug(`Hugo version: ${hugoVersion}`);
+      console.log(`Hugo version: ${hugoVersion}`);
 
       let extended = core.getInput("extended");
-      core.debug(`Hugo extended: ${extended}`);
+      console.log(`Hugo extended: ${extended}`);
 
       let extendedStr = "";
       if (extended === "true") {

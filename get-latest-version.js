@@ -1,8 +1,7 @@
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 function getLatestVersion() {
-  // return new Promise((resolve, reject) => {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     const url = "https://formulae.brew.sh/api/formula/hugo.json";
     xhr.open("GET", url);
@@ -13,8 +12,8 @@ function getLatestVersion() {
         const result = JSON.parse(xhr.responseText);
         const latestVersion = result.versions.stable;
         resolve(latestVersion);
-        // } else {
-        //   reject(`ERROR: got status ${xhr.status}`);
+      } else if (xhr.readyState === 4 && xhr.status !== 200) {
+        reject(`ERROR: got status ${xhr.status}`);
       }
     };
   });

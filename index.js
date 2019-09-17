@@ -14,9 +14,8 @@ async function run() {
         }
         console.log(`Hugo version: ${hugoVersion}`);
 
-        let extended = core.getInput("extended");
+        const extended = core.getInput("extended");
         console.log(`Hugo extended: ${extended}`);
-
         let extendedStr = "";
         if (extended === "true") {
           extendedStr = "extended_";
@@ -41,7 +40,7 @@ async function run() {
         await io.mv(`${hugoExtractedFolder}/hugo`, hugoPath);
       },
       function(error) {
-        console.error(error);
+        core.setFailed(error);
       }
     );
   } catch (error) {

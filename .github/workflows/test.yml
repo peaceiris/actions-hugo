@@ -27,8 +27,10 @@ jobs:
     needs: test
     strategy:
       matrix:
-        hugo-version: ['latest', '0.58.2']
-        extended: [true, false]
+        hugo-version: ['latest']
+        extended: [true]
+        # hugo-version: ['latest', '0.58.2']
+        # extended: [true, false]
 
     steps:
     - uses: actions/checkout@v1

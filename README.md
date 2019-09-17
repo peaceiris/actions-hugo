@@ -83,9 +83,7 @@ jobs:
     hugo-version: 'latest'
 ```
 
-**Note**: This action gets a Hugo latest version by GitHub API. Please be aware of [GitHub API Rate limiting]
-
-[GitHub API Rate limiting]: https://developer.github.com/v3/#rate-limiting
+This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](https://formulae.brew.sh/formula/hugo)
 
 
 

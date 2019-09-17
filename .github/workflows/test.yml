@@ -18,19 +18,19 @@ jobs:
     # - name: Test script
     #   run: npm test
 
-    - name: Build production
-      run: npm run build
+    # - name: Build production
+    #   run: npm run build
 
 
   test-prod:
     runs-on: ubuntu-18.04
-
+    needs: test
     strategy:
       matrix:
-        hugo-version: [null]
-        # hugo-version: [null, 'latest', '0.58.2']
-        extended: [null]
-        # extended: [null, true, false]
+        # hugo-version: ['latest']
+        # extended: [true]
+        hugo-version: ['latest', '0.58.2']
+        extended: [true, false]
 
     steps:
     - uses: actions/checkout@v1
@@ -40,9 +40,3 @@ jobs:
       with:
         hugo-version: ${{ matrix.hugo-version }}
         extended: ${{ matrix.extended }}
-
-    - name: Dump
-      run: |
-        hugo version
-        go version
-        git --version

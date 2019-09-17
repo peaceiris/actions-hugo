@@ -29,7 +29,7 @@ async function run() {
       const hugoURL = `https://github.com/gohugoio/hugo/releases/download/v${hugoVersion}/${hugoName}.tar.gz`;
       core.debug(`hugoURL: ${hugoURL}`);
 
-      const hugoPath = "/home/runner/bin";
+      const hugoPath = `${process.env.HOME}/bin`;
       await io.mkdirP(hugoPath);
       core.addPath(hugoPath);
 

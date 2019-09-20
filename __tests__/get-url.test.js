@@ -8,12 +8,10 @@ describe("getURL()", () => {
     const urlLinuxExtended = `${baseURL}/hugo_extended_0.58.2_Linux-64bit.tar.gz`;
     const urlMacOS = `${baseURL}/hugo_0.58.2_macOS-64bit.tar.gz`;
     const urlWindows = `${baseURL}/hugo_0.58.2_Windows-64bit.zip`;
-    expect(getURL("Linux", false, "0.58.2")).toBe(urlLinux);
-    expect(getURL("Linux", true, "0.58.2")).toBe(urlLinuxExtended);
     expect(getURL("Linux", "false", "0.58.2")).toBe(urlLinux);
-    expect(getURL("Linux", "true", "0.58.2")).toBe(urlLinux);
-    expect(getURL("macOS", false, "0.58.2")).toBe(urlMacOS);
-    expect(getURL("Windows", false, "0.58.2")).toBe(urlWindows);
+    expect(getURL("Linux", "true", "0.58.2")).toBe(urlLinuxExtended);
+    expect(getURL("macOS", "false", "0.58.2")).toBe(urlMacOS);
+    expect(getURL("Windows", "false", "0.58.2")).toBe(urlWindows);
   });
 
   // test("test exception", () => {

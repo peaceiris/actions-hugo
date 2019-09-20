@@ -7,7 +7,7 @@ import installer from "./installer";
 async function run() {
   try {
     getLatestVersion().then(
-      async function(latestVersion): Promise<any> {
+      async function(latestVersion): Promise<void> {
         const hugoVersion: string = core.getInput("hugo-version");
         console.log(`Hugo version: ${hugoVersion}`);
         const version = (v: string, latestVersion: string): string => {

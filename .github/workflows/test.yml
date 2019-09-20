@@ -20,6 +20,11 @@ jobs:
     - name: Test
       run: npm test
 
+    - uses: actions/upload-artifact@master
+      with:
+        name: coverage
+        path: coverage
+
     # - name: Build production
     #   run: npm run build
 

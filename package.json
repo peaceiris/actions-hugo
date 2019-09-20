@@ -4,9 +4,13 @@
   "description": "Hugo setup action",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint ./lib/**/*",
+    "lint": "eslint ./src/**/*.ts",
+    "lint:fix": "eslint --fix ./src/**/*.ts",
     "test": "jest --coverage --verbose",
-    "build": "npm prune --production"
+    "build": "npm prune --production",
+    "tsc": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format:check": "prettier --check **/*.ts"
   },
   "repository": {
     "type": "git",
@@ -32,7 +36,13 @@
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/parser": "^2.3.0",
     "eslint": "^6.4.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "jest-circus": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   }
 }

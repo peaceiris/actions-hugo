@@ -8,8 +8,6 @@ async function run() {
   const dump = async () => {
     // Show version
     await exec.exec('hugo version');
-    await exec.exec('go version');
-    await exec.exec('git --version');
   };
 
   try {

@@ -13,7 +13,15 @@
 
 We can run Hugo on a virtual machine of GitHub Actions by this Hugo action. Hugo extended version and Hugo Modules are supported.
 
-From `v2.0.0`, this Hugo action migrated to a JavaScript action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **2 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
+From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **3 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
+
+| OS (runs-on) | ubuntu-18.04 | macOS-10.14 | windows-2019 |
+|---|:---:|:---:|:---:|
+| Support | ✅️ | ✅️ | ✅️ |
+
+| Hugo type | Hugo Extended | Hugo Modules | Latest Hugo |
+|---|:---:|:---:|:---:|
+| Support | ✅️ | ✅️ | ✅️ |
 
 
 
@@ -41,13 +49,15 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
+    # runs-on: macOS-10.14
+    # runs-on: windows-2019
     steps:
     - uses: actions/checkout@master
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2.1.0
       with:
-        hugo-version: '0.58.2'
+        hugo-version: '0.58.3'
 
     - name: Build
       run: hugo --gc --minify --cleanDestinationDir
@@ -70,7 +80,7 @@ jobs:
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2.1.0
   with:
-    hugo-version: '0.58.2'
+    hugo-version: '0.58.3'
     extended: true
 ```
 

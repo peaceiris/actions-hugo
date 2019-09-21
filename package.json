@@ -16,15 +16,14 @@
     "skipCI": true,
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-commit": "npm run build && git add node_modules/* && git commit -m \"deps: Husky commit correct node modules\""
+      "post-commit": "npm run tsc && npm run build && git add ./lib/**/*.js ./node_modules && git commit -m \"deps: Husky commit correct node modules\""
     }
   },
   "lint-staged": {
     "src/**/*.ts": [
-      "npm run format:check && :",
-      "npm run lint && :",
-      "npm run tsc && :",
-      "npm run test && :",
+      "prettier --check",
+      "eslint",
+      "jest --bail --findRelatedTests",
       "git add"
     ]
   },

@@ -1,6 +1,6 @@
 {
   "name": "hugo-action",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Hugo setup action",
   "main": "lib/index.js",
   "scripts": {
@@ -20,7 +20,9 @@
     "GitHub",
     "Actions",
     "JavaScript",
-    "Hugo"
+    "TypeScript",
+    "Hugo",
+    "Setup"
   ],
   "author": "peaceiris",
   "license": "MIT",

@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/peaceiris/actions-hugo#readme",
   "dependencies": {
-    "@actions/core": "^1.1.0",
+    "@actions/core": "^1.1.1",
     "@actions/exec": "^1.0.1",
     "@actions/io": "^1.0.1",
     "@actions/tool-cache": "^1.1.1",

@@ -12,6 +12,22 @@
     "format": "prettier --write **/*.ts",
     "format:check": "prettier --check **/*.ts"
   },
+  "husky": {
+    "skipCI": true,
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-commit": "npm run build && git add node_modules/* && git commit -m \"deps: Husky commit correct node modules\""
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "npm run format:check && :",
+      "npm run lint && :",
+      "npm run tsc && :",
+      "npm run test && :",
+      "git add"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/peaceiris/actions-hugo.git"
@@ -45,15 +61,9 @@
     "husky": "^3.0.5",
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",
+    "lint-staged": "^9.2.5",
     "prettier": "1.18.2",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
-  },
-  "husky": {
-    "skipCI": true,
-    "hooks": {
-      "pre-commit": "npm run tsc && npm run format",
-      "post-commit": "npm run build && git add node_modules/* && git commit -m \"deps: Husky commit correct node modules\""
-    }
   }
 }

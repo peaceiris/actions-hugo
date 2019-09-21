@@ -5,30 +5,31 @@ import installer from "./installer";
 
 // most @actions toolkit packages have async methods
 async function run() {
+  const dump = async () => {
+    // Show version
+    await exec.exec("hugo version");
+    await exec.exec("go version");
+    await exec.exec("git --version");
+  };
+
   try {
-    getLatestVersion().then(
-      async function(latestVersion): Promise<void> {
-        const hugoVersion: string = core.getInput("hugo-version");
-        console.log(`Hugo version: ${hugoVersion}`);
-        const version = (v: string, latestVersion: string): string => {
-          if (v === "" || v === "latest") {
-            return latestVersion;
-          } else {
-            return v;
-          }
-        };
+    const hugoVersion: string = core.getInput("hugo-version");
+    console.log(`Hugo version: ${hugoVersion}`);
 
-        await installer(version(hugoVersion, latestVersion));
-
-        // Show version
-        await exec.exec("hugo version");
-        await exec.exec("go version");
-        await exec.exec("git --version");
-      },
-      function(error) {
-        core.setFailed(error);
-      }
-    );
+    if (hugoVersion === "" || hugoVersion === "latest") {
+      getLatestVersion().then(
+        async function(latestVersion): Promise<void> {
+          await installer(latestVersion);
+          await dump();
+        },
+        function(error) {
+          core.setFailed(error);
+        }
+      );
+    } else {
+      await installer(hugoVersion);
+      await dump();
+    }
   } catch (error) {
     core.setFailed(error.message);
   }

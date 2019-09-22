@@ -2,12 +2,13 @@ name: 'Test'
 
 on:
   push:
-    paths-ignore:
-    - 'LICENSE'
-    - 'README.md'
-    - 'images'
-    - '.gitignore'
-    - '.vscode'
+    paths:
+    - '**'
+    - '!LICENSE'
+    - '!README.md'
+    - '!images'
+    - '!.gitignore'
+    - '!.vscode'
 
 jobs:
   test:

@@ -23,11 +23,25 @@ From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. W
 |---|:---:|:---:|:---:|
 | Support | ✅️ | ✅️ | ✅️ |
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+*Table of Contents*
+
+- [Getting started](#getting-started)
+  - [⭐️ Create your workflow](#%EF%B8%8F-create-your-workflow)
+- [Options](#options)
+  - [⭐️ Use Hugo extended](#%EF%B8%8F-use-hugo-extended)
+  - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
+- [License](#license)
+- [About the author](#about-the-author)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 
 ## Getting started
 
-### Create your workflow
+### ⭐️ Create your workflow
 
 An example workflow `.github/workflows/gh-pages.yml` with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
 
@@ -74,7 +88,7 @@ jobs:
 
 ## Options
 
-### Use Hugo extended
+### ⭐️ Use Hugo extended
 
 Set `extended: true` to use a Hugo extended version.
 
@@ -86,7 +100,7 @@ Set `extended: true` to use a Hugo extended version.
     extended: true
 ```
 
-### Use the latest version of Hugo
+### ⭐️ Use the latest version of Hugo
 
 Set `hugo-version: 'latest'` to use the latest version of Hugo.
 

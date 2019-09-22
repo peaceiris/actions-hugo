@@ -1,6 +1,13 @@
 name: 'Test'
 
-on: push
+on:
+  push:
+    paths-ignore:
+    - 'LICENSE'
+    - 'README.md'
+    - 'images'
+    - '.gitignore'
+    - '.vscode'
 
 jobs:
   test:
@@ -28,21 +35,22 @@ jobs:
         name: coverage
         path: coverage
 
-    # - name: Build production
-    #   run: npm run build
-
 
   test-prod:
     runs-on: ${{ matrix.os }}
     needs: test
     strategy:
       matrix:
-        # os: ['ubuntu-18.04', 'macOS-10.14']
         os: ['ubuntu-18.04', 'macOS-10.14', 'windows-2019']
-        # hugo-version: ['latest']
-        # extended: [true]
         hugo-version: ['latest', '0.57.2']
         extended: [true, false]
+        # exclude:
+        #   - os: 'macOS-10.14'
+        #     hugo-version: 'latest'
+        #     extended: false
+        #   - os: 'windows-2019'
+        #     hugo-version: 'latest'
+        #     extended: false
 
     steps:
     - uses: actions/checkout@v1

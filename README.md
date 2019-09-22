@@ -13,7 +13,7 @@
 
 We can run Hugo on a virtual machine of GitHub Actions by this Hugo action. Hugo extended version and Hugo Modules are supported.
 
-From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **3 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
+From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **4 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
 
 | OS (runs-on) | ubuntu-18.04 | macOS-10.14 | windows-2019 |
 |---|:---:|:---:|:---:|

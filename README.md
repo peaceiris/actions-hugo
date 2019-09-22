@@ -76,6 +76,8 @@ jobs:
 
 ### Use Hugo extended
 
+Set `extended: true` to use a Hugo extended version.
+
 ```yaml
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2.2.0
@@ -85,6 +87,8 @@ jobs:
 ```
 
 ### Use the latest version of Hugo
+
+Set `hugo-version: 'latest'` to use the latest version of Hugo.
 
 ```yaml
 - name: Setup Hugo

@@ -12,11 +12,11 @@ async function run() {
 
   try {
     const hugoVersion: string = core.getInput('hugo-version');
-    console.log(`Hugo version: ${hugoVersion}`);
 
     if (hugoVersion === '' || hugoVersion === 'latest') {
       getLatestVersion().then(
         async function(latestVersion): Promise<void> {
+          console.log(`Hugo version: ${latestVersion} (${hugoVersion})`);
           await installer(latestVersion);
           await dump();
         },
@@ -25,6 +25,7 @@ async function run() {
         }
       );
     } else {
+      console.log(`Hugo version: ${hugoVersion}`);
       await installer(hugoVersion);
       await dump();
     }

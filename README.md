@@ -67,6 +67,8 @@ jobs:
     # runs-on: windows-2019
     steps:
     - uses: actions/checkout@master
+      # with:
+      #   submodules: true
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2.2.0

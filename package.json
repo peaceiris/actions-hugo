@@ -49,7 +49,7 @@
     "@actions/core": "^1.1.1",
     "@actions/exec": "^1.0.1",
     "@actions/io": "^1.0.1",
-    "@actions/tool-cache": "^1.1.1",
+    "@actions/tool-cache": "^1.1.2",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {

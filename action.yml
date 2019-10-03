@@ -1,5 +1,5 @@
 name: 'Hugo setup action'
-description: 'GitHub Actions for Hugo extended and Hugo Modules'
+description: 'GitHub Actions for Hugo ⚡️ Setup Hugo quickly and build your site fast, Hugo extended and Hugo Modules are supported.'
 author: 'peaceiris'
 inputs:
   hugo-version:

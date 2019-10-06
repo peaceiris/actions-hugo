@@ -74,12 +74,13 @@ jobs:
       uses: peaceiris/actions-hugo@v2.2.1
       with:
         hugo-version: '0.58.3'
+        # extended: true
 
     - name: Build
       run: hugo --gc --minify --cleanDestinationDir
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.4.0
+      uses: peaceiris/actions-gh-pages@v2.5.0
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages

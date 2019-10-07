@@ -63,8 +63,6 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
-    # runs-on: macOS-10.14
-    # runs-on: windows-2019
     steps:
     - uses: actions/checkout@master
       # with:

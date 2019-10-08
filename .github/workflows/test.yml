@@ -44,9 +44,12 @@ jobs:
     needs: test
     strategy:
       matrix:
-        os: ['ubuntu-18.04', 'macOS-10.14', 'windows-2019']
-        hugo-version: ['latest', '0.57.2']
-        extended: [true, false]
+        # os: ['ubuntu-18.04', 'macOS-10.14', 'windows-2019']
+        # hugo-version: ['latest', '0.57.2']
+        # extended: [true, false]
+        os: ['ubuntu-18.04']
+        hugo-version: ['latest']
+        extended: [true]
         # exclude:
         #   - os: 'macOS-10.14'
         #     hugo-version: 'latest'

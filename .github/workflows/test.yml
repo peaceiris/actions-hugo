@@ -16,10 +16,14 @@ jobs:
       with:
         fetch-depth: 1
 
-    - name: setup node
+    - name: Read .nvmrc
+      run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+      id: nvm
+
+    - name: Setup node
       uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
+        node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
     - name: Install dependencies
       run: npm install
@@ -33,7 +37,8 @@ jobs:
     - name: Test
       run: npm test
 
-    - uses: actions/upload-artifact@master
+    - name: Upload test coverage
+      uses: actions/upload-artifact@master
       with:
         name: coverage
         path: coverage

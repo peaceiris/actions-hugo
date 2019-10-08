@@ -16,8 +16,13 @@ jobs:
       with:
         fetch-depth: 1
 
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
     - name: Install dependencies
-      run: npm ci
+      run: npm install
 
     - name: Format check
       run: npm run format:check

@@ -43,9 +43,9 @@ From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. W
 
 ### ⭐️ Create your workflow
 
-An example workflow `.github/workflows/gh-pages.yml` with [GitHub Actions for deploying to GitHub Pages with Static Site Generators]
+An example workflow `.github/workflows/gh-pages.yml` with [GitHub Actions for GitHub Pages]
 
-[GitHub Actions for deploying to GitHub Pages with Static Site Generators]: https://github.com/peaceiris/actions-gh-pages
+[GitHub Actions for GitHub Pages]: https://github.com/peaceiris/actions-gh-pages
 
 [![peaceiris/actions-gh-pages - GitHub](https://gh-card.dev/repos/peaceiris/actions-gh-pages.svg?fullname)](https://github.com/peaceiris/actions-gh-pages)
 

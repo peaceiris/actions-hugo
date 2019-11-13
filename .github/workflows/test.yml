@@ -24,22 +24,18 @@ jobs:
       run: echo ::set-output name=NVMRC::$(cat .nvmrc)
       id: nvm
 
-    - name: Setup node
+    - name: Setup Node
       uses: actions/setup-node@v1
       with:
         node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
-    - name: Install dependencies
-      run: npm install
+    - run: npm ci
 
-    - name: Format check
-      run: npm run format:check
+    - run: npm run format:check
 
-    - name: Lint
-      run: npm run lint
+    - run: npm run lint
 
-    - name: Test
-      run: npm test
+    - run: npm test
 
     - name: Upload test coverage
       uses: actions/upload-artifact@master

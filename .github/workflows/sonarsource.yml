@@ -1,0 +1,19 @@
+name: Sonar Cloud
+
+on: [push]
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Trigger
+    runs-on: ubuntu-18.04
+    steps:
+
+    - uses: actions/checkout@master
+      with:
+        fetch-depth: 1
+
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

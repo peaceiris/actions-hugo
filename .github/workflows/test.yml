@@ -57,16 +57,16 @@ jobs:
     needs: test
     strategy:
       matrix:
-        os: ['ubuntu-18.04', 'macOS-latest', 'windows-latest']
+        os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
         hugo-version: ['latest', '0.57.2']
         extended: [true, false]
-        # exclude:
-        #   - os: 'macOS-latest'
-        #     hugo-version: 'latest'
-        #     extended: false
-        #   - os: 'windows-latest'
-        #     hugo-version: 'latest'
-        #     extended: false
+        exclude:
+          - os: 'macos-latest'
+            hugo-version: 'latest'
+            extended: false
+          - os: 'windows-latest'
+            hugo-version: 'latest'
+            extended: false
 
     steps:
     - uses: actions/checkout@v1

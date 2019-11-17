@@ -16,7 +16,7 @@
     "skipCI": true,
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-commit": "npm run tsc && npm run build && echo '⚠️ Do not forget to Commit and Push ./lib and ./node_modules'"
+      "post-commit": "npm run build && echo '⚠️ Do not forget to Commit and Push ./lib/index.js"
     }
   },
   "lint-staged": {

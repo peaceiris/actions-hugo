@@ -70,7 +70,7 @@ jobs:
       #   submodules: true
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.2
+      uses: peaceiris/actions-hugo@v2.2.4
       with:
         hugo-version: '0.58.3'
         # extended: true
@@ -96,7 +96,7 @@ Set `extended: true` to use a Hugo extended version.
 
 ```yaml
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@v2.2.2
+  uses: peaceiris/actions-hugo@v2.2.4
   with:
     hugo-version: '0.58.3'
     extended: true
@@ -108,7 +108,7 @@ Set `hugo-version: 'latest'` to use the latest version of Hugo.
 
 ```yaml
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@v2.2.2
+  uses: peaceiris/actions-hugo@v2.2.4
   with:
     hugo-version: 'latest'
 ```

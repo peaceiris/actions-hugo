@@ -60,13 +60,6 @@ jobs:
         os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
         hugo-version: ['latest', '0.57.2']
         extended: [true, false]
-        exclude:
-          - os: 'macos-latest'
-            hugo-version: 'latest'
-            extended: false
-          - os: 'windows-latest'
-            hugo-version: 'latest'
-            extended: false
 
     steps:
     - uses: actions/checkout@v1

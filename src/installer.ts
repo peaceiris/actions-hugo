@@ -3,6 +3,7 @@ import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';
 import getOS from './get-os';
 import getURL from './get-url';
+import * as path from 'path';
 
 export default async function installer(version: string) {
   try {
@@ -15,7 +16,7 @@ export default async function installer(version: string) {
     const hugoURL: string = getURL(osName, extended, version);
     core.debug(`hugoURL: ${hugoURL}`);
 
-    const hugoPath: string = `${process.env.HOME}/bin`;
+    const hugoPath: string = path.join(`${process.env.HOME}`, 'bin');
     await io.mkdirP(hugoPath);
     core.addPath(hugoPath);
 

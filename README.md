@@ -8,11 +8,11 @@
 
 
 
-## GitHub Actions for Hugo extended and Modules
+## GitHub Actions for Hugo
 
 - [gohugoio/hugo: The world’s fastest framework for building websites.](https://github.com/gohugoio/hugo)
 
-We can run Hugo on a virtual machine of GitHub Actions by this Hugo action. Hugo extended version and Hugo Modules are supported.
+We can run **Hugo** on a virtual machine of **GitHub Actions** by this Hugo action. **Hugo extended** version and **Hugo Modules** are supported.
 
 From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **4 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
 
@@ -24,15 +24,21 @@ From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. W
 |---|:---:|:---:|:---:|
 | Support | ✅️ | ✅️ | ✅️ |
 
+
+
+## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-*Table of Contents*
+
 
 - [Getting started](#getting-started)
   - [⭐️ Create your workflow](#%EF%B8%8F-create-your-workflow)
 - [Options](#options)
   - [⭐️ Use Hugo extended](#%EF%B8%8F-use-hugo-extended)
   - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
+- [Tips](#tips)
+  - [Read Hugo version from file](#read-hugo-version-from-file)
 - [License](#license)
 - [About the author](#about-the-author)
 
@@ -70,9 +76,9 @@ jobs:
       #   submodules: true
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.2
+      uses: peaceiris/actions-hugo@v2.2.4
       with:
-        hugo-version: '0.58.3'
+        hugo-version: '0.59.1'
         # extended: true
 
     - name: Build
@@ -96,9 +102,9 @@ Set `extended: true` to use a Hugo extended version.
 
 ```yaml
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@v2.2.2
+  uses: peaceiris/actions-hugo@v2.2.4
   with:
-    hugo-version: '0.58.3'
+    hugo-version: '0.59.1'
     extended: true
 ```
 
@@ -108,12 +114,62 @@ Set `hugo-version: 'latest'` to use the latest version of Hugo.
 
 ```yaml
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@v2.2.2
+  uses: peaceiris/actions-hugo@v2.2.4
   with:
     hugo-version: 'latest'
 ```
 
 This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](https://formulae.brew.sh/formula/hugo)
+
+
+
+## Tips
+
+### Read Hugo version from file
+
+How to sync a Hugo version between Docker Compose YAML file and a GitHub Actions workflow using `.env` file.
+
+Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
+
+```sh
+HUGO_VERSION=0.59.1
+```
+
+Next, add a step to read a Hugo version from the `.env` file.
+
+```yaml
+    - name: Read .env
+      id: hugo-version
+      run: |
+        . ./.env
+        echo ::set-output name=HUGO_VERSION::${HUGO_VERSION}
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2.2.4
+      with:
+        hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
+        extended: true
+```
+
+Here is a `docker-compose.yml` example.
+
+```yaml
+version: '3'
+
+services:
+  hugo:
+    container_name: hugo
+    image: "peaceiris/hugo:v${HUGO_VERSION}"
+    # image: peaceiris/hugo:v${HUGO_VERSION}-mod  # Hugo Modules
+    ports:
+      - 1313:1313
+    volumes:
+      - ${PWD}:/src
+    command:
+      - server
+      - --bind=0.0.0.0
+      - --buildDrafts
+```
 
 
 

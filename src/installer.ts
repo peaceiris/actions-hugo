@@ -16,7 +16,17 @@ export default async function installer(version: string) {
     const hugoURL: string = getURL(osName, extended, version);
     core.debug(`hugoURL: ${hugoURL}`);
 
-    const hugoPath: string = path.join(`${process.env.HOME}`, 'bin');
+    let baseLocation: string;
+    if (process.platform === 'win32') {
+      baseLocation = process.env['USERPROFILE'] || 'C:\\';
+    } else {
+      if (process.platform === 'darwin') {
+        baseLocation = '/Users';
+      } else {
+        baseLocation = '/home';
+      }
+    }
+    const hugoPath: string = path.join(baseLocation, 'actions', 'bin');
     await io.mkdirP(hugoPath);
     core.addPath(hugoPath);
 

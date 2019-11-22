@@ -151,6 +151,26 @@ Next, add a step to read a Hugo version from the `.env` file.
         extended: true
 ```
 
+Here is a `docker-compose.yml` example.
+
+```yaml
+version: '3'
+
+services:
+  hugo:
+    container_name: hugo
+    image: "peaceiris/hugo:v${HUGO_VERSION}"
+    # image: peaceiris/hugo:v${HUGO_VERSION}-mod  # Hugo Modules
+    ports:
+      - 1313:1313
+    volumes:
+      - ${PWD}:/src
+    command:
+      - server
+      - --bind=0.0.0.0
+      - --buildDrafts
+```
+
 
 
 ## License

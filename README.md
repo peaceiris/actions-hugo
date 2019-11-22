@@ -142,7 +142,7 @@ Next, add a step to read a Hugo version from the `.env` file.
       id: hugo-version
       run: |
         . ./.env
-        echo ::set-output name=HUGO_VERSION::${HUGO_VERSION}
+        echo "::set-output name=HUGO_VERSION::${HUGO_VERSION}"
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2.2.4

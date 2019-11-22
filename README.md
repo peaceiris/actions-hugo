@@ -31,11 +31,14 @@ From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. W
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Getting started](#getting-started)
   - [⭐️ Create your workflow](#%EF%B8%8F-create-your-workflow)
 - [Options](#options)
   - [⭐️ Use Hugo extended](#%EF%B8%8F-use-hugo-extended)
   - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
+- [Tips](#tips)
+  - [Read Hugo version from file](#read-hugo-version-from-file)
 - [License](#license)
 - [About the author](#about-the-author)
 

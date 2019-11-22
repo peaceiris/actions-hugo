@@ -92,6 +92,10 @@ jobs:
         PUBLISH_DIR: ./public
 ```
 
+<div align="right">
+<a href="#table-of-contents">Back to TOC ☝️</a>
+</div>
+
 
 
 ## Options
@@ -120,6 +124,10 @@ Set `hugo-version: 'latest'` to use the latest version of Hugo.
 ```
 
 This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](https://formulae.brew.sh/formula/hugo)
+
+<div align="right">
+<a href="#table-of-contents">Back to TOC ☝️</a>
+</div>
 
 
 
@@ -184,3 +192,9 @@ services:
 ## About the author
 
 - [peaceiris's homepage](https://peaceiris.com/)
+
+
+
+<div align="right">
+<a href="#table-of-contents">Back to TOC ☝️</a>
+</div>

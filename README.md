@@ -76,7 +76,7 @@ jobs:
       #   submodules: true
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.4
+      uses: peaceiris/actions-hugo@v2.3.0
       with:
         hugo-version: '0.59.1'
         # extended: true
@@ -106,7 +106,7 @@ Set `extended: true` to use a Hugo extended version.
 
 ```yaml
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@v2.2.4
+  uses: peaceiris/actions-hugo@v2.3.0
   with:
     hugo-version: '0.59.1'
     extended: true
@@ -118,7 +118,7 @@ Set `hugo-version: 'latest'` to use the latest version of Hugo.
 
 ```yaml
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@v2.2.4
+  uses: peaceiris/actions-hugo@v2.3.0
   with:
     hugo-version: 'latest'
 ```
@@ -153,7 +153,7 @@ Next, add a step to read a Hugo version from the `.env` file.
         echo "::set-output name=HUGO_VERSION::${HUGO_VERSION}"
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.4
+      uses: peaceiris/actions-hugo@v2.3.0
       with:
         hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
         extended: true

@@ -38,7 +38,7 @@ From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. W
   - [⭐️ Use Hugo extended](#%EF%B8%8F-use-hugo-extended)
   - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
 - [Tips](#tips)
-  - [Read Hugo version from file](#read-hugo-version-from-file)
+  - [⭐️ Read Hugo version from file](#%EF%B8%8F-read-hugo-version-from-file)
 - [License](#license)
 - [About the author](#about-the-author)
 
@@ -125,7 +125,7 @@ This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](htt
 
 ## Tips
 
-### Read Hugo version from file
+### ⭐️ Read Hugo version from file
 
 How to sync a Hugo version between Docker Compose YAML file and a GitHub Actions workflow using `.env` file.
 

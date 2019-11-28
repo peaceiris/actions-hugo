@@ -14,7 +14,7 @@
 
 We can run **Hugo** on a virtual machine of **GitHub Actions** by this Hugo action. **Hugo extended** version and **Hugo Modules** are supported.
 
-From `v2.0.0`, this Hugo action migrated to a JavaScript (TypeScript)  action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **4 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
+From `v2`, this Hugo action migrated to a JavaScript (TypeScript)  action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **4 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
 
 | OS (runs-on) | ubuntu-18.04 | macos-latest | windows-2019 |
 |---|:---:|:---:|:---:|
@@ -76,7 +76,7 @@ jobs:
       #   submodules: true
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.3.0
+      uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '0.59.1'
         # extended: true
@@ -106,7 +106,7 @@ Set `extended: true` to use a Hugo extended version.
 
 ```yaml
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@v2.3.0
+  uses: peaceiris/actions-hugo@v2
   with:
     hugo-version: '0.59.1'
     extended: true
@@ -118,7 +118,7 @@ Set `hugo-version: 'latest'` to use the latest version of Hugo.
 
 ```yaml
 - name: Setup Hugo
-  uses: peaceiris/actions-hugo@v2.3.0
+  uses: peaceiris/actions-hugo@v2
   with:
     hugo-version: 'latest'
 ```
@@ -153,7 +153,7 @@ Next, add a step to read a Hugo version from the `.env` file.
         echo "::set-output name=HUGO_VERSION::${HUGO_VERSION}"
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.3.0
+      uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
         extended: true

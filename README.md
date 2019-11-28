@@ -135,7 +135,7 @@ This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](htt
 
 ### ⭐️ Read Hugo version from file
 
-How to sync a Hugo version between Docker Compose YAML file and a GitHub Actions workflow using `.env` file.
+How to sync a Hugo version between a Docker Compose and a GitHub Actions workflow via `.env` file.
 
 Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
 

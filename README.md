@@ -71,7 +71,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
       # with:
       #   submodules: true
 

@@ -57,7 +57,7 @@
     "@types/node": "^12.12.14",
     "@typescript-eslint/parser": "^2.9.0",
     "@zeit/ncc": "^0.20.5",
-    "eslint": "^6.7.1",
+    "eslint": "^6.7.2",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",

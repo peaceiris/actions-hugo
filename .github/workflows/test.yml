@@ -46,7 +46,7 @@ jobs:
     - run: npm test
 
     - name: Upload test coverage
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v1
       with:
         name: coverage
         path: coverage

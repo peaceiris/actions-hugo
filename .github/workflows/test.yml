@@ -45,6 +45,11 @@ jobs:
 
     - run: npm test
 
+    - name: Check ncc
+      run: |
+        npm run build
+        test -z "$(git status --short)"
+
     - name: Upload test coverage
       uses: actions/upload-artifact@v1
       with:

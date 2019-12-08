@@ -8,9 +8,6 @@ describe('getOS', () => {
   });
 
   test('test exception', () => {
-    // expect(() => {
-    //   getOS("win32");
-    // }).toThrowError("Windows is not supported");
     expect(() => {
       getOS('centos');
     }).toThrowError('centos is not supported');

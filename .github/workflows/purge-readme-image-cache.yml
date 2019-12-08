@@ -1,7 +1,6 @@
 name: Purge image cache
 
 on:
-  push:
   schedule:
     - cron: '4 18 * * *'
 

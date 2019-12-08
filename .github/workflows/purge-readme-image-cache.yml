@@ -1,9 +1,6 @@
 name: Purge image cache
 
 on:
-  push:
-    branches:
-      - master
   schedule:
     - cron: '4 18 * * *'
 

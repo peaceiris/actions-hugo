@@ -21,7 +21,7 @@ jobs:
         fetch-depth: 1
 
     - name: Read .nvmrc
-      run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+      run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
       id: nvm
 
     - name: Setup Node

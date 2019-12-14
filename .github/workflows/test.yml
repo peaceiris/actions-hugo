@@ -16,9 +16,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
+    - uses: actions/checkout@v2
 
     - name: Read .nvmrc
       run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
@@ -67,9 +65,7 @@ jobs:
         extended: [true, false]
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
+    - uses: actions/checkout@v2
 
     - name: Test action
       uses: ./

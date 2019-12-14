@@ -1,0 +1,3 @@
+# https://github.com/github/linguist
+
+*.js linguist-vendored

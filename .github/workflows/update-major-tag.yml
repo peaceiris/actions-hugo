@@ -21,4 +21,4 @@ jobs:
         export TAG_MAJOR="${TAG_NAME%%.*}"
         git tag "${TAG_MAJOR}" -m "Release ${TAG_NAME}" || git tag -d "${TAG_MAJOR}" ; git push origin --delete "${TAG_MAJOR}"
         git tag "${TAG_MAJOR}" -m "Release ${TAG_NAME}" || true
-        git push --tags origin
+        git push origin "${TAG_MAJOR}"

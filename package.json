@@ -47,15 +47,15 @@
   "homepage": "https://github.com/peaceiris/actions-hugo#readme",
   "dependencies": {
     "@actions/core": "^1.2.0",
-    "@actions/exec": "^1.0.1",
+    "@actions/exec": "^1.0.2",
     "@actions/io": "^1.0.1",
     "@actions/tool-cache": "^1.1.2",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.14",
-    "@typescript-eslint/parser": "^2.10.0",
+    "@types/node": "^12.12.17",
+    "@typescript-eslint/parser": "^2.11.0",
     "@zeit/ncc": "^0.20.5",
     "eslint": "^6.7.2",
     "husky": "^3.1.0",

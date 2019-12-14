@@ -1,6 +1,6 @@
 {
   "name": "hugo-action",
-  "version": "2.2.0",
+  "version": "2.3.2",
   "description": "Hugo setup action",
   "main": "lib/index.js",
   "scripts": {

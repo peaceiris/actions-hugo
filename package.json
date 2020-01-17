@@ -65,6 +65,7 @@
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",
     "lint-staged": "^9.5.0",
+    "nock": "^11.7.2",
     "prettier": "1.19.1",
     "standard-version": "^7.0.1",
     "ts-jest": "^24.3.0",

@@ -1,0 +1,33 @@
+name: Daily Test
+
+on:
+  push:
+  schedule:
+    - cron: '13 13 * * *'
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - 'ubuntu-18.04'
+          - 'macos-latest'
+          - 'windows-latest'
+        hugo-version:
+          - 'latest'
+          - '0.61.0'
+        extended:
+          - true
+          - false
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: ${{ matrix.hugo-version }}
+          extended: ${{ matrix.extended }}
+
+      - run: hugo version

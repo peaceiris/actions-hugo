@@ -13,29 +13,28 @@ export async function showVersion(
   cmd: string,
   args: string[]
 ): Promise<ActionResult> {
-  try {
-    const result: ActionResult = {
-      exitcode: 0,
-      output: ''
-    };
+  const result: ActionResult = {
+    exitcode: 0,
+    output: ''
+  };
 
-    const options = {
-      listeners: {
-        stdout: (data: Buffer): void => {
-          result.output += data.toString();
-        }
+  const options = {
+    listeners: {
+      stdout: (data: Buffer): void => {
+        result.output += data.toString();
       }
-    };
+    }
+  };
 
+  try {
     result.exitcode = await exec.exec(cmd, args, options);
-    core.debug(`
-      exit code: ${result.exitcode}
-      stdout: ${result.output}
-    `);
-    return result;
   } catch (e) {
     return e;
   }
+  core.debug(`command: ${cmd} ${args}`);
+  core.debug(`exit code: ${result.exitcode}`);
+  core.debug(`stdout: ${result.output}`);
+  return result;
 }
 
 export async function run(): Promise<ActionResult> {

@@ -20,7 +20,7 @@ describe('Integration testing run()', () => {
   test('succeed in installing a custom version', async () => {
     const testVersion: string = '0.61.0';
     process.env['INPUT_HUGO-VERSION'] = testVersion;
-    const result: main.actionResult = await main.run();
+    const result: main.ActionResult = await main.run();
     expect(result.exitcode).toBe(0);
     expect(result.output).toMatch(`Hugo Static Site Generator v${testVersion}`);
   });
@@ -31,14 +31,14 @@ describe('Integration testing run()', () => {
     nock('https://formulae.brew.sh')
       .get(`/api/formula/${repo}.json`)
       .reply(200, jsonTestBrew);
-    const result: main.actionResult = await main.run();
+    const result: main.ActionResult = await main.run();
     expect(result.exitcode).toBe(0);
     expect(result.output).toMatch('Hugo Static Site Generator v0.62.2');
   });
 });
 
 describe('showVersion()', () => {
-  let result: main.actionResult = {
+  let result: main.ActionResult = {
     exitcode: 0,
     output: ''
   };

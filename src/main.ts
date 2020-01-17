@@ -2,8 +2,9 @@ import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import {getLatestVersion} from './get-latest-version';
 import {installer} from './installer';
+import {Tool} from './constants';
 
-export interface actionResult {
+export interface ActionResult {
   exitcode: number;
   output: string;
 }
@@ -11,16 +12,16 @@ export interface actionResult {
 export async function showVersion(
   cmd: string,
   args: string[]
-): Promise<actionResult> {
+): Promise<ActionResult> {
   try {
-    let result: actionResult = {
+    const result: ActionResult = {
       exitcode: 0,
       output: ''
     };
 
     const options = {
       listeners: {
-        stdout: (data: Buffer) => {
+        stdout: (data: Buffer): void => {
           result.output += data.toString();
         }
       }
@@ -37,25 +38,25 @@ export async function showVersion(
   }
 }
 
-export async function run() {
+export async function run(): Promise<ActionResult> {
   try {
     const toolVersion: string = core.getInput('hugo-version');
-    let installVersion: string = '';
+    let installVersion = '';
 
-    let result: actionResult = {
+    let result: ActionResult = {
       exitcode: 0,
       output: ''
     };
 
     if (toolVersion === '' || toolVersion === 'latest') {
-      installVersion = await getLatestVersion('gohugoio', 'hugo', 'brew');
+      installVersion = await getLatestVersion(Tool.Org, Tool.Repo, 'brew');
     } else {
       installVersion = toolVersion;
     }
 
-    core.info(`hugo version: ${installVersion}`);
+    core.info(`${Tool.Name} version: ${installVersion}`);
     await installer(installVersion);
-    result = await showVersion('hugo', ['version']);
+    result = await showVersion(Tool.CmdName, [Tool.CmdOptVersion]);
 
     return result;
   } catch (e) {

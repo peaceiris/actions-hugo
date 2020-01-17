@@ -13,9 +13,13 @@
 
 - [gohugoio/hugo: The world’s fastest framework for building websites.](https://github.com/gohugoio/hugo)
 
-We can run **Hugo** on a virtual machine of **GitHub Actions** by this Hugo action. **Hugo extended** version and **Hugo Modules** are supported.
+This **Hugo Setup Action** can install **Hugo** to a virtual machine of **GitHub Actions**.
+**Hugo extended** version, **Hugo Modules**, Linux (Ubuntu), macOS, and Windows are supported.
 
-From `v2`, this Hugo action migrated to a JavaScript (TypeScript)  action. We no longer build or pull a Hugo docker image. Thanks to this change, we can complete this action less than **1 sec**. (A docker base action was taking about 1 min or more execution time to build or pull.)
+From `v2`, this Hugo Setup Action has migrated to a JavaScript (TypeScript) action.
+We no longer build or pull a Hugo docker image.
+Thanks to this change, we can complete this action less than **1 sec**.
+(A docker base action was taking about 1 min or more execution time to build and pull a docker image.)
 
 | OS (runs-on) | ubuntu-18.04 | macos-latest | windows-2019 |
 |---|:---:|:---:|:---:|

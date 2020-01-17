@@ -1,74 +1,89 @@
 name: 'Test'
 
 on:
-  pull_request:
-    types: [opened, synchronize]
-    paths-ignore:
-    - '**.md'
   push:
-    paths-ignore:
-    - '**.md'
     branches:
-    - master
+      - master
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths-ignore:
+      - '**.md'
 
 jobs:
-  test:
+  skipci:
     runs-on: ubuntu-18.04
-
     steps:
-    - uses: actions/checkout@v2
+      - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
 
-    - name: Read .nvmrc
-      run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
-      id: nvm
-
-    - name: Setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '${{ steps.nvm.outputs.NVMRC }}'
-
-    - name: Cache
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-
-    - run: npm ci
-
-    - run: npm run format:check
-
-    - run: npm run lint
-
-    - run: npm test
-
-    - name: Check ncc
-      run: |
-        npm run build
-        test -z "$(git status --short)"
-
-    - name: Upload test coverage
-      uses: actions/upload-artifact@v1
-      with:
-        name: coverage
-        path: coverage
-
-
-  test-prod:
+  test:
     runs-on: ${{ matrix.os }}
-    needs: test
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
     strategy:
       matrix:
-        os: ['ubuntu-18.04', 'macos-latest', 'windows-latest']
-        hugo-version: ['latest', '0.57.2']
-        extended: [true, false]
-
+        os:
+          - 'ubuntu-18.04'
+          - 'macos-latest'
+          - 'windows-latest'
     steps:
-    - uses: actions/checkout@v2
 
-    - name: Test action
-      uses: ./
-      with:
-        hugo-version: ${{ matrix.hugo-version }}
-        extended: ${{ matrix.extended }}
+      - uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
+        id: nvm
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache npm
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+
+      - name: Run prettier
+        if: startsWith(matrix.os, 'ubuntu')
+        run: npm run format:check
+
+      - name: Run eslint
+        if: startsWith(matrix.os, 'ubuntu')
+        run: npm run lint
+
+      - name: Run ncc
+        if: startsWith(matrix.os, 'ubuntu')
+        run: npm run build
+
+      - run: npm test
+
+      - name: Upload test coverage as artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: coverage
+          path: coverage
+
+#      - name: Upload test coverage to Coveralls
+#        uses: coverallsapp/github-action@v1.0.1
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          parallel: true
+#
+#      - name: Coveralls Finished
+#        uses: coverallsapp/github-action@v1.0.1
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          parallel-finished: true

@@ -41,7 +41,7 @@ npm run release -- --release-as "${RELEASE_TYPE}" --preset eslint
 
 git rm ./lib/index.js
 rm -rf ./lib
-git commit -m "chore(release): Remove build assets"
+git commit -m "chore(release): Remove build assets [skip ci]"
 
 TAG_NAME="v$(jq -r '.version' ./package.json)"
 git push origin master

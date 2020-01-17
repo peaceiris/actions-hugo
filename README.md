@@ -3,6 +3,7 @@
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
 ![GitHub Actions status](https://github.com/peaceiris/actions-hugo/workflows/Test/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-hugo/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-hugo)
+[![Coverage Status](https://coveralls.io/repos/github/peaceiris/actions-hugo/badge.svg?branch=master)](https://coveralls.io/github/peaceiris/actions-hugo?branch=master)
 
 <img width="400" alt="GitHub Actions for Hugo" src="./images/ogp.svg">
 

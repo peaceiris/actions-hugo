@@ -1,19 +1,34 @@
-const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+import fetch from 'node-fetch';
 
-export default function getLatestVersion(): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    const url: string = 'https://formulae.brew.sh/api/formula/hugo.json';
-    xhr.open('GET', url);
-    xhr.send();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const result = JSON.parse(xhr.responseText);
-        const latestVersion: string = result.versions.stable;
-        resolve(latestVersion);
-      } else if (xhr.readyState === 4 && xhr.status !== 200) {
-        reject(`ERROR: got status ${xhr.status} of ${url}`);
-      }
-    };
-  });
+export function getURL(org: string, repo: string, api: string): string {
+  let url: string = '';
+
+  if (api === 'brew') {
+    url = `https://formulae.brew.sh/api/formula/${repo}.json`;
+  } else if (api === 'github') {
+    url = `https://api.github.com/repos/${org}/${repo}/releases/latest`;
+  }
+
+  return url;
+}
+
+export async function getLatestVersion(
+  org: string,
+  repo: string,
+  api: string
+): Promise<string> {
+  try {
+    const url = getURL(org, repo, api);
+    const response = await fetch(url);
+    const json = await response.json();
+    let latestVersion: string = '';
+    if (api === 'brew') {
+      latestVersion = json.versions.stable;
+    } else if (api === 'github') {
+      latestVersion = json.tag_name;
+    }
+    return latestVersion;
+  } catch (e) {
+    return e;
+  }
 }

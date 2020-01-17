@@ -46,9 +46,3 @@ All notable changes to this project will be documented in this file. See [standa
 ### test
 
 * Add Docker container for testing [skip ci] ([7496c44](https://github.com/peaceiris/actions-hugo/commit/7496c44053ad339cde271140b13a6c3e5385f596))
-
-
-
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

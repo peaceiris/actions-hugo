@@ -1,35 +1,66 @@
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
-import getLatestVersion from './get-latest-version';
-import installer from './installer';
+import {getLatestVersion} from './get-latest-version';
+import {installer} from './installer';
 
-// most @actions toolkit packages have async methods
-async function run() {
-  const showVersion = async () => {
-    await exec.exec('hugo version');
-  };
+export interface actionResult {
+  exitcode: number;
+  output: string;
+}
 
+export async function showVersion(
+  cmd: string,
+  args: string[]
+): Promise<actionResult> {
   try {
-    const hugoVersion: string = core.getInput('hugo-version');
+    let result: actionResult = {
+      exitcode: 0,
+      output: ''
+    };
 
-    if (hugoVersion === '' || hugoVersion === 'latest') {
-      getLatestVersion().then(
-        async function(latestVersion): Promise<void> {
-          console.log(`Hugo version: ${latestVersion} (${hugoVersion})`);
-          await installer(latestVersion);
-          await showVersion();
-        },
-        function(error) {
-          core.setFailed(error);
+    const options = {
+      listeners: {
+        stdout: (data: Buffer) => {
+          result.output += data.toString();
         }
-      );
+      }
+    };
+
+    result.exitcode = await exec.exec(cmd, args, options);
+    core.debug(`
+      exit code: ${result.exitcode}
+      stdout: ${result.output}
+    `);
+    return result;
+  } catch (e) {
+    return e;
+  }
+}
+
+async function run() {
+  try {
+    const toolVersion: string = core.getInput('hugo-version');
+    let installVersion: string = '';
+
+    let result: actionResult = {
+      exitcode: 0,
+      output: ''
+    };
+
+    if (toolVersion === '' || toolVersion === 'latest') {
+      installVersion = await getLatestVersion('gohugoio', 'hugo', 'brew');
     } else {
-      console.log(`Hugo version: ${hugoVersion}`);
-      await installer(hugoVersion);
-      await showVersion();
+      installVersion = toolVersion;
     }
-  } catch (error) {
-    core.setFailed(error.message);
+
+    core.info(`hugo version: ${installVersion}`);
+    await installer(installVersion);
+    result = await showVersion('hugo', ['version']);
+
+    return result;
+  } catch (e) {
+    core.setFailed(`Action failed with error ${e}`);
+    return e;
   }
 }
 

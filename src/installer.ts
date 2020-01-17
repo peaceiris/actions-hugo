@@ -16,7 +16,7 @@ if (!tempDir) {
   tempDir = path.join(baseTempLocation, 'tmp');
 }
 
-export default async function installer(version: string) {
+export async function installer(version: string) {
   try {
     const extended: string = core.getInput('extended');
     console.log(`Hugo extended: ${extended}`);

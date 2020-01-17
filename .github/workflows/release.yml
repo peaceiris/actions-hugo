@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-18.04
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "${GITHUB_CONTEXT}"
+
+      - name: Install hub
+        run: |
+          HUB_VERSION="2.13.0"
+          HUB_NAME="hub-linux-amd64-${HUB_VERSION}"
+          HUB_TARBALL="${HUB_NAME}.tgz"
+          wget -q "https://github.com/github/hub/releases/download/v${HUB_VERSION}/${HUB_TARBALL}"
+          tar -zxvf "./${HUB_TARBALL}"
+          mkdir ~/bin
+          cp "./${HUB_NAME}/bin/hub" ~/bin/
+          echo "::add-path::~/bin/"
+          rm -rf "./${HUB_NAME}" "./${HUB_TARBALL}"
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME="${GITHUB_REF##refs/tags/}"
+          echo "See [CHANGELOG.md](https://github.com/${GITHUB_REPOSITORY}/blob/${TAG_NAME}/CHANGELOG.md) for more details." > ./release_notes.md
+          sed -i "1iRelease ${TAG_NAME}\n" ./release_notes.md
+          hub release create \
+            --draft \
+            --prerelease \
+            --file ./release_notes.md \
+            "${TAG_NAME}"

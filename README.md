@@ -39,8 +39,10 @@ From `v2`, this Hugo action migrated to a JavaScript (TypeScript)  action. We no
   - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
 - [Tips](#tips)
   - [⭐️ Read Hugo version from file](#%EF%B8%8F-read-hugo-version-from-file)
+- [CHANGELOG](#changelog)
 - [License](#license)
-- [About the author](#about-the-author)
+- [About Maintainer](#about-maintainer)
+- [Maintainer Notes](#maintainer-notes)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -185,6 +187,12 @@ The alpine base Hugo Docker image is provided on the following repository.
 
 
 
+## CHANGELOG
+
+- [CHANGELOG.md](CHANGELOG.md)
+
+
+
 ## License
 
 - [MIT License - peaceiris/actions-hugo]
@@ -193,9 +201,29 @@ The alpine base Hugo Docker image is provided on the following repository.
 
 
 
-## About the author
+## About Maintainer
 
-- [peaceiris's homepage](https://peaceiris.com/)
+- [peaceiris homepage](https://peaceiris.com/)
+
+
+
+## Maintainer Notes
+
+Run `npm` and `git commit` commands on a container.
+
+**On Host**
+
+```sh
+# Docker
+make build
+make run
+make run cmd="env"
+make test
+make commit msg="chore: Add Makefile"
+
+# Release
+./release.sh
+```
 
 
 

@@ -185,6 +185,10 @@ The alpine base Hugo Docker image is provided on the following repository.
 
 > [peaceiris/hugo-extended-docker: Hugo alpine base Docker image (Hugo extended and Hugo Modules)](https://github.com/peaceiris/hugo-extended-docker)
 
+<div align="right">
+<a href="#table-of-contents">Back to TOC ☝️</a>
+</div>
+
 
 
 ## CHANGELOG

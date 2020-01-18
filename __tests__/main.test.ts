@@ -1,4 +1,6 @@
 import * as main from '../src/main';
+import * as io from '@actions/io';
+import path from 'path';
 import nock from 'nock';
 // import {FetchError} from 'node-fetch';
 import jsonTestBrew from './data/brew.json';
@@ -17,6 +19,10 @@ afterEach(() => {
 });
 
 describe('Integration testing run()', () => {
+  afterEach(async () => {
+    await io.rmRF(path.join(`${process.env.HOME}`, 'tmp'));
+  });
+
   test('succeed in installing a custom version', async () => {
     const testVersion = '0.61.0';
     process.env['INPUT_HUGO-VERSION'] = testVersion;

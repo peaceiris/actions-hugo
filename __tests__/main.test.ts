@@ -56,7 +56,8 @@ describe('showVersion()', () => {
   });
 
   test('return not found', async () => {
-    result = await main.showVersion('gitgit', ['--version']);
-    expect(result.exitcode).not.toBe(0);
+    await expect(
+      main.showVersion('gitgit', ['--version'])
+    ).rejects.toThrowError(Error);
   });
 });

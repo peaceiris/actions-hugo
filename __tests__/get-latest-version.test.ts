@@ -57,7 +57,6 @@ describe('getLatestVersion()', () => {
       .get(`/api/formula/${Tool.Repo}.json`)
       .reply(404);
 
-    // const versionLatest = await getLatestVersion(Tool.Org, Tool.Repo, 'brew');
     await expect(
       getLatestVersion(Tool.Org, Tool.Repo, 'brew')
     ).rejects.toThrowError(FetchError);

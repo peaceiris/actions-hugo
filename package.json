@@ -1,7 +1,7 @@
 {
   "name": "hugo-action",
   "version": "2.4.0",
-  "description": "Hugo setup action",
+  "description": "GitHub Actions for Hugo",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint ./{src,__tests__}/**/*.ts",

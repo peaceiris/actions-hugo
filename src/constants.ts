@@ -3,5 +3,7 @@ export enum Tool {
   Org = 'gohugoio',
   Repo = 'hugo',
   CmdName = 'hugo',
-  CmdOptVersion = 'version'
+  CmdOptVersion = 'version',
+  TestVersionLatest = '0.62.2',
+  TestVersionSpec = '0.61.0'
 }

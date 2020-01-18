@@ -16,7 +16,7 @@ if (!tempDir) {
   tempDir = path.join(baseTempLocation, 'tmp');
 }
 
-export async function installer(version: string) {
+export async function installer(version: string): Promise<void> {
   try {
     const extended: string = core.getInput('extended');
     console.log(`Hugo extended: ${extended}`);
@@ -40,7 +40,7 @@ export async function installer(version: string) {
     // Download and extract Hugo binary
     await io.mkdirP(tempDir);
     const hugoAssets: string = await tc.downloadTool(hugoURL);
-    let hugoBin: string = '';
+    let hugoBin = '';
     if (osName === 'Windows') {
       const hugoExtractedFolder: string = await tc.extractZip(
         hugoAssets,

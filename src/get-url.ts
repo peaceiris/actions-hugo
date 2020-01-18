@@ -3,7 +3,7 @@ export default function getURL(
   extended: string,
   version: string
 ): string {
-  const extendedStr = (extended: string) => {
+  const extendedStr = (extended: string): string => {
     if (extended === 'true') {
       return 'extended_';
     } else {
@@ -13,7 +13,7 @@ export default function getURL(
     }
   };
 
-  const ext = (os: string) => {
+  const ext = (os: string): string => {
     if (os === 'Windows') {
       return 'zip';
     } else {
@@ -21,11 +21,9 @@ export default function getURL(
     }
   };
 
-  const hugoName: string = `hugo_${extendedStr(
-    extended
-  )}${version}_${os}-64bit`;
-  const baseURL: string = 'https://github.com/gohugoio/hugo/releases/download';
-  const url: string = `${baseURL}/v${version}/${hugoName}.${ext(os)}`;
+  const hugoName = `hugo_${extendedStr(extended)}${version}_${os}-64bit`;
+  const baseURL = 'https://github.com/gohugoio/hugo/releases/download';
+  const url = `${baseURL}/v${version}/${hugoName}.${ext(os)}`;
 
   return url;
 }

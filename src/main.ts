@@ -26,11 +26,7 @@ export async function showVersion(
     }
   };
 
-  try {
-    result.exitcode = await exec.exec(cmd, args, options);
-  } catch (e) {
-    return e;
-  }
+  result.exitcode = await exec.exec(cmd, args, options);
   core.debug(`command: ${cmd} ${args}`);
   core.debug(`exit code: ${result.exitcode}`);
   core.debug(`stdout: ${result.output}`);

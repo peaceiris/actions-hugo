@@ -17,18 +17,14 @@ export async function getLatestVersion(
   repo: string,
   api: string
 ): Promise<string> {
-  try {
-    const url = getURL(org, repo, api);
-    const response = await fetch(url);
-    const json = await response.json();
-    let latestVersion = '';
-    if (api === 'brew') {
-      latestVersion = json.versions.stable;
-    } else if (api === 'github') {
-      latestVersion = json.tag_name;
-    }
-    return latestVersion;
-  } catch (e) {
-    return e;
+  const url = getURL(org, repo, api);
+  const response = await fetch(url);
+  const json = await response.json();
+  let latestVersion = '';
+  if (api === 'brew') {
+    latestVersion = json.versions.stable;
+  } else if (api === 'github') {
+    latestVersion = json.tag_name;
   }
+  return latestVersion;
 }

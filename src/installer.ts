@@ -4,58 +4,72 @@ import * as io from '@actions/io';
 import getOS from './get-os';
 import getURL from './get-url';
 import * as path from 'path';
+import {Tool, Action} from './constants';
 
-let tempDir: string = process.env['RUNNER_TEMPDIRECTORY'] || '';
-if (!tempDir) {
-  let baseTempLocation: string;
+export function getHomeDir(): string {
+  let homedir = '';
+
   if (process.platform === 'win32') {
-    baseTempLocation = process.env['USERPROFILE'] || 'C:\\';
+    homedir = process.env['USERPROFILE'] || 'C:\\';
   } else {
-    baseTempLocation = `${process.env.HOME}`;
+    homedir = `${process.env.HOME}`;
   }
-  tempDir = path.join(baseTempLocation, 'tmp');
+
+  core.debug(`homeDir: ${homedir}`);
+
+  return homedir;
+}
+
+export async function createWorkDir(): Promise<string> {
+  const workDir = path.join(getHomeDir(), Action.WorkDirName);
+  await io.mkdirP(workDir);
+  core.debug(`workDir: ${workDir}`);
+  return workDir;
+}
+
+export async function createTempDir(workDir: string): Promise<string> {
+  const tempDir = path.join(workDir, Action.TempDirName);
+  await io.mkdirP(tempDir);
+  core.debug(`tempDir: ${tempDir}`);
+  return tempDir;
+}
+
+export async function createBinDir(workDir: string): Promise<string> {
+  const binDir = path.join(workDir, 'bin');
+  await io.mkdirP(binDir);
+  core.addPath(binDir);
+  core.debug(`binDir: ${binDir}`);
+  return binDir;
 }
 
 export async function installer(version: string): Promise<void> {
-  try {
-    const extended: string = core.getInput('extended');
-    console.log(`Hugo extended: ${extended}`);
+  const extended: string = core.getInput('extended');
+  core.debug(`Hugo extended: ${extended}`);
 
-    const osName: string = getOS(process.platform);
-    console.log(`Operating System: ${osName}`);
+  const osName: string = getOS(process.platform);
+  core.debug(`Operating System: ${osName}`);
 
-    const hugoURL: string = getURL(osName, extended, version);
-    core.debug(`hugoURL: ${hugoURL}`);
+  const toolURL: string = getURL(osName, extended, version);
+  core.debug(`toolURL: ${toolURL}`);
 
-    let baseLocation: string;
-    if (process.platform === 'win32') {
-      baseLocation = process.env['USERPROFILE'] || 'C:\\';
-    } else {
-      baseLocation = `${process.env.HOME}`;
-    }
-    const hugoPath: string = path.join(baseLocation, 'hugobin');
-    await io.mkdirP(hugoPath);
-    core.addPath(hugoPath);
+  const workDir = await createWorkDir();
+  const binDir = await createBinDir(workDir);
+  const tempDir = await createTempDir(workDir);
 
-    // Download and extract Hugo binary
-    await io.mkdirP(tempDir);
-    const hugoAssets: string = await tc.downloadTool(hugoURL);
-    let hugoBin = '';
-    if (osName === 'Windows') {
-      const hugoExtractedFolder: string = await tc.extractZip(
-        hugoAssets,
-        tempDir
-      );
-      hugoBin = `${hugoExtractedFolder}/hugo.exe`;
-    } else {
-      const hugoExtractedFolder: string = await tc.extractTar(
-        hugoAssets,
-        tempDir
-      );
-      hugoBin = `${hugoExtractedFolder}/hugo`;
-    }
-    await io.mv(hugoBin, hugoPath);
-  } catch (error) {
-    core.setFailed(error.message);
+  const toolAssets: string = await tc.downloadTool(toolURL);
+  let toolBin = '';
+  if (process.platform === 'win32') {
+    const toolExtractedFolder: string = await tc.extractZip(
+      toolAssets,
+      tempDir
+    );
+    toolBin = `${toolExtractedFolder}/${Tool.CmdName}.exe`;
+  } else {
+    const toolExtractedFolder: string = await tc.extractTar(
+      toolAssets,
+      tempDir
+    );
+    toolBin = `${toolExtractedFolder}/${Tool.CmdName}`;
   }
+  await io.mv(toolBin, binDir);
 }

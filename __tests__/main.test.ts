@@ -32,6 +32,16 @@ describe('Integration testing run()', () => {
     expect(result.output).toMatch(`Hugo Static Site Generator v${testVersion}`);
   });
 
+  test('succeed in installing a custom extended version', async () => {
+    const testVersion = Tool.TestVersionSpec;
+    process.env['INPUT_HUGO-VERSION'] = testVersion;
+    process.env['INPUT_EXTENDED'] = 'true';
+    const result: main.ActionResult = await main.run();
+    expect(result.exitcode).toBe(0);
+    expect(result.output).toMatch(`Hugo Static Site Generator v${testVersion}`);
+    expect(result.output).toMatch(`extended`);
+  });
+
   test('succeed in installing the latest version', async () => {
     const testVersion = 'latest';
     process.env['INPUT_HUGO-VERSION'] = testVersion;
@@ -43,6 +53,21 @@ describe('Integration testing run()', () => {
     expect(result.output).toMatch(
       `Hugo Static Site Generator v${Tool.TestVersionLatest}`
     );
+  });
+
+  test('succeed in installing the latest extended version', async () => {
+    const testVersion = 'latest';
+    process.env['INPUT_HUGO-VERSION'] = testVersion;
+    process.env['INPUT_EXTENDED'] = 'true';
+    nock('https://formulae.brew.sh')
+      .get(`/api/formula/${Tool.Repo}.json`)
+      .reply(200, jsonTestBrew);
+    const result: main.ActionResult = await main.run();
+    expect(result.exitcode).toBe(0);
+    expect(result.output).toMatch(
+      `Hugo Static Site Generator v${Tool.TestVersionLatest}`
+    );
+    expect(result.output).toMatch(`extended`);
   });
 });
 

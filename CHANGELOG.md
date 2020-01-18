@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.1](https://github.com/peaceiris/actions-hugo/compare/v2.4.0...v2.4.1) (2020-01-18)
+
+
+### chore
+
+* Remove extra title [skip ci] ([48ef2db](https://github.com/peaceiris/actions-hugo/commit/48ef2dbba3c136400ffd657b8209d1b7b2b6261b))
+* Update description ([8323a17](https://github.com/peaceiris/actions-hugo/commit/8323a17f96cdcbe7717e2d9ea24804c3f1b0a29f))
+
+### ci
+
+* Add action test workflow ([37cc539](https://github.com/peaceiris/actions-hugo/commit/37cc539052b4dffff3b468c8a25b5e414f3a7c79))
+* Comment out push event [skip ci] ([d226d51](https://github.com/peaceiris/actions-hugo/commit/d226d51229e27be0121bc922b1148ef69332ed6f))
+
+### docs
+
+* Add Coverage Status badge [skip ci] ([3130d10](https://github.com/peaceiris/actions-hugo/commit/3130d100df2b0d10f954f9030098c2acaf553af2))
+* Update execution time ([477d977](https://github.com/peaceiris/actions-hugo/commit/477d977a96079da2efe5596b1a1935ec6a6efddc))
+
+### refactor
+
+* main and installer (#133) ([283bc47](https://github.com/peaceiris/actions-hugo/commit/283bc47636b79858da429c7c2f16a97f4ec00638)), closes [#133](https://github.com/peaceiris/actions-hugo/issues/133)
+* Use node-fetch instead of xmlhttprequest (#130) ([4642226](https://github.com/peaceiris/actions-hugo/commit/4642226db024cf8c43266df88a8a324233b19d30)), closes [#130](https://github.com/peaceiris/actions-hugo/issues/130)
+
+### test
+
+* Add integration testing (#131) ([386980e](https://github.com/peaceiris/actions-hugo/commit/386980e22b20d82471f64474e932614b5d22dfa9)), closes [#131](https://github.com/peaceiris/actions-hugo/issues/131)
+* Add test for extended option (#134) ([6281061](https://github.com/peaceiris/actions-hugo/commit/6281061c0d9ca0dbde316f3059e931df883b7273)), closes [#134](https://github.com/peaceiris/actions-hugo/issues/134)
+* Add unit testing (get-latest-version) (#132) ([442aa4d](https://github.com/peaceiris/actions-hugo/commit/442aa4dbd4b82ed161cf04f0b205abef771ca9a5)), closes [#132](https://github.com/peaceiris/actions-hugo/issues/132)
+* Enable Coveralls (#129) ([66bce05](https://github.com/peaceiris/actions-hugo/commit/66bce0558afb6eaa8d8e7f1762426f9e7f53d60c)), closes [#129](https://github.com/peaceiris/actions-hugo/issues/129)
+
+
+
 # [2.4.0](https://github.com/peaceiris/actions-hugo/compare/v2.3.2...v2.4.0) (2020-01-17)
 
 

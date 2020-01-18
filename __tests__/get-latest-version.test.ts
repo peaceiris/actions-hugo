@@ -31,7 +31,11 @@ describe('getLatestVersion()', () => {
       .get(`/api/formula/${Tool.Repo}.json`)
       .reply(200, jsonTestBrew);
 
-    const versionLatest: string = await getLatestVersion(Tool.Org, Tool.Repo, 'brew');
+    const versionLatest: string = await getLatestVersion(
+      Tool.Org,
+      Tool.Repo,
+      'brew'
+    );
     expect(versionLatest).toMatch(Tool.TestVersionLatest);
   });
 
@@ -40,7 +44,11 @@ describe('getLatestVersion()', () => {
       .get(`/repos/${Tool.Org}/${Tool.Repo}/releases/latest`)
       .reply(200, jsonTestGithub);
 
-    const versionLatest: string = await getLatestVersion(Tool.Org, Tool.Repo, 'github');
+    const versionLatest: string = await getLatestVersion(
+      Tool.Org,
+      Tool.Repo,
+      'github'
+    );
     expect(versionLatest).toMatch(Tool.TestVersionLatest);
   });
 
@@ -49,11 +57,9 @@ describe('getLatestVersion()', () => {
       .get(`/api/formula/${Tool.Repo}.json`)
       .reply(404);
 
-    try {
-      const versionLatest: string = await getLatestVersion(Tool.Org, Tool.Repo, 'brew');
-      console.debug(versionLatest);
-    } catch (e) {
-      expect(e).toThrow(FetchError);
-    }
+    // const versionLatest = await getLatestVersion(Tool.Org, Tool.Repo, 'brew');
+    await expect(
+      getLatestVersion(Tool.Org, Tool.Repo, 'brew')
+    ).rejects.toThrowError(FetchError);
   });
 });

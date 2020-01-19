@@ -18,7 +18,7 @@ This **Hugo Setup Action** can install **Hugo** to a virtual machine of **GitHub
 
 From `v2`, this Hugo Setup Action has migrated to a JavaScript (TypeScript) action.
 We no longer build or pull a Hugo docker image.
-Thanks to this change, we can complete this action less than **1 sec**.
+Thanks to this change, we can complete this action in less than a few seconds.
 (A docker base action was taking about 1 min or more execution time to build and pull a docker image.)
 
 | OS (runs-on) | ubuntu-18.04 | macos-latest | windows-2019 |

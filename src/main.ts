@@ -56,6 +56,6 @@ export async function run(): Promise<ActionResult> {
     return result;
   } catch (e) {
     core.setFailed(`Action failed with error ${e}`);
-    return e;
+    throw e;
   }
 }

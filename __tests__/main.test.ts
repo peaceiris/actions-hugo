@@ -3,25 +3,23 @@ import * as io from '@actions/io';
 import path from 'path';
 import nock from 'nock';
 import {Tool, Action} from '../src/constants';
-// import {FetchError} from 'node-fetch';
+import {FetchError} from 'node-fetch';
 import jsonTestBrew from './data/brew.json';
 // import jsonTestGithub from './data/github.json';
 
 jest.setTimeout(30000);
 
-beforeEach(() => {
-  jest.resetModules();
-});
-
-afterEach(() => {
-  delete process.env['INPUT_HUGO-VERSION'];
-  nock.cleanAll();
-});
-
 describe('Integration testing run()', () => {
+  beforeEach(() => {
+    jest.resetModules();
+  });
+
   afterEach(async () => {
     const workDir = path.join(`${process.env.HOME}`, Action.WorkDirName);
     await io.rmRF(workDir);
+
+    delete process.env['INPUT_HUGO-VERSION'];
+    nock.cleanAll();
   });
 
   test('succeed in installing a custom version', async () => {
@@ -68,6 +66,15 @@ describe('Integration testing run()', () => {
       `Hugo Static Site Generator v${Tool.TestVersionLatest}`
     );
     expect(result.output).toMatch(`extended`);
+  });
+
+  test('fail to install the latest version due to 404 of brew', async () => {
+    process.env['INPUT_HUGO-VERSION'] = 'latest';
+    nock('https://formulae.brew.sh')
+      .get(`/api/formula/${Tool.Repo}.json`)
+      .reply(404);
+
+    await expect(main.run()).rejects.toThrowError(FetchError);
   });
 });
 

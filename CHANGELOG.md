@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.2](https://github.com/peaceiris/actions-hugo/compare/v2.4.1...v2.4.2) (2020-01-23)
+
+
+### ci
+
+* Add codecov/codecov-action@v1 (#136) ([94ce32e](https://github.com/peaceiris/actions-hugo/commit/94ce32ea1b2965037ef7bbec618476ed6ad7b9e6)), closes [#136](https://github.com/peaceiris/actions-hugo/issues/136)
+* Add Hugo version dump step ([7a50ddc](https://github.com/peaceiris/actions-hugo/commit/7a50ddc6941e49c88a35080315a84a684c825347))
+* Add operations-per-run 1 ([b6a7551](https://github.com/peaceiris/actions-hugo/commit/b6a75519788da01712462416009e656ec0b9cc8d))
+
+### deps
+
+* bump @types/jest from 24.9.0 to 24.9.1 ([2550d0e](https://github.com/peaceiris/actions-hugo/commit/2550d0ecb023988fa8061c6270a46e9d67bb84dc))
+* bump @types/node from 13.1.8 to 13.5.0 ([8d85402](https://github.com/peaceiris/actions-hugo/commit/8d854027489e6b4b9130701c3a826185aca6bfae))
+* bump @typescript-eslint/eslint-plugin from 2.16.0 to 2.17.0 ([66d664b](https://github.com/peaceiris/actions-hugo/commit/66d664bedd9b4a5d5004dc4023557305c4d69d97))
+* bump @typescript-eslint/parser from 2.16.0 to 2.17.0 (#144) ([692ded2](https://github.com/peaceiris/actions-hugo/commit/692ded22845285c58250414c6389365f01229c49)), closes [#144](https://github.com/peaceiris/actions-hugo/issues/144)
+* bump husky from 4.0.10 to 4.2.1 ([e973221](https://github.com/peaceiris/actions-hugo/commit/e9732216ceb5db53dac31f61b0bb7d03db346f3a))
+* bump jest and ts-jest ([3315ca8](https://github.com/peaceiris/actions-hugo/commit/3315ca857b7ee10f6c9de622898e44583fd81132))
+* bump jest-circus from 24.9.0 to 25.1.0 ([b4a0e8b](https://github.com/peaceiris/actions-hugo/commit/b4a0e8ba604f9aeccee1f7b409870b3605de8544))
+* bump lint-staged from 10.0.0 to 10.0.2 ([87e38e2](https://github.com/peaceiris/actions-hugo/commit/87e38e224d4a8f50a19dc9904c0bb85f707197bd))
+* bump standard-version from 7.0.1 to 7.1.0 (#145) ([699805b](https://github.com/peaceiris/actions-hugo/commit/699805b6e156fb30665896aa7c1cbbca130a1364)), closes [#145](https://github.com/peaceiris/actions-hugo/issues/145)
+* update ([3317963](https://github.com/peaceiris/actions-hugo/commit/3317963a656646a401fcf4d1420b50f5908e3be0))
+
+### docs
+
+* Add Codecov badge ([0311892](https://github.com/peaceiris/actions-hugo/commit/0311892edd4e91aac6a95a003243e44ad3a54fe0))
+* Update action execution time ([a79f520](https://github.com/peaceiris/actions-hugo/commit/a79f520addd8c317fcb9b29e8ecc4a8b0ecc43ae))
+
+### style
+
+* remove extra whitespace [skip ci] ([4fb2901](https://github.com/peaceiris/actions-hugo/commit/4fb290162762a7f823fcab1984966da8d8aed547))
+
+### test
+
+* Add fail to fetch latest due to 404 (#137) ([b55f1c8](https://github.com/peaceiris/actions-hugo/commit/b55f1c81fb24bc6149b3a7ec4cb9aa6c9596e877)), closes [#137](https://github.com/peaceiris/actions-hugo/issues/137)
+
+
+
 ## [2.4.1](https://github.com/peaceiris/actions-hugo/compare/v2.4.0...v2.4.1) (2020-01-18)
 
 

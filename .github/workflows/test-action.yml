@@ -33,6 +33,6 @@ jobs:
       - name: Run hugo version
         run: echo "::set-output name=hugo_version::$(hugo version)"
         id: hugo_version
-    
+
       - name: '${{ steps.hugo_version.outputs.hugo_version }}'
         run: echo '${{ steps.hugo_version.outputs.hugo_version }}'

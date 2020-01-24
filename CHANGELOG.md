@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.3](https://github.com/peaceiris/actions-hugo/compare/v2.4.2...v2.4.3) (2020-01-24)
+
+
+### chore
+
+* Change update_schedule from weekly to daily ([737fda5](https://github.com/peaceiris/actions-hugo/commit/737fda5741cb12d8992d4c75e249bd0392e162a7))
+
+### deps
+
+* bump @actions/core from 1.2.1 to 1.2.2 ([6e5afb7](https://github.com/peaceiris/actions-hugo/commit/6e5afb7c2e3739813acca54db234f1c13cf1e596))
+* bump @actions/tool-cache from 1.3.0 to 1.3.1 ([46a6a3a](https://github.com/peaceiris/actions-hugo/commit/46a6a3afdff838a10f9f9e063170cfc02c197611))
+
+
+
 ## [2.4.2](https://github.com/peaceiris/actions-hugo/compare/v2.4.1...v2.4.2) (2020-01-23)
 
 

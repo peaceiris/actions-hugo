@@ -3,7 +3,7 @@ msg := ""
 IMAGE_NAME := actions_hugo_dev:latest
 NODE_VERSION := $(shell cat ./.nvmrc)
 DOCKER_BUILD := docker build . -t $(IMAGE_NAME) --build-arg NODE_VERSION=$(NODE_VERSION)
-DOCKER_RUN := docker run --rm -i -t -v ${PWD}:/repo -v ~/.gitconfig:/etc/gitconfig $(IMAGE_NAME)
+DOCKER_RUN := docker run --rm -i -t -v ${PWD}:/repo -v ~/.gitconfig:/root/.gitconfig $(IMAGE_NAME)
 
 
 .PHONY: build

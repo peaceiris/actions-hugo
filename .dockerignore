@@ -1,7 +1,2 @@
 .*
-
-!.eslintrc.json
-!.prettierrc.json
-
-coverage
-node_modules
+*

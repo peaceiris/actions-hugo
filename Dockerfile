@@ -1,4 +1,6 @@
-FROM node:12-slim
+ARG NODE_VERSION
+
+FROM node:${NODE_VERSION}-buster-slim
 
 SHELL ["/bin/bash", "-l", "-c"]
 

@@ -34,28 +34,23 @@ export async function showVersion(
 }
 
 export async function run(): Promise<ActionResult> {
-  try {
-    const toolVersion: string = core.getInput('hugo-version');
-    let installVersion = '';
+  const toolVersion: string = core.getInput('hugo-version');
+  let installVersion = '';
 
-    let result: ActionResult = {
-      exitcode: 0,
-      output: ''
-    };
+  let result: ActionResult = {
+    exitcode: 0,
+    output: ''
+  };
 
-    if (toolVersion === '' || toolVersion === 'latest') {
-      installVersion = await getLatestVersion(Tool.Org, Tool.Repo, 'brew');
-    } else {
-      installVersion = toolVersion;
-    }
-
-    core.info(`${Tool.Name} version: ${installVersion}`);
-    await installer(installVersion);
-    result = await showVersion(Tool.CmdName, [Tool.CmdOptVersion]);
-
-    return result;
-  } catch (e) {
-    core.setFailed(`Action failed with error ${e}`);
-    throw e;
+  if (toolVersion === '' || toolVersion === 'latest') {
+    installVersion = await getLatestVersion(Tool.Org, Tool.Repo, 'brew');
+  } else {
+    installVersion = toolVersion;
   }
+
+  core.info(`${Tool.Name} version: ${installVersion}`);
+  await installer(installVersion);
+  result = await showVersion(Tool.CmdName, [Tool.CmdOptVersion]);
+
+  return result;
 }

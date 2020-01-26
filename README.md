@@ -4,6 +4,7 @@
 ![GitHub Actions status](https://github.com/peaceiris/actions-hugo/workflows/Test/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-hugo/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-hugo)
 [![codecov](https://codecov.io/gh/peaceiris/actions-hugo/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-hugo)
+[![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-hugo/releases.atom)
 
 <img width="400" alt="GitHub Actions for Hugo" src="./images/ogp.svg">
 

@@ -1,5 +1,5 @@
 {
-  "name": "hugo-action",
+  "name": "actions-hugo",
   "version": "2.4.3",
   "description": "GitHub Actions for Hugo",
   "main": "lib/index.js",

@@ -1,7 +1,7 @@
 [![license](https://img.shields.io/github/license/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
-![GitHub Actions status](https://github.com/peaceiris/actions-hugo/workflows/Test/badge.svg)
+![Test](https://github.com/peaceiris/actions-hugo/workflows/Test/badge.svg?branch=master&event=push)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-hugo/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-hugo)
 [![codecov](https://codecov.io/gh/peaceiris/actions-hugo/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-hugo)
 [![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-hugo/releases.atom)

@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.4](https://github.com/peaceiris/actions-hugo/compare/v2.4.3...v2.4.4) (2020-01-28)
+
+
+### chore
+
+* ignore failure ([7c0de2d](https://github.com/peaceiris/actions-hugo/commit/7c0de2ddec0ad6a617eed9a78836b75151c9f870))
+* update git (#150) ([c00fd7b](https://github.com/peaceiris/actions-hugo/commit/c00fd7be83dad02c1e07a09bfb526a3e2d67fa75)), closes [#150](https://github.com/peaceiris/actions-hugo/issues/150)
+* update name ([8f4af8f](https://github.com/peaceiris/actions-hugo/commit/8f4af8fa35a55337783683108d969c57a9541dae))
+
+### ci
+
+* remove operations-per-run ([de65f3e](https://github.com/peaceiris/actions-hugo/commit/de65f3e1283667e67fe0676a6498d02951ee22d5))
+* use github/hub install script [skip ci] ([7e8dab4](https://github.com/peaceiris/actions-hugo/commit/7e8dab4a1585bb1241a44c53eeae4acc25fe0661))
+
+### deps
+
+* bump @types/jest from 24.9.1 to 25.1.0 ([02c9024](https://github.com/peaceiris/actions-hugo/commit/02c90246b441e21119ffe228b29c43ac443ca688))
+* bump @typescript-eslint/eslint-plugin from 2.17.0 to 2.18.0 ([a1b1127](https://github.com/peaceiris/actions-hugo/commit/a1b1127907729bf5a7533f63111feaf16919ee1b))
+* bump @typescript-eslint/parser from 2.17.0 to 2.18.0 ([6812c21](https://github.com/peaceiris/actions-hugo/commit/6812c21f1895dbef58aca3a976d0d3852d660dd0))
+* bump lint-staged from 10.0.2 to 10.0.3 ([5000d1a](https://github.com/peaceiris/actions-hugo/commit/5000d1a8b64a136a7350b3f3debc93fb21872a06))
+
+### docs
+
+* Add release feed badge ([b8b4d74](https://github.com/peaceiris/actions-hugo/commit/b8b4d743819166af3ff7f530bbdc6d3480913cb9))
+* update badge ([63038f3](https://github.com/peaceiris/actions-hugo/commit/63038f397f199600101c79aca6bc505c8718d1b7))
+
+### fix
+
+* action failure status (#151) ([9485334](https://github.com/peaceiris/actions-hugo/commit/94853340b9510c41a18016dbaa8d41e42044300c)), closes [#151](https://github.com/peaceiris/actions-hugo/issues/151) [#149](https://github.com/peaceiris/actions-hugo/issues/149)
+
+
+
 ## [2.4.3](https://github.com/peaceiris/actions-hugo/compare/v2.4.2...v2.4.3) (2020-01-24)
 
 

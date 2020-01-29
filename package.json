@@ -3,6 +3,10 @@
   "version": "2.4.4",
   "description": "GitHub Actions for Hugo",
   "main": "lib/index.js",
+  "engines": {
+    "node": ">=12.14.1",
+    "npm": ">=6.13.7"
+  },
   "scripts": {
     "lint": "eslint ./{src,__tests__}/**/*.ts",
     "lint:fix": "eslint --fix ./{src,__tests__}/**/*.ts",

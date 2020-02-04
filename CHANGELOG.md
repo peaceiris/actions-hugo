@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.5](https://github.com/peaceiris/actions-hugo/compare/v2.4.4...v2.4.5) (2020-02-04)
+
+
+### chore
+
+* Add engines field ([aeba654](https://github.com/peaceiris/actions-hugo/commit/aeba6547bbb28e39b29e7d03f6978c80d6c09931))
+
+### deps
+
+* bump @types/jest from 25.1.0 to 25.1.1 ([f18cf68](https://github.com/peaceiris/actions-hugo/commit/f18cf68aea6a7d00504e6335efedb30a14f8c021))
+* bump @types/node from 13.5.0 to 13.5.1 ([a9aa73f](https://github.com/peaceiris/actions-hugo/commit/a9aa73f7b42aadd8e6bbbf77ad51143b99f18e40))
+* bump @types/node from 13.5.1 to 13.5.2 ([aed27b9](https://github.com/peaceiris/actions-hugo/commit/aed27b97077aed97ef3c9e27ee7066a5a7a55c40))
+* bump @types/node from 13.5.2 to 13.5.3 ([e8c9424](https://github.com/peaceiris/actions-hugo/commit/e8c9424357a611602420145f8f289752b2521863))
+* bump @types/node from 13.5.3 to 13.7.0 ([e375f4f](https://github.com/peaceiris/actions-hugo/commit/e375f4fff3fc25ace239150a37912746292b4e67))
+* bump @typescript-eslint/eslint-plugin from 2.18.0 to 2.19.0 ([3907220](https://github.com/peaceiris/actions-hugo/commit/3907220f13b04e23a4d300439cdc11b05ea034c1))
+* bump @typescript-eslint/parser from 2.18.0 to 2.19.0 (#170) ([747598e](https://github.com/peaceiris/actions-hugo/commit/747598e8dc8f2f8ea8c3a8964531e3c7fa1b11d7)), closes [#170](https://github.com/peaceiris/actions-hugo/issues/170)
+* bump lint-staged from 10.0.3 to 10.0.4 ([4f359ec](https://github.com/peaceiris/actions-hugo/commit/4f359ec551fa404b81d7a5832b16a3729874c611))
+* bump lint-staged from 10.0.4 to 10.0.5 ([2fb0c15](https://github.com/peaceiris/actions-hugo/commit/2fb0c15ce023c9b4831e1acab7d97c0ba50d5a9d))
+* bump lint-staged from 10.0.5 to 10.0.6 ([aa532f2](https://github.com/peaceiris/actions-hugo/commit/aa532f2f962cb4c9473f59fd4adbf67f4bfc3554))
+* bump lint-staged from 10.0.6 to 10.0.7 ([ac7a2d6](https://github.com/peaceiris/actions-hugo/commit/ac7a2d661b0cb2b28f9967e2c65567f3b6ef9abc))
+* bump ts-jest from 25.0.0 to 25.1.0 ([24f14e4](https://github.com/peaceiris/actions-hugo/commit/24f14e4ba907ee0920a608a0cf204387f1a26d53))
+* bump ts-jest from 25.1.0 to 25.2.0 ([022950c](https://github.com/peaceiris/actions-hugo/commit/022950c85b46b0e873e66b5d6732b02ea09aa566))
+
+### docs
+
+* add Dependabot badge ([40cba97](https://github.com/peaceiris/actions-hugo/commit/40cba97ea7d81fcbaccd754f9d4e2f28db6afbf3))
+
+
+
 ## [2.4.4](https://github.com/peaceiris/actions-hugo/compare/v2.4.3...v2.4.4) (2020-01-28)
 
 

@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.7](https://github.com/peaceiris/actions-hugo/compare/v2.4.6...v2.4.7) (2020-03-13)
+
+
+### ci
+
+* update script link [skip ci] ([3d71d24](https://github.com/peaceiris/actions-hugo/commit/3d71d2403d36fe0c2770d1a69526ca5d8ba884c5))
+
+### deps
+
+* [security] bump acorn from 6.4.0 to 6.4.1 ([ea7a8f0](https://github.com/peaceiris/actions-hugo/commit/ea7a8f03436f5eefe2b0509210f62bb60eb645ce))
+* bump @actions/core from 1.2.2 to 1.2.3 ([cc6e883](https://github.com/peaceiris/actions-hugo/commit/cc6e8832e8df3d38ea15016148e7499d67595412))
+* bump @actions/tool-cache from 1.3.1 to 1.3.2 ([c6512d4](https://github.com/peaceiris/actions-hugo/commit/c6512d44a3620fbc3158c62e47d6a3e1a8a0696d))
+* bump @actions/tool-cache from 1.3.2 to 1.3.3 ([0d2e118](https://github.com/peaceiris/actions-hugo/commit/0d2e11837b439e036687b3766548fe67efe14e04))
+* bump @types/jest from 25.1.3 to 25.1.4 ([d17d509](https://github.com/peaceiris/actions-hugo/commit/d17d5099d67ed8aca0af28f612ffa36a2751b013))
+* bump @types/node from 12.12.28 to 12.12.29 ([bc46e40](https://github.com/peaceiris/actions-hugo/commit/bc46e4063a096f87cc0faaf107b160c4686b9462))
+* bump @types/node from 12.12.29 to 12.12.30 ([de4f7b1](https://github.com/peaceiris/actions-hugo/commit/de4f7b11367e07ace82f9ada91775cfbb03b88da))
+* bump @typescript-eslint/eslint-plugin from 2.21.0 to 2.22.0 ([4ce8f62](https://github.com/peaceiris/actions-hugo/commit/4ce8f62edb9e86b50989996e17b6a8ed20b30a4b))
+* bump @typescript-eslint/eslint-plugin from 2.22.0 to 2.23.0 ([844e33d](https://github.com/peaceiris/actions-hugo/commit/844e33d4107bfb7ab1cc21f6a4fab8b51bf441b1))
+* bump @typescript-eslint/parser from 2.21.0 to 2.22.0 ([0a1c87e](https://github.com/peaceiris/actions-hugo/commit/0a1c87ea74e0cdf3a147e464f7814576f07a46bf))
+* bump @typescript-eslint/parser from 2.22.0 to 2.23.0 ([703c21f](https://github.com/peaceiris/actions-hugo/commit/703c21fa41ab2b6f1c71a6bdbc4f795eff75abea))
+* bump eslint-plugin-jest from 23.8.0 to 23.8.1 (#198) ([f48589d](https://github.com/peaceiris/actions-hugo/commit/f48589d80e2cf825cef0479d547f2767a2bf9414)), closes [#198](https://github.com/peaceiris/actions-hugo/issues/198)
+* bump eslint-plugin-jest from 23.8.1 to 23.8.2 ([f9fbf81](https://github.com/peaceiris/actions-hugo/commit/f9fbf81b0c07b5293e596585fc22b49e40d818ec))
+* bump hub 2.14.1 to 2.14.2 ([61f1757](https://github.com/peaceiris/actions-hugo/commit/61f1757c8c728f8fd8e8e96f56b81171e007ef28))
+* bump nock from 12.0.1 to 12.0.2 ([c430dce](https://github.com/peaceiris/actions-hugo/commit/c430dcefd1e96d100f28c2a8e5b5084a84fe2c0d))
+* bump typescript from 3.8.2 to 3.8.3 ([9026a94](https://github.com/peaceiris/actions-hugo/commit/9026a9453330ef8189b318c2339c250ea05c5947))
+
+
+
 ## [2.4.6](https://github.com/peaceiris/actions-hugo/compare/v2.4.5...v2.4.6) (2020-02-26)
 
 

@@ -82,9 +82,9 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v1  # v2 does not have submodules option now
-        # with:
-        #   submodules: true
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2

@@ -221,19 +221,14 @@ The alpine base Hugo Docker image is provided on the following repository.
 
 ## Maintainer Notes
 
-Run `npm` and `git commit` commands on a container.
-
-**On Host**
+Run `npm test` on a Docker container.
 
 ```sh
-# Docker
+# On container
 make build
-make run
-make run cmd="env"
-make test
-make commit msg="chore: Add Makefile"
+make all
 
-# Release
+# Release script on host
 ./release.sh
 ```
 

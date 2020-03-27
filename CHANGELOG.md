@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.8](https://github.com/peaceiris/actions-hugo/compare/v2.4.7...v2.4.8) (2020-03-27)
+
+
+### ci
+
+* Add workflow for developing container (#231) ([b71ad2d](https://github.com/peaceiris/actions-hugo/commit/b71ad2d01404ec9d8cf12979cca37d47310e9aa7)), closes [#231](https://github.com/peaceiris/actions-hugo/issues/231)
+* set update_schedule live ([61937d1](https://github.com/peaceiris/actions-hugo/commit/61937d118fd2de55dd288ee18edabb0e9f9d11e0))
+
+### deps
+
+* bump @types/node from 12.12.30 to 12.12.31 ([64135da](https://github.com/peaceiris/actions-hugo/commit/64135da123255189740dea81571630c0d8fcf7e7))
+* bump @typescript-eslint/eslint-plugin from 2.23.0 to 2.24.0 ([2935a38](https://github.com/peaceiris/actions-hugo/commit/2935a38e763ed8cd23c43ba95236eeb811f659f9))
+* bump @typescript-eslint/eslint-plugin from 2.24.0 to 2.25.0 ([b9b88c0](https://github.com/peaceiris/actions-hugo/commit/b9b88c049f68fdd1e11e50212923d07eb22967e1))
+* bump @typescript-eslint/parser from 2.23.0 to 2.24.0 (#213) ([8807669](https://github.com/peaceiris/actions-hugo/commit/88076695a918ea1419ddeec9e16ba30e9faf4134)), closes [#213](https://github.com/peaceiris/actions-hugo/issues/213)
+* bump @typescript-eslint/parser from 2.24.0 to 2.25.0 ([6bed412](https://github.com/peaceiris/actions-hugo/commit/6bed4121ee5d7bd8a3e22c856261b59b442f8193))
+* bump @zeit/ncc from 0.21.1 to 0.22.0 ([c3a324f](https://github.com/peaceiris/actions-hugo/commit/c3a324ff3cf3e1b975c594d266ba4c7bd09daa19))
+* bump jest from 25.1.0 to 25.2.0 ([d7620db](https://github.com/peaceiris/actions-hugo/commit/d7620db17f5b0b91867f71d01874a879651a727b))
+* bump jest from 25.2.0 to 25.2.1 ([8cd28fc](https://github.com/peaceiris/actions-hugo/commit/8cd28fc857360a781d9ebd7103da74c17d4a2ce7))
+* bump jest from 25.2.1 to 25.2.2 ([601b110](https://github.com/peaceiris/actions-hugo/commit/601b110315ada15bc46842682625b71a0be1902c))
+* bump jest from 25.2.2 to 25.2.3 ([1649bea](https://github.com/peaceiris/actions-hugo/commit/1649bea4d0a67e4b6af6ed2b95fea1e66673239b))
+* bump jest-circus from 25.1.0 to 25.2.0 ([702a3e4](https://github.com/peaceiris/actions-hugo/commit/702a3e4c9ae5cf3ce9e380e45504d2b28e0dcc46))
+* bump jest-circus from 25.2.0 to 25.2.1 ([c1f3690](https://github.com/peaceiris/actions-hugo/commit/c1f369064cf05c10277655226e2a4723266d7161))
+* bump jest-circus from 25.2.1 to 25.2.2 ([1bafab6](https://github.com/peaceiris/actions-hugo/commit/1bafab6d5aa5d524d86e28cf6bcb8c41a09cc51d))
+* bump jest-circus from 25.2.2 to 25.2.3 ([a2600d5](https://github.com/peaceiris/actions-hugo/commit/a2600d572b522fb75cd38aba6b6306501618579d))
+* bump lint-staged from 10.0.8 to 10.0.9 ([35eb187](https://github.com/peaceiris/actions-hugo/commit/35eb187a3cd1e2b3370f881bfc97396d483585f8))
+* bump nock from 12.0.2 to 12.0.3 ([a3f7ea4](https://github.com/peaceiris/actions-hugo/commit/a3f7ea4140f3f85196f7ea5d76bd2eeb5524a646))
+* bump prettier from 1.19.1 to 2.0.1 ([da65b73](https://github.com/peaceiris/actions-hugo/commit/da65b73f4d4d3f23a392b882cb81c6538dda23b0))
+* bump prettier from 2.0.1 to 2.0.2 ([9b11300](https://github.com/peaceiris/actions-hugo/commit/9b11300647ddf5ce6c42733e335be78e5ae855b6))
+* node from 12.15.0 to 12.16.1 (#232) ([e470a76](https://github.com/peaceiris/actions-hugo/commit/e470a760d3eda16dddba7bcf4c66a3ae371c61f2)), closes [#232](https://github.com/peaceiris/actions-hugo/issues/232)
+
+### docs
+
+* Add codeclimate badge ([c69c549](https://github.com/peaceiris/actions-hugo/commit/c69c549ff8c5106c435657fba74f76cb807db1ec))
+* bump actions/checkout to v2 ([33d3f73](https://github.com/peaceiris/actions-hugo/commit/33d3f73fc7bb54a2fe21cdeee8e93881c3094b92))
+* update notes ([4cd0877](https://github.com/peaceiris/actions-hugo/commit/4cd0877e8793c755e53b341fa5fe43801f9319a2))
+
+
+
 ## [2.4.7](https://github.com/peaceiris/actions-hugo/compare/v2.4.6...v2.4.7) (2020-03-13)
 
 

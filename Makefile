@@ -17,20 +17,16 @@ run:
 
 .PHONY: cirun
 cirun:
-    $(DOCKER_RUN_CI) $(cmd)
+	$(DOCKER_RUN_CI) $(cmd)
 
 .PHONY: test
 test:
 	$(DOCKER_RUN) npm test
 
-.PHONY: commit
-commit:
-	$(DOCKER_RUN) git commit -m "$(msg)"
-
 .PHONY: all
 all:
-    $(DOCKER_RUN) npm run all
+	$(DOCKER_RUN) npm run all
 
 .PHONY: ciall
 ciall:
-    $(DOCKER_RUN_CI) npm run all
+	$(DOCKER_RUN_CI) npm run all

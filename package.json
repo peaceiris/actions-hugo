@@ -8,6 +8,7 @@
     "npm": ">=6.13.7"
   },
   "scripts": {
+    "all": "npm run format:check && npm run lint && npm test",
     "lint": "eslint ./{src,__tests__}/**/*.ts",
     "lint:fix": "eslint --fix ./{src,__tests__}/**/*.ts",
     "test": "jest --coverage --verbose",
@@ -28,8 +29,7 @@
   "lint-staged": {
     "src/**/*.ts": [
       "prettier --check",
-      "eslint",
-      "jest --bail --findRelatedTests"
+      "eslint"
     ]
   },
   "repository": {

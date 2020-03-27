@@ -33,5 +33,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: make build
-      #- run: make cirun cmd="npm ci"
-      #- run: make ciall
+      - run: make cirun cmd="npm ci"
+      - run: make ciall

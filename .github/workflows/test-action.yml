@@ -1,7 +1,7 @@
 name: Daily Test
 
 on:
-  # push:
+  push:
   schedule:
     - cron: '13 13 * * *'
 
@@ -21,7 +21,6 @@ jobs:
           - true
           - false
     steps:
-
       - uses: actions/checkout@v2
 
       - name: Setup Hugo

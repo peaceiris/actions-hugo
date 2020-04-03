@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.9](https://github.com/peaceiris/actions-hugo/compare/v2.4.8...v2.4.9) (2020-04-03)
+
+
+### chore
+
+* remove extra line [skip ci] (#239) ([b5b805b](https://github.com/peaceiris/actions-hugo/commit/b5b805beb99c69f65aee66539aa24ea533c83a34)), closes [#239](https://github.com/peaceiris/actions-hugo/issues/239)
+
+### ci
+
+* comment out push event [skip ci] ([c34a46e](https://github.com/peaceiris/actions-hugo/commit/c34a46e748f8122acf9951ab042887d3eecea3fe))
+* npm audit fix ([9229d6e](https://github.com/peaceiris/actions-hugo/commit/9229d6ea61a701010ce3a89cf6ab37bc33b163de))
+
+### deps
+
+* bump @types/jest from 25.1.4 to 25.1.5 ([f5dac6e](https://github.com/peaceiris/actions-hugo/commit/f5dac6efe37fa47776500cfec0fa75b9f913cd4b))
+* bump @types/node from 12.12.31 to 12.12.32 ([050ab4f](https://github.com/peaceiris/actions-hugo/commit/050ab4fa3cac4e36e51f7b95d33e1cb19cc87921))
+* bump @types/node from 12.12.32 to 12.12.34 ([f73a43a](https://github.com/peaceiris/actions-hugo/commit/f73a43a95bc9d30eb22c2b87eea4cd76609863f0))
+* bump @typescript-eslint/eslint-plugin from 2.25.0 to 2.26.0 ([5a904d4](https://github.com/peaceiris/actions-hugo/commit/5a904d42d558d16a4ba79c0ec28da41ba8303900))
+* bump @typescript-eslint/parser from 2.25.0 to 2.26.0 ([0b1622d](https://github.com/peaceiris/actions-hugo/commit/0b1622da20405a63cd46c25ddb11cdb7a79fe6d9))
+* bump jest from 25.2.3 to 25.2.4 ([050785a](https://github.com/peaceiris/actions-hugo/commit/050785a91cf309a578671ef29ef93491d89a2414))
+* bump jest from 25.2.4 to 25.2.6 ([d242ef0](https://github.com/peaceiris/actions-hugo/commit/d242ef0982267bae74be58f9aa0da578e57e801c))
+* bump jest from 25.2.6 to 25.2.7 ([43a340f](https://github.com/peaceiris/actions-hugo/commit/43a340f6cd1dd9ae05d83be0a4ef097a6308687c))
+* bump jest-circus from 25.2.3 to 25.2.4 ([6486bc9](https://github.com/peaceiris/actions-hugo/commit/6486bc9a783f4c9394d41e848df7d3a206540b2b))
+* bump jest-circus from 25.2.4 to 25.2.6 ([86cd995](https://github.com/peaceiris/actions-hugo/commit/86cd9953223bb8bc1049645c64b22e00594e2dde))
+* bump jest-circus from 25.2.6 to 25.2.7 ([add0e7c](https://github.com/peaceiris/actions-hugo/commit/add0e7c0517a4da4b6cf9eaf2bc41225c72f6e6c))
+* bump lint-staged from 10.0.10 to 10.1.0 ([c581b13](https://github.com/peaceiris/actions-hugo/commit/c581b131a63d283423756e0e72c9f4d316b99258))
+* bump lint-staged from 10.0.9 to 10.0.10 ([e04f62b](https://github.com/peaceiris/actions-hugo/commit/e04f62b1a543ca757ca4db2ec74c52a9a500cbd2))
+* bump lint-staged from 10.1.0 to 10.1.1 ([8a97893](https://github.com/peaceiris/actions-hugo/commit/8a97893cfe21fd03db36a5e406dc16ef1b129cb5))
+* bump ts-jest from 25.2.1 to 25.3.0 ([72aae03](https://github.com/peaceiris/actions-hugo/commit/72aae0311c83d3064efa311c4ab8d3ee617c8929))
+* bump ts-jest from 25.3.0 to 25.3.1 ([a6a0f2f](https://github.com/peaceiris/actions-hugo/commit/a6a0f2f7a8d6186ba698daee4f62018cc9c7cffc))
+* npm audit fix ([c80eb16](https://github.com/peaceiris/actions-hugo/commit/c80eb16e094405a99316e90ad2cd0eedbe08f459))
+
+### docs
+
+* Add link to interview (#234) ([ce3c331](https://github.com/peaceiris/actions-hugo/commit/ce3c3313741e14aceee0972bd1747b6606d6b4a0)), closes [#234](https://github.com/peaceiris/actions-hugo/issues/234)
+
+
+
 ## [2.4.8](https://github.com/peaceiris/actions-hugo/compare/v2.4.7...v2.4.8) (2020-03-27)
 
 

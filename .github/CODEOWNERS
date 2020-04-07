@@ -1,3 +1,7 @@
 # https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
 
-* @peaceiris
+/__tests__/ @peaceiris
+/src/ @peaceiris
+
+/package-lock.json @dependabot
+/package.json @dependabot

@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.10](https://github.com/peaceiris/actions-hugo/compare/v2.4.9...v2.4.10) (2020-04-15)
+
+
+### ci
+
+* Add automerged_updates ([4dadc2d](https://github.com/peaceiris/actions-hugo/commit/4dadc2dfbecb8c904f81871878c4dc7b9bfa8873))
+* Add dependabot for auto-merging ([abb5843](https://github.com/peaceiris/actions-hugo/commit/abb58435605439b55727e3598e6f08d053379bba))
+* add push event ([336da8a](https://github.com/peaceiris/actions-hugo/commit/336da8a2f242b90555daa9e99f8e8506db23b8b7))
+* delete CODEOWNERS ([02db58a](https://github.com/peaceiris/actions-hugo/commit/02db58a779ac5de54af22f4b3a34c8db4fc5b646))
+
+### deps
+
+* bump @types/jest from 25.1.5 to 25.2.1 (#253) ([3498de4](https://github.com/peaceiris/actions-hugo/commit/3498de4687459e7dc0d7896ba9c1c1cbdfc6a2e9)), closes [#253](https://github.com/peaceiris/actions-hugo/issues/253)
+* bump @types/node from 12.12.34 to 12.12.35 ([fe90d2f](https://github.com/peaceiris/actions-hugo/commit/fe90d2f50f871eac7412103f3d63fd729e9c97ff))
+* bump @types/node-fetch from 2.5.5 to 2.5.6 ([0815b8f](https://github.com/peaceiris/actions-hugo/commit/0815b8fb73cfc7f2db243f99638e2fe278c47d71))
+* bump @typescript-eslint/eslint-plugin from 2.26.0 to 2.27.0 ([ea8d9db](https://github.com/peaceiris/actions-hugo/commit/ea8d9dba187dda369903a3f06c3a66d0c282402d))
+* bump @typescript-eslint/eslint-plugin from 2.27.0 to 2.28.0 ([506aedd](https://github.com/peaceiris/actions-hugo/commit/506aeddc3aecc241027b6a0bc274f31549a0d38c))
+* bump @typescript-eslint/parser from 2.26.0 to 2.27.0 ([acacbff](https://github.com/peaceiris/actions-hugo/commit/acacbff003c46f1865df3bf05a6e88665f6c157a))
+* bump @typescript-eslint/parser from 2.27.0 to 2.28.0 ([009b47c](https://github.com/peaceiris/actions-hugo/commit/009b47c399ca8d8a8170d40e272f66b519895ab7))
+* bump @zeit/ncc from 0.22.0 to 0.22.1 ([c66d90a](https://github.com/peaceiris/actions-hugo/commit/c66d90a3b24b74215c0a55631acdd167572cf68a))
+* bump git from 2.26.0 to 2.26.1 (#269) ([05899bf](https://github.com/peaceiris/actions-hugo/commit/05899bf3aae5fe39b476e558d615dab85ebbdef0)), closes [#269](https://github.com/peaceiris/actions-hugo/issues/269)
+* bump husky from 4.2.3 to 4.2.4 ([3fce776](https://github.com/peaceiris/actions-hugo/commit/3fce7767508b7b22db2e8fbbe08c3bec09f8f1f9))
+* bump husky from 4.2.4 to 4.2.5 ([cb7cd1e](https://github.com/peaceiris/actions-hugo/commit/cb7cd1e26db8fdc27cfcf859b78ee4b9220df99c))
+* bump jest from 25.2.7 to 25.3.0 ([a75d5eb](https://github.com/peaceiris/actions-hugo/commit/a75d5eb670d46782f396aec949a7a37fc2c26f7f))
+* bump jest-circus from 25.2.7 to 25.3.0 ([62ebf73](https://github.com/peaceiris/actions-hugo/commit/62ebf73d5f66b7a5e158e367402d920713349931))
+* bump lint-staged from 10.1.1 to 10.1.2 ([7eea088](https://github.com/peaceiris/actions-hugo/commit/7eea08803f6a63bc1b101e690815483256fb3598))
+* bump lint-staged from 10.1.2 to 10.1.3 ([4ea3b50](https://github.com/peaceiris/actions-hugo/commit/4ea3b500e2cbc247244e1681c42719eefc0f1f7f))
+* bump prettier from 2.0.2 to 2.0.4 ([ea60fc1](https://github.com/peaceiris/actions-hugo/commit/ea60fc1ec2355decbf7b1aa5e841992163b23fa6))
+
+### docs
+
+* Add fetch-depth 0 ([c55729f](https://github.com/peaceiris/actions-hugo/commit/c55729fbd130889796da92d7859188dbbad0e32a))
+* bump hugo to 0.68.3 ([949a480](https://github.com/peaceiris/actions-hugo/commit/949a480ff9a3e04d4baaa1197e745dee7ca21a2b))
+
+
+
 ## [2.4.9](https://github.com/peaceiris/actions-hugo/compare/v2.4.8...v2.4.9) (2020-04-03)
 
 

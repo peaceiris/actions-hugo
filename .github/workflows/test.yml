@@ -17,7 +17,7 @@ jobs:
   skipci:
     runs-on: ubuntu-18.04
     steps:
-      - run: echo "[Skip CI] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
+      - run: echo "[skip ci] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
 
   test:
     runs-on: ${{ matrix.os }}
@@ -29,7 +29,6 @@ jobs:
           - 'macos-latest'
           - 'windows-latest'
     steps:
-
       - uses: actions/checkout@v2
 
       - name: Read .nvmrc
@@ -40,19 +39,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
-
-#      - name: Get npm cache directory
-#        id: npm-cache
-#        run: |
-#          echo "::set-output name=dir::$(npm config get cache)"
-#
-#      - name: Cache npm
-#        uses: actions/cache@v1
-#        with:
-#          path: ${{ steps.npm-cache.outputs.dir }}
-#          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-#          restore-keys: |
-#            ${{ runner.os }}-node-
 
       - run: npm ci
 
@@ -79,15 +65,3 @@ jobs:
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      # - name: Upload test coverage to Coveralls
-      #   uses: coverallsapp/github-action@v1.0.1
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     parallel: true
-
-      # - name: Coveralls Finished
-      #   uses: coverallsapp/github-action@v1.0.1
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     parallel-finished: true

@@ -61,14 +61,12 @@ Thanks to this change, we can complete this action in less than a few seconds.
 
 ### ⭐️ Create your workflow
 
-An example workflow `.github/workflows/gh-pages.yml` with [GitHub Actions for GitHub Pages]
+An example workflow `.github/workflows/gh-pages.yml` with [GitHub Actions for GitHub Pages].
+For the first deployment, we have to do this operation: [First Deployment with `GITHUB_TOKEN` - peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-first-deployment-with-github_token)
 
 [GitHub Actions for GitHub Pages]: https://github.com/peaceiris/actions-gh-pages
 
 [![peaceiris/actions-gh-pages - GitHub](https://gh-card.dev/repos/peaceiris/actions-gh-pages.svg?fullname)](https://github.com/peaceiris/actions-gh-pages)
-
-![peaceiris/actions-hugo latest version](https://img.shields.io/github/release/peaceiris/actions-hugo.svg?label=peaceiris%2Factions-hugo)
-![peaceiris/actions-gh-pages latest version](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg?label=peaceiris%2Factions-gh-pages)
 
 ```yaml
 name: github pages

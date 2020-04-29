@@ -1,0 +1,32 @@
+labels:
+  - name: invalid
+    labeled:
+      issue:
+        body: Please follow the issue templates.
+        action: close
+  - name: forum
+    labeled:
+      issue:
+        body: |
+          Please ask questions about GitHub Actions or Hugo at the following forum.
+          - [GitHub Actions Community Forum](https://github.community/t5/GitHub-Actions/bd-p/actions)
+          - [Hugo Community Forum](https://discourse.gohugo.io/)
+        action: close
+  - name: wontfix
+    labeled:
+      issue:
+        body: This will not be worked on but we appreciate your contribution.
+        action: close
+    unlabeled:
+      issue:
+        body: This has become active again.
+        action: open
+  - name: duplicate
+    labeled:
+      issue:
+        body: This issue already exists.
+        action: close
+  - name: good first issue
+    labeled:
+      issue:
+        body: This issue is easy for contributing. Everyone can work on this.

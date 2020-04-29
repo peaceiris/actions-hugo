@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.11](https://github.com/peaceiris/actions-hugo/compare/v2.4.10...v2.4.11) (2020-04-29)
+
+
+### ci
+
+* Add npm i -g npm ([9d657ea](https://github.com/peaceiris/actions-hugo/commit/9d657ea2ca451bcaf8c3f9d07b83cabda69cc211))
+* delete Stale workflow ([260f1b8](https://github.com/peaceiris/actions-hugo/commit/260f1b862cb3e9057add124e356f8ad57a19678a))
+* remove unused steps ([85093b6](https://github.com/peaceiris/actions-hugo/commit/85093b6a03b26aa8ff08319f044ca0d9213fd86f))
+
+### deps
+
+* bump @actions/tool-cache from 1.3.3 to 1.3.4 (#280) ([7b0270b](https://github.com/peaceiris/actions-hugo/commit/7b0270bcd541e18f3f8bc7113d5a0b0fd8daa9e7)), closes [#280](https://github.com/peaceiris/actions-hugo/issues/280)
+* bump @types/node from 12.12.35 to 12.12.36 ([e860645](https://github.com/peaceiris/actions-hugo/commit/e860645a6078954ac9977a7a26ec2de1471cc214))
+* bump @types/node from 12.12.36 to 12.12.37 ([163bda6](https://github.com/peaceiris/actions-hugo/commit/163bda68c5ba75a0e100a0a73094de4682f9570f))
+* bump @types/node-fetch from 2.5.6 to 2.5.7 ([fe712b2](https://github.com/peaceiris/actions-hugo/commit/fe712b2ec6b34f70a7a515061b0e3ea0aa5af09e))
+* bump @typescript-eslint/parser from 2.28.0 to 2.30.0 ([3d3730e](https://github.com/peaceiris/actions-hugo/commit/3d3730eab2a06b569b59142cf64c6ffafb65860a))
+* bump jest from 25.3.0 to 25.5.0 ([7747eb7](https://github.com/peaceiris/actions-hugo/commit/7747eb710e4e55e2f0cb438cc77e43a43f454978))
+* bump jest-circus from 25.3.0 to 25.5.0 ([73611a6](https://github.com/peaceiris/actions-hugo/commit/73611a6693297105e7a091829327400099b77f8c))
+* bump lint-staged from 10.1.3 to 10.1.4 ([dac5ba9](https://github.com/peaceiris/actions-hugo/commit/dac5ba9b16d4e2e49568d1f0f5f78edf3ae5ead6))
+* bump lint-staged from 10.1.4 to 10.1.5 ([808c2c1](https://github.com/peaceiris/actions-hugo/commit/808c2c15d159869de692307d7675bc345bf4d5ab))
+* bump lint-staged from 10.1.5 to 10.1.6 ([5cb844d](https://github.com/peaceiris/actions-hugo/commit/5cb844d4a880257a8fae7dd06a754997cc499b7a))
+* bump prettier from 2.0.4 to 2.0.5 ([f9bbc5a](https://github.com/peaceiris/actions-hugo/commit/f9bbc5a9ad3363924f05399d86ead5457da0d10f))
+* bump ts-jest from 25.3.1 to 25.4.0 ([4d44414](https://github.com/peaceiris/actions-hugo/commit/4d4441466ca7b6b69af762b07ac8649d918c9aca))
+
+### docs
+
+* Add link for the first deployment ([08ce241](https://github.com/peaceiris/actions-hugo/commit/08ce2418260b67becef3f05f3a2e0199616c018d))
+
+
+
 ## [2.4.10](https://github.com/peaceiris/actions-hugo/compare/v2.4.9...v2.4.10) (2020-04-15)
 
 

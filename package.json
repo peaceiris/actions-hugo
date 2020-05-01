@@ -69,7 +69,7 @@
     "husky": "^4.2.5",
     "jest": "^25.5.3",
     "jest-circus": "^25.5.3",
-    "lint-staged": "^10.2.1",
+    "lint-staged": "^10.2.2",
     "nock": "^12.0.3",
     "prettier": "2.0.5",
     "standard-version": "^7.1.0",

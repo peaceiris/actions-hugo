@@ -26,6 +26,7 @@ jobs:
       matrix:
         os:
           - 'ubuntu-18.04'
+          - 'ubuntu-16.04'
           - 'macos-latest'
           - 'windows-latest'
     steps:
@@ -41,27 +42,26 @@ jobs:
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
       - run: npm i -g npm
-
       - run: npm ci
 
       - name: Run prettier
-        if: startsWith(matrix.os, 'ubuntu')
+        if: startsWith(matrix.os, 'ubuntu-18.04')
         run: npm run format:check
 
       - name: Run eslint
-        if: startsWith(matrix.os, 'ubuntu')
+        if: startsWith(matrix.os, 'ubuntu-18.04')
         run: npm run lint
 
       - name: Run ncc
-        if: startsWith(matrix.os, 'ubuntu')
+        if: startsWith(matrix.os, 'ubuntu-18.04')
         run: npm run build
 
       - run: npm test
 
       - name: Upload test coverage as artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
-          name: coverage
+          name: coverage-${{ matrix.os }}
           path: coverage
 
       - uses: codecov/codecov-action@v1

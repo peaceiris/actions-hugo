@@ -54,7 +54,7 @@
     "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.4",
     "@actions/io": "^1.0.2",
-    "@actions/tool-cache": "^1.3.4",
+    "@actions/tool-cache": "^1.3.5",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {

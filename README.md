@@ -89,7 +89,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.68.3'
+          hugo-version: '0.71.0'
           # extended: true
 
       - name: Build
@@ -118,7 +118,7 @@ Set `extended: true` to use a Hugo extended version.
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
   with:
-    hugo-version: '0.68.3'
+    hugo-version: '0.71.0'
     extended: true
 ```
 
@@ -150,7 +150,7 @@ How to sync a Hugo version between a Docker Compose and a GitHub Actions workflo
 Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
 
 ```sh
-HUGO_VERSION=0.68.3
+HUGO_VERSION=0.71.0
 ```
 
 Next, add a step to read a Hugo version from the `.env` file.

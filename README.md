@@ -49,6 +49,7 @@ Thanks to this change, we can complete this action in less than a few seconds.
 - [Tips](#tips)
   - [⭐️ Read Hugo version from file](#%EF%B8%8F-read-hugo-version-from-file)
   - [⭐️ Workflow for autoprefixer and postcss-cli](#%EF%B8%8F-workflow-for-autoprefixer-and-postcss-cli)
+  - [⭐️ Workflow for asciidoctor](#%EF%B8%8F-workflow-for-asciidoctor)
 - [CHANGELOG](#changelog)
 - [License](#license)
 - [About Maintainer](#about-maintainer)
@@ -240,6 +241,51 @@ jobs:
 
       - run: npm ci
       - run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### ⭐️ Workflow for asciidoctor
+
+Here is an example workflow for a Hugo project using `asciidoctor`.
+
+```yaml
+name: github pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.71.1'
+          extended: true
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+
+      - run: gem install asciidoctor
+
+      - name: Run Hugo
+        run: |
+          alias asciidoctor="asciidoctor --attribute=experimental=true --attribute=icons=font"
+          hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

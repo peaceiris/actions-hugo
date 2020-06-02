@@ -3,7 +3,6 @@
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
 [![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-hugo/releases.atom)
 ![Test](https://github.com/peaceiris/actions-hugo/workflows/Test/badge.svg?branch=master&event=push)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=peaceiris/actions-hugo)](https://dependabot.com)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-hugo/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-hugo)
 [![codecov](https://codecov.io/gh/peaceiris/actions-hugo/branch/master/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-hugo)

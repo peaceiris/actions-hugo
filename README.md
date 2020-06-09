@@ -202,6 +202,8 @@ The following workflow is tested on [google/docsy-example].
 [google/docsy]: https://github.com/google/docsy
 [google/docsy-example]: https://github.com/google/docsy-example
 
+A workflow for the Hugo Babel pipeline is also the same as follows.
+
 ```yaml
 name: github pages
 

@@ -6,17 +6,13 @@ updates:
     interval: daily
     time: '11:00'
     timezone: Japan
-  pull-request-branch-name:
-    separator: "-"
   open-pull-requests-limit: 1
   labels:
-  - dependencies
+  - "dependencies"
   ignore:
   - dependency-name: "@types/node"
     versions:
     - ">= 13.a, < 14"
-  - dependency-name: "@types/node"
-    versions:
     - ">= 14.a, < 15"
   commit-message:
     prefix: deps
@@ -27,8 +23,7 @@ updates:
     interval: "daily"
     time: '11:00'
     timezone: Japan
-  open-pull-requests-limit: 1
   labels:
-  - "dependencies:ci"
+  - "CI/CD"
   commit-message:
     prefix: ci

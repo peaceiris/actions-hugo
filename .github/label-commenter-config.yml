@@ -9,7 +9,7 @@ labels:
       issue:
         body: |
           Please ask questions about GitHub Actions or Hugo at the following forum.
-          - [GitHub Actions Community Forum](https://github.community/t5/GitHub-Actions/bd-p/actions)
+          - [GitHub Actions Community Forum](https://github.community/c/github-actions)
           - [Hugo Community Forum](https://discourse.gohugo.io/)
         action: close
   - name: wontfix

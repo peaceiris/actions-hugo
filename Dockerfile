@@ -23,7 +23,7 @@ RUN wget -q "https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz" && \
     make all && \
     make install
 
-WORKDIR /repo
+WORKDIR /workspace
 ENV RUNNER_TEMP="/tmp"
 
 CMD [ "bash" ]

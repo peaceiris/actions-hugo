@@ -43,36 +43,26 @@ describe('Integration testing run()', () => {
   test('succeed in installing the latest version', async () => {
     const testVersion = 'latest';
     process.env['INPUT_HUGO-VERSION'] = testVersion;
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${Tool.Repo}.json`)
-      .reply(200, jsonTestBrew);
+    nock('https://formulae.brew.sh').get(`/api/formula/${Tool.Repo}.json`).reply(200, jsonTestBrew);
     const result: main.ActionResult = await main.run();
     expect(result.exitcode).toBe(0);
-    expect(result.output).toMatch(
-      `Hugo Static Site Generator v${Tool.TestVersionLatest}`
-    );
+    expect(result.output).toMatch(`Hugo Static Site Generator v${Tool.TestVersionLatest}`);
   });
 
   test('succeed in installing the latest extended version', async () => {
     const testVersion = 'latest';
     process.env['INPUT_HUGO-VERSION'] = testVersion;
     process.env['INPUT_EXTENDED'] = 'true';
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${Tool.Repo}.json`)
-      .reply(200, jsonTestBrew);
+    nock('https://formulae.brew.sh').get(`/api/formula/${Tool.Repo}.json`).reply(200, jsonTestBrew);
     const result: main.ActionResult = await main.run();
     expect(result.exitcode).toBe(0);
-    expect(result.output).toMatch(
-      `Hugo Static Site Generator v${Tool.TestVersionLatest}`
-    );
+    expect(result.output).toMatch(`Hugo Static Site Generator v${Tool.TestVersionLatest}`);
     expect(result.output).toMatch(`extended`);
   });
 
   test('fail to install the latest version due to 404 of brew', async () => {
     process.env['INPUT_HUGO-VERSION'] = 'latest';
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${Tool.Repo}.json`)
-      .reply(404);
+    nock('https://formulae.brew.sh').get(`/api/formula/${Tool.Repo}.json`).reply(404);
 
     await expect(main.run()).rejects.toThrowError(FetchError);
   });
@@ -91,8 +81,6 @@ describe('showVersion()', () => {
   });
 
   test('return not found', async () => {
-    await expect(
-      main.showVersion('gitgit', ['--version'])
-    ).rejects.toThrowError(Error);
+    await expect(main.showVersion('gitgit', ['--version'])).rejects.toThrowError(Error);
   });
 });

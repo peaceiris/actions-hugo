@@ -1,8 +1,4 @@
-export default function getURL(
-  os: string,
-  extended: string,
-  version: string
-): string {
+export default function getURL(os: string, extended: string, version: string): string {
   const extendedStr = (extended: string): string => {
     if (extended === 'true') {
       return 'extended_';

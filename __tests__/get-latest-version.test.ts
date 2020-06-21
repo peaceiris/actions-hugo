@@ -27,15 +27,9 @@ describe('getURL()', () => {
 
 describe('getLatestVersion()', () => {
   test('return latest version via brew', async () => {
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${Tool.Repo}.json`)
-      .reply(200, jsonTestBrew);
+    nock('https://formulae.brew.sh').get(`/api/formula/${Tool.Repo}.json`).reply(200, jsonTestBrew);
 
-    const versionLatest: string = await getLatestVersion(
-      Tool.Org,
-      Tool.Repo,
-      'brew'
-    );
+    const versionLatest: string = await getLatestVersion(Tool.Org, Tool.Repo, 'brew');
     expect(versionLatest).toMatch(Tool.TestVersionLatest);
   });
 
@@ -44,21 +38,13 @@ describe('getLatestVersion()', () => {
       .get(`/repos/${Tool.Org}/${Tool.Repo}/releases/latest`)
       .reply(200, jsonTestGithub);
 
-    const versionLatest: string = await getLatestVersion(
-      Tool.Org,
-      Tool.Repo,
-      'github'
-    );
+    const versionLatest: string = await getLatestVersion(Tool.Org, Tool.Repo, 'github');
     expect(versionLatest).toMatch(Tool.TestVersionLatest);
   });
 
   test('return exception 404', async () => {
-    nock('https://formulae.brew.sh')
-      .get(`/api/formula/${Tool.Repo}.json`)
-      .reply(404);
+    nock('https://formulae.brew.sh').get(`/api/formula/${Tool.Repo}.json`).reply(404);
 
-    await expect(
-      getLatestVersion(Tool.Org, Tool.Repo, 'brew')
-    ).rejects.toThrowError(FetchError);
+    await expect(getLatestVersion(Tool.Org, Tool.Repo, 'brew')).rejects.toThrowError(FetchError);
   });
 });

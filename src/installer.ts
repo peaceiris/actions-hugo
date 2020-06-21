@@ -59,16 +59,10 @@ export async function installer(version: string): Promise<void> {
   const toolAssets: string = await tc.downloadTool(toolURL);
   let toolBin = '';
   if (process.platform === 'win32') {
-    const toolExtractedFolder: string = await tc.extractZip(
-      toolAssets,
-      tempDir
-    );
+    const toolExtractedFolder: string = await tc.extractZip(toolAssets, tempDir);
     toolBin = `${toolExtractedFolder}/${Tool.CmdName}.exe`;
   } else {
-    const toolExtractedFolder: string = await tc.extractTar(
-      toolAssets,
-      tempDir
-    );
+    const toolExtractedFolder: string = await tc.extractTar(toolAssets, tempDir);
     toolBin = `${toolExtractedFolder}/${Tool.CmdName}`;
   }
   await io.mv(toolBin, binDir);

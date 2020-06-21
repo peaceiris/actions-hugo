@@ -9,10 +9,7 @@ export interface ActionResult {
   output: string;
 }
 
-export async function showVersion(
-  cmd: string,
-  args: string[]
-): Promise<ActionResult> {
+export async function showVersion(cmd: string, args: string[]): Promise<ActionResult> {
   const result: ActionResult = {
     exitcode: 0,
     output: ''

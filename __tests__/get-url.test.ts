@@ -2,8 +2,7 @@ import getURL from '../src/get-url';
 
 describe('getURL()', () => {
   test('test', () => {
-    const baseURL =
-      'https://github.com/gohugoio/hugo/releases/download/v0.58.2';
+    const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.58.2';
     const urlLinux = `${baseURL}/hugo_0.58.2_Linux-64bit.tar.gz`;
     const urlLinuxExtended = `${baseURL}/hugo_extended_0.58.2_Linux-64bit.tar.gz`;
     const urlMacOS = `${baseURL}/hugo_0.58.2_macOS-64bit.tar.gz`;

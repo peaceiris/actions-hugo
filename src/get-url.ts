@@ -2,10 +2,10 @@ export default function getURL(os: string, extended: string, version: string): s
   const extendedStr = (extended: string): string => {
     if (extended === 'true') {
       return 'extended_';
-    } else {
+    } else if (extended === 'false') {
       return '';
-      // } else {
-      //   throw new Error(`Invalid input (extended): ${extended}`);
+    } else {
+      throw new Error(`Invalid input (extended): ${extended}`);
     }
   };
 

@@ -3,7 +3,7 @@ name: 'Dev Image CI'
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - '.github/workflows/dev-image.yml'
       - '.dockerignore'

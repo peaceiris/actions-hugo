@@ -13,7 +13,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /git
-ENV GIT_VERSION="2.27.0"
+ENV GIT_VERSION="2.28.0"
 RUN wget -q "https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz" && \
     tar -zxf "./v${GIT_VERSION}.tar.gz" && \
     rm "./v${GIT_VERSION}.tar.gz" && \

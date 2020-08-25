@@ -76,7 +76,7 @@ name: github pages
 on:
   push:
     branches:
-      - main
+      - main  # Set a branch to deploy
 
 jobs:
   deploy:
@@ -211,7 +211,7 @@ name: github pages
 on:
   push:
     branches:
-      - main
+      - main  # Set a branch to deploy
 
 jobs:
   deploy:
@@ -260,7 +260,7 @@ name: github pages
 on:
   push:
     branches:
-      - main
+      - main  # Set a branch to deploy
 
 jobs:
   deploy:

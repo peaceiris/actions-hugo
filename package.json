@@ -74,7 +74,7 @@
     "jest-circus": "^26.4.2",
     "lint-staged": "^10.2.13",
     "nock": "^13.0.4",
-    "prettier": "2.1.0",
+    "prettier": "2.1.1",
     "standard-version": "^9.0.0",
     "ts-jest": "^25.5.1",
     "typescript": "^3.9.7"

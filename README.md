@@ -47,6 +47,7 @@ Thanks to this change, we can complete this action in less than a few seconds.
   - [⭐️ Use Hugo extended](#%EF%B8%8F-use-hugo-extended)
   - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
 - [Tips](#tips)
+  - [⭐️ Caching Hugo Modules](#%EF%B8%8F-caching-hugo-modules)
   - [⭐️ Read Hugo version from file](#%EF%B8%8F-read-hugo-version-from-file)
   - [⭐️ Workflow for autoprefixer and postcss-cli](#%EF%B8%8F-workflow-for-autoprefixer-and-postcss-cli)
   - [⭐️ Workflow for asciidoctor](#%EF%B8%8F-workflow-for-asciidoctor)
@@ -143,6 +144,23 @@ This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](htt
 
 
 ## Tips
+
+### ⭐️ Caching Hugo Modules
+
+Insert a cache step before site-building as follows.
+Note that the cache dir location of Hugo on a Linux-based operating system is `/tmp/hugo_cache`. On macOS, `${TMPDIR}/hugo_cache` has the location.
+
+```yaml
+- uses: actions/cache@v2
+  with:
+    path: /tmp/hugo_cache
+    key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+    restore-keys: |
+      ${{ runner.os }}-hugomod-
+
+- name: Build
+  run: hugo --minify
+```
 
 ### ⭐️ Read Hugo version from file
 

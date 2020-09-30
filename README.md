@@ -179,7 +179,8 @@ services:
   hugo:
     container_name: hugo
     image: "peaceiris/hugo:v${HUGO_VERSION}"
-    # image: peaceiris/hugo:v${HUGO_VERSION}-mod  # Hugo Modules
+    # image: peaceiris/hugo:v${HUGO_VERSION}-mod   # Hugo Modules
+    # image: peaceiris/hugo:v${HUGO_VERSION}-full  # Hugo Modules and Node.js
     ports:
       - 1313:1313
     volumes:

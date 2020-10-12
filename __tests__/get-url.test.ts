@@ -1,7 +1,7 @@
 import getURL from '../src/get-url';
 
 describe('getURL()', () => {
-  test('test', () => {
+  test('get a URL to an asset for each platform', () => {
     const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.58.2';
     const urlLinux = `${baseURL}/hugo_0.58.2_Linux-64bit.tar.gz`;
     const urlLinuxExtended = `${baseURL}/hugo_extended_0.58.2_Linux-64bit.tar.gz`;

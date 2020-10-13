@@ -1,3 +1,7 @@
+## GitHub Actions for Hugo
+
+<img width="400" alt="GitHub Actions for Hugo" src="./images/ogp.svg">
+
 [![license](https://img.shields.io/github/license/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/blob/main/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
@@ -9,16 +13,10 @@
 [![codecov](https://codecov.io/gh/peaceiris/actions-hugo/branch/main/graph/badge.svg)](https://codecov.io/gh/peaceiris/actions-hugo)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ebf2eef3a046b396ba9c/maintainability)](https://codeclimate.com/github/peaceiris/actions-hugo/maintainability)
 
-<img width="400" alt="GitHub Actions for Hugo" src="./images/ogp.svg">
-
-
-
-## GitHub Actions for Hugo
-
-- [gohugoio/hugo: The world’s fastest framework for building websites.](https://github.com/gohugoio/hugo)
-
-This **Hugo Setup Action** can install **Hugo** to a virtual machine of **GitHub Actions**.
+This **Hugo Setup Action** can install [Hugo] to a virtual machine of **GitHub Actions**.
 **Hugo extended** version, **Hugo Modules**, Linux (Ubuntu), macOS, and Windows are supported.
+
+[Hugo]: https://github.com/gohugoio/hugo
 
 From `v2`, this Hugo Setup Action has migrated to a JavaScript (TypeScript) action.
 We no longer build or pull a Hugo docker image.

@@ -25,5 +25,6 @@ RUN wget -q "https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz" && \
 
 WORKDIR /repo
 ENV RUNNER_TEMP="/tmp"
+ENV ACTIONS_ALLOW_UNSECURE_COMMANDS=true
 
 CMD [ "bash" ]

@@ -35,5 +35,5 @@ jobs:
       - run: make build
       - run: make cirun cmd="npm ci"
       # - run: make ciall
-      - run: make cirun cmd="npm format:check"
-      - run: make cirun cmd="npm lint"
+      - run: make cirun cmd="npm run format:check"
+      - run: make cirun cmd="npm run lint"

@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: GitHub Actions - GitHub Support Community Forum
-    url: https://github.community/c/github-actions
+    url: https://github.community/c/code-to-cloud/github-actions/41
     about: Please ask questions about GitHub Actions here.
   - name: Hugo Community Forum
     url: https://discourse.gohugo.io/

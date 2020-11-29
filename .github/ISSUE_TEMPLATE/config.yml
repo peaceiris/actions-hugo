@@ -6,3 +6,6 @@ contact_links:
   - name: Hugo Community Forum
     url: https://discourse.gohugo.io/
     about: Please ask questions about Hugo here.
+  - name: GitHub Actions Documentation
+    url: https://docs.github.com/en/free-pro-team@latest/actions
+    about: GitHub Actions official documentation here.

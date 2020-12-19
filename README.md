@@ -38,7 +38,6 @@ Thanks to this change, we can complete this action in less than a few seconds.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Getting started](#getting-started)
   - [⭐️ Create your workflow](#%EF%B8%8F-create-your-workflow)
 - [Options](#options)
@@ -89,7 +88,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.75.1'
+          hugo-version: '0.79.1'
           # extended: true
 
       - name: Build
@@ -118,7 +117,7 @@ Set `extended: true` to use a Hugo extended version.
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
   with:
-    hugo-version: '0.75.1'
+    hugo-version: '0.79.1'
     extended: true
 ```
 
@@ -167,7 +166,7 @@ How to sync a Hugo version between a Docker Compose and a GitHub Actions workflo
 Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
 
 ```sh
-HUGO_VERSION=0.75.1
+HUGO_VERSION=0.79.1
 ```
 
 Next, add a step to read a Hugo version from the `.env` file.
@@ -242,7 +241,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.75.1'
+          hugo-version: '0.79.1'
           extended: true
 
       - name: Setup Node
@@ -291,7 +290,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.75.1'
+          hugo-version: '0.79.1'
           extended: true
 
       - name: Setup Ruby

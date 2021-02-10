@@ -1,2 +1,2 @@
-npm run update-deps
+npm ci
 git remote prune origin

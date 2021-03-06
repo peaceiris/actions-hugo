@@ -16,7 +16,8 @@
     "tsc": "tsc",
     "format": "prettier --write **/*.ts",
     "format:check": "prettier --check **/*.ts",
-    "release": "standard-version"
+    "release": "standard-version",
+    "postinstall": "npx husky install"
   },
   "lint-staged": {
     "{src,__tests__}/**/*.ts": [

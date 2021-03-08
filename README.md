@@ -48,6 +48,7 @@ Thanks to this change, we can complete this action in less than a few seconds.
   - [⭐️ Read Hugo version from file](#%EF%B8%8F-read-hugo-version-from-file)
   - [⭐️ Workflow for autoprefixer and postcss-cli](#%EF%B8%8F-workflow-for-autoprefixer-and-postcss-cli)
   - [⭐️ Workflow for asciidoctor](#%EF%B8%8F-workflow-for-asciidoctor)
+  - [⭐️ Non-ascii Filename](#%EF%B8%8F-non-ascii-filename)
 - [CHANGELOG](#changelog)
 - [License](#license)
 - [About Maintainer](#about-maintainer)
@@ -159,6 +160,10 @@ Note that the cache dir location of Hugo on a Linux-based operating system is `/
   run: hugo --minify
 ```
 
+<div align="right">
+<a href="#table-of-contents">Back to TOC ☝️</a>
+</div>
+
 ### ⭐️ Read Hugo version from file
 
 How to sync a Hugo version between a Docker Compose and a GitHub Actions workflow via `.env` file.
@@ -209,6 +214,10 @@ services:
 The alpine base Hugo Docker image is provided on the following repository.
 
 > [peaceiris/hugo-extended-docker: Hugo alpine base Docker image (Hugo extended and Hugo Modules)](https://github.com/peaceiris/hugo-extended-docker)
+
+<div align="right">
+<a href="#table-of-contents">Back to TOC ☝️</a>
+</div>
 
 ### ⭐️ Workflow for autoprefixer and postcss-cli
 
@@ -266,6 +275,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+<div align="right">
+<a href="#table-of-contents">Back to TOC ☝️</a>
+</div>
+
 ### ⭐️ Workflow for asciidoctor
 
 Here is an example workflow for a Hugo project using `asciidoctor`.
@@ -309,6 +322,39 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+<div align="right">
+<a href="#table-of-contents">Back to TOC ☝️</a>
+</div>
+
+### ⭐️ Non-ascii Filename
+
+cf. [Gitinfo fails on unicode filename · Issue #3071 · gohugoio/hugo](https://github.com/gohugoio/hugo/issues/3071)
+
+```yaml
+name: github pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Disable quotePath
+        run: git config core.quotePath false
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.79.1'
 ```
 
 <div align="right">

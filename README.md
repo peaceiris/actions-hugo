@@ -23,7 +23,7 @@ We no longer build or pull a Hugo docker image.
 Thanks to this change, we can complete this action in less than a few seconds.
 (A docker base action was taking about 1 min or more execution time to build and pull a docker image.)
 
-| OS (runs-on) | ubuntu-18.04 | macos-latest | windows-2019 |
+| OS (runs-on) | ubuntu-18.04, ubuntu-20.04 | macos-latest | windows-2019 |
 |---|:---:|:---:|:---:|
 | Support | ✅️ | ✅️ | ✅️ |
 

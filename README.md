@@ -76,6 +76,7 @@ on:
   push:
     branches:
       - main  # Set a branch to deploy
+  pull_request:
 
 jobs:
   deploy:
@@ -89,7 +90,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.81.0'
+          hugo-version: '0.83.1'
           # extended: true
 
       - name: Build
@@ -97,6 +98,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
@@ -118,7 +120,7 @@ Set `extended: true` to use a Hugo extended version.
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
   with:
-    hugo-version: '0.81.0'
+    hugo-version: '0.83.1'
     extended: true
 ```
 
@@ -171,7 +173,7 @@ How to sync a Hugo version between a Docker Compose and a GitHub Actions workflo
 Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
 
 ```sh
-HUGO_VERSION=0.81.0
+HUGO_VERSION=0.83.1
 ```
 
 Next, add a step to read a Hugo version from the `.env` file.
@@ -237,6 +239,7 @@ on:
   push:
     branches:
       - main  # Set a branch to deploy
+  pull_request:
 
 jobs:
   deploy:
@@ -250,13 +253,13 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.81.0'
+          hugo-version: '0.83.1'
           extended: true
 
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '14'
 
       - name: Cache dependencies
         uses: actions/cache@v1
@@ -271,6 +274,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -290,6 +294,7 @@ on:
   push:
     branches:
       - main  # Set a branch to deploy
+  pull_request:
 
 jobs:
   deploy:
@@ -303,7 +308,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.81.0'
+          hugo-version: '0.83.1'
           extended: true
 
       - name: Setup Ruby
@@ -320,6 +325,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -354,7 +360,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.81.0'
+          hugo-version: '0.83.1'
 ```
 
 <div align="right">

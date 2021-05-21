@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';
 import getOS from './get-os';
+import getArch from './get-arch';
 import getURL from './get-url';
 import * as path from 'path';
 import {Tool, Action} from './constants';
@@ -49,7 +50,10 @@ export async function installer(version: string): Promise<void> {
   const osName: string = getOS(process.platform);
   core.debug(`Operating System: ${osName}`);
 
-  const toolURL: string = getURL(osName, extended, version);
+  const archName: string = getArch(process.arch);
+  core.debug(`Processor Architecture: ${archName}`);
+
+  const toolURL: string = getURL(osName, archName, extended, version);
   core.debug(`toolURL: ${toolURL}`);
 
   const workDir = await createWorkDir();

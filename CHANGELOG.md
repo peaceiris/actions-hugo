@@ -2,6 +2,98 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.5.0](https://github.com/peaceiris/actions-hugo/compare/v2.4.13...v2.5.0) (2021-05-27)
+
+
+### build
+
+* Set target to ES2019 (#497) ([a6b1a4c](https://github.com/peaceiris/actions-hugo/commit/a6b1a4cb03657fdabc476d354be1de69c1f2c784)), closes [#497](https://github.com/peaceiris/actions-hugo/issues/497)
+
+### chore
+
+* add link to Actions Documentation ([ecc4361](https://github.com/peaceiris/actions-hugo/commit/ecc43610c05bf8bb7339bc9f8f06ebafdaba1fa7))
+* Add postinstall for husky install ([917a097](https://github.com/peaceiris/actions-hugo/commit/917a09767d1cfbe8ac1827d2da61fbcab8ad4f1e))
+* fix husky ([c3d5873](https://github.com/peaceiris/actions-hugo/commit/c3d587365f380dd8aa22d5ab9bfb66bcdf1b7d2a))
+* npx husky install ([d2e1e74](https://github.com/peaceiris/actions-hugo/commit/d2e1e740d08d04e87877506f4446cb5759b3784c))
+* update husky config ([e77b890](https://github.com/peaceiris/actions-hugo/commit/e77b89094bb7e1c96f3803ad3e510b4075434ee3))
+* update link to github.community ([35b8c49](https://github.com/peaceiris/actions-hugo/commit/35b8c49468604b403f35fdb315b22a3e3b784eb1))
+
+### ci
+
+* allow dependency-type production ([a448002](https://github.com/peaceiris/actions-hugo/commit/a448002cc3932bedf88a9304591e02ee58bd1ced))
+* bump actions/checkout from 2 to 2.3.4 (#517) ([f245604](https://github.com/peaceiris/actions-hugo/commit/f2456046988c712555be95348c00a5b9c1dc6482)), closes [#517](https://github.com/peaceiris/actions-hugo/issues/517)
+* bump actions/setup-node from v2.1.2 to v2.1.3 (#479) ([9dea4e7](https://github.com/peaceiris/actions-hugo/commit/9dea4e7496af6b42e3306eb3b6c3321c15184669)), closes [#479](https://github.com/peaceiris/actions-hugo/issues/479)
+* bump actions/setup-node from v2.1.3 to v2.1.4 (#482) ([ee35d79](https://github.com/peaceiris/actions-hugo/commit/ee35d79f1a6a83d2295f63c1da996b30e027ccf3)), closes [#482](https://github.com/peaceiris/actions-hugo/issues/482)
+* bump actions/setup-node from v2.1.4 to v2.1.5 (#494) ([31afbc6](https://github.com/peaceiris/actions-hugo/commit/31afbc6b76e82fb797899aeb569b744008ca7d85)), closes [#494](https://github.com/peaceiris/actions-hugo/issues/494)
+* bump codecov/codecov-action from v1.0.13 to v1.0.14 (#460) ([4d4d52c](https://github.com/peaceiris/actions-hugo/commit/4d4d52c170a99805c8c86297fe9e8c630ff68b1d)), closes [#460](https://github.com/peaceiris/actions-hugo/issues/460)
+* bump codecov/codecov-action from v1.0.14 to v1.0.15 (#469) ([5560a30](https://github.com/peaceiris/actions-hugo/commit/5560a30c304a6acea63233ec9c73700f7150ae7e)), closes [#469](https://github.com/peaceiris/actions-hugo/issues/469)
+* bump codecov/codecov-action from v1.0.15 to v1.1.0 (#483) ([781fb44](https://github.com/peaceiris/actions-hugo/commit/781fb448ba019a547fa83cfe413845a856364f27)), closes [#483](https://github.com/peaceiris/actions-hugo/issues/483)
+* bump codecov/codecov-action from v1.1.0 to v1.1.1 (#485) ([8087db7](https://github.com/peaceiris/actions-hugo/commit/8087db721476005461b4283f77190b68d2c84f04)), closes [#485](https://github.com/peaceiris/actions-hugo/issues/485)
+* bump codecov/codecov-action from v1.1.1 to v1.2.0 (#487) ([8ed2f1f](https://github.com/peaceiris/actions-hugo/commit/8ed2f1fddd1c2ef4e402bb63eccfe29b809ba3d3)), closes [#487](https://github.com/peaceiris/actions-hugo/issues/487)
+* bump codecov/codecov-action from v1.2.0 to v1.2.1 (#488) ([f6171a1](https://github.com/peaceiris/actions-hugo/commit/f6171a1916a25e1f3e577308b3ca84fd3d36adb8)), closes [#488](https://github.com/peaceiris/actions-hugo/issues/488)
+* bump codecov/codecov-action from v1.2.1 to v1.2.2 (#501) ([b7da7a5](https://github.com/peaceiris/actions-hugo/commit/b7da7a5c7fc09e7f20da3571aacc93b19e31a884)), closes [#501](https://github.com/peaceiris/actions-hugo/issues/501)
+* bump codecov/codecov-action from v1.2.2 to v1.3.1 (#502) ([354ddc2](https://github.com/peaceiris/actions-hugo/commit/354ddc2c0e944651389d0825bddd38c58ed70b96)), closes [#502](https://github.com/peaceiris/actions-hugo/issues/502)
+* bump codecov/codecov-action from v1.3.1 to v1.3.2 (#506) ([937472e](https://github.com/peaceiris/actions-hugo/commit/937472ef054c627b8b2e5107045d1150659e519a)), closes [#506](https://github.com/peaceiris/actions-hugo/issues/506)
+* bump codecov/codecov-action from v1.3.2 to v1.4.0 (#511) ([065ff42](https://github.com/peaceiris/actions-hugo/commit/065ff428c585180c45d415b1135cd752949eb087)), closes [#511](https://github.com/peaceiris/actions-hugo/issues/511)
+* bump codecov/codecov-action from v1.4.0 to v1.4.1 (#512) ([929d18c](https://github.com/peaceiris/actions-hugo/commit/929d18cc521c942da835291cb76bab5babb6ba68)), closes [#512](https://github.com/peaceiris/actions-hugo/issues/512)
+* bump codecov/codecov-action from v1.4.1 to v1.5.0 (#514) ([634c0f2](https://github.com/peaceiris/actions-hugo/commit/634c0f28919c4ed0c99c7b830a780bab33530fd9)), closes [#514](https://github.com/peaceiris/actions-hugo/issues/514)
+* bump peaceiris/actions-hugo from 2 to 2.4.13 (#516) ([b843eae](https://github.com/peaceiris/actions-hugo/commit/b843eaee1d20f88acb7efec2004c1c1b250bbc37)), closes [#516](https://github.com/peaceiris/actions-hugo/issues/516)
+* bump peaceiris/actions-label-commenter from v1.6.1 to v1.7.0 (#475) ([7e706f1](https://github.com/peaceiris/actions-hugo/commit/7e706f138412fc25628776aba7ed982c2ecce77b)), closes [#475](https://github.com/peaceiris/actions-hugo/issues/475)
+* bump peaceiris/actions-label-commenter from v1.7.0 to v1.8.0 (#476) ([fc61cde](https://github.com/peaceiris/actions-hugo/commit/fc61cdeb0558a7e59e2faa6df595b789f91251dd)), closes [#476](https://github.com/peaceiris/actions-hugo/issues/476)
+* bump peaceiris/actions-label-commenter from v1.8.0 to v1.8.1 (#477) ([d2c234c](https://github.com/peaceiris/actions-hugo/commit/d2c234c93b647f937a85b7ca69f1af403e33eb52)), closes [#477](https://github.com/peaceiris/actions-hugo/issues/477)
+* bump peaceiris/actions-label-commenter from v1.8.1 to v1.8.2 (#478) ([9dc9001](https://github.com/peaceiris/actions-hugo/commit/9dc9001ec24de7b806c7585c6c5d1128fa536135)), closes [#478](https://github.com/peaceiris/actions-hugo/issues/478)
+* bump peaceiris/actions-label-commenter from v1.8.2 to v1.9.0 (#484) ([e4d3e17](https://github.com/peaceiris/actions-hugo/commit/e4d3e173c5addc432fd0bd982184a69e24961c72)), closes [#484](https://github.com/peaceiris/actions-hugo/issues/484)
+* bump peaceiris/actions-label-commenter from v1.9.0 to v1.9.1 (#493) ([638ebc3](https://github.com/peaceiris/actions-hugo/commit/638ebc39d8a766ab0d12a9124054051d1b31d7a1)), closes [#493](https://github.com/peaceiris/actions-hugo/issues/493)
+* Drop ubuntu-16.04 (#513) ([6b42ea1](https://github.com/peaceiris/actions-hugo/commit/6b42ea1676602f31267ebd3466784cd813863ef7)), closes [#513](https://github.com/peaceiris/actions-hugo/issues/513)
+* Fix husky post-merge ([4f6ebdd](https://github.com/peaceiris/actions-hugo/commit/4f6ebdd7670cb3d0b3d9c574d9c11788b57006b3))
+* Fix husky post-merge (#491) ([029d5ce](https://github.com/peaceiris/actions-hugo/commit/029d5ce0d047998a61ed87b48b7d11396109376e)), closes [#491](https://github.com/peaceiris/actions-hugo/issues/491)
+* Migrate husky from v4 to v5 ([9564982](https://github.com/peaceiris/actions-hugo/commit/9564982d194bfb3b965d21d80c8903dbd328cdc6))
+* remove CODECOV_TOKEN (#490) ([b2b9041](https://github.com/peaceiris/actions-hugo/commit/b2b9041dc7d472875c86939648440bcc2afad6c4)), closes [#490](https://github.com/peaceiris/actions-hugo/issues/490)
+* remove options no longer needed (#474) ([ff64ad3](https://github.com/peaceiris/actions-hugo/commit/ff64ad3cd40de5c81409ba2f937b47ab573905c2)), closes [#474](https://github.com/peaceiris/actions-hugo/issues/474)
+* Remove skipci job ([da35efe](https://github.com/peaceiris/actions-hugo/commit/da35efefa826a63d06a9d2642ac18d7ce312eed0))
+
+### deps
+
+* bump @actions/core from 1.2.6 to 1.2.7 (#507) ([b263ea9](https://github.com/peaceiris/actions-hugo/commit/b263ea9e10ee728a536db434c3e1babbb6bb3018)), closes [#507](https://github.com/peaceiris/actions-hugo/issues/507)
+* bump @actions/io from 1.0.2 to 1.1.0 (#505) ([d2d1138](https://github.com/peaceiris/actions-hugo/commit/d2d11383067fa9ee8a84783edc89a133fd841695)), closes [#505](https://github.com/peaceiris/actions-hugo/issues/505)
+* bump @actions/tool-cache from 1.6.0 to 1.6.1 (#468) ([bad2722](https://github.com/peaceiris/actions-hugo/commit/bad27227bf688526565c17d3991a6bb07da351f9)), closes [#468](https://github.com/peaceiris/actions-hugo/issues/468)
+* bump @types/node from 12.12.63 to 12.12.64 (#454) ([8bb474e](https://github.com/peaceiris/actions-hugo/commit/8bb474e6f039d3c0554a1c447715f9afd0990671)), closes [#454](https://github.com/peaceiris/actions-hugo/issues/454)
+* bump @types/node from 12.12.64 to 12.12.66 (#455) ([0c241c1](https://github.com/peaceiris/actions-hugo/commit/0c241c131a7ac06e0ca15d1de99a12dd627025a1)), closes [#455](https://github.com/peaceiris/actions-hugo/issues/455)
+* bump @types/node from 12.12.66 to 12.12.67 (#457) ([57c1213](https://github.com/peaceiris/actions-hugo/commit/57c12138971d301923f23b4f3009e6aa5d5439d0)), closes [#457](https://github.com/peaceiris/actions-hugo/issues/457)
+* bump ini from 1.3.5 to 1.3.8 (#480) ([beaa1ee](https://github.com/peaceiris/actions-hugo/commit/beaa1ee2a1492de7430bac2238e29e8ff4950ee3)), closes [#480](https://github.com/peaceiris/actions-hugo/issues/480)
+* bump jest-circus from 26.5.1 to 26.5.2 (#453) ([2b3e82c](https://github.com/peaceiris/actions-hugo/commit/2b3e82c924f5a8189be9b0db3c2fa4c88fc6093f)), closes [#453](https://github.com/peaceiris/actions-hugo/issues/453)
+* bump jest-circus from 26.5.2 to 26.5.3 (#456) ([7e8c2a0](https://github.com/peaceiris/actions-hugo/commit/7e8c2a08b40a6e0fcec415033ab6cbe45bb6eb76)), closes [#456](https://github.com/peaceiris/actions-hugo/issues/456)
+* bump node from 12.18.4 to 12.19.0 (#458) ([d183b58](https://github.com/peaceiris/actions-hugo/commit/d183b58fee71c13b2d63864067b2129ad91d4b9a)), closes [#458](https://github.com/peaceiris/actions-hugo/issues/458)
+* bump node from 12.19.0 to 12.19.1 (#471) ([21d2e6e](https://github.com/peaceiris/actions-hugo/commit/21d2e6ea580812d56a69582f9d57dca65ee9b96c)), closes [#471](https://github.com/peaceiris/actions-hugo/issues/471) [#472](https://github.com/peaceiris/actions-hugo/issues/472)
+* bump node from 12.19.1 to 12.20.0 ([8808a28](https://github.com/peaceiris/actions-hugo/commit/8808a28020ccea48f350ea3099e99ea610fd2b15))
+* bump node from 12.20.0 to 12.20.1 (#489) ([10834f4](https://github.com/peaceiris/actions-hugo/commit/10834f4404ee13ef757d5fa80317d3cdc85b9c5f)), closes [#489](https://github.com/peaceiris/actions-hugo/issues/489)
+* bump node from 12.20.1 to 12.21.0 (#500) ([da36599](https://github.com/peaceiris/actions-hugo/commit/da36599fbf30f21edf7f0cb53689cbdcc25a2ef8)), closes [#500](https://github.com/peaceiris/actions-hugo/issues/500)
+* Bump node from 12.21.0 to 12.22.0 (#503) ([5d548aa](https://github.com/peaceiris/actions-hugo/commit/5d548aa7b61b9b09310447cdd8709fb466653fbb)), closes [#503](https://github.com/peaceiris/actions-hugo/issues/503)
+* Bump node from 12.22.0 to 12.22.1 (#510) ([b674697](https://github.com/peaceiris/actions-hugo/commit/b67469730cda7ba4581ae824283ce8bb5e8f990b)), closes [#510](https://github.com/peaceiris/actions-hugo/issues/510)
+* bump node-notifier from 8.0.0 to 8.0.1 (#486) ([206a218](https://github.com/peaceiris/actions-hugo/commit/206a21899a688eed53406e4f6631c751b51e513f)), closes [#486](https://github.com/peaceiris/actions-hugo/issues/486)
+* Bump npm to v7 ([612b00f](https://github.com/peaceiris/actions-hugo/commit/612b00fe8fa8da50a91bf0fa58b67f5925ae2d0f))
+* npm audit fix ([f3792d9](https://github.com/peaceiris/actions-hugo/commit/f3792d95d87de9180705d1d1df33775d430215f1))
+* update (#459) ([a533681](https://github.com/peaceiris/actions-hugo/commit/a5336818dfd0400855e4e9856510a54c11dd33b0)), closes [#459](https://github.com/peaceiris/actions-hugo/issues/459)
+* update dev deps (#462) ([0df2d42](https://github.com/peaceiris/actions-hugo/commit/0df2d4252f179fa015364acdffa8b85453ddac8d)), closes [#462](https://github.com/peaceiris/actions-hugo/issues/462)
+* update devDependencies (#466) ([d2b6644](https://github.com/peaceiris/actions-hugo/commit/d2b6644a8068056eb31d292277fd01fe9d50438c)), closes [#466](https://github.com/peaceiris/actions-hugo/issues/466)
+* update devDependencies (#492) ([32f5b71](https://github.com/peaceiris/actions-hugo/commit/32f5b71c41c0ee8e154160a00a90dd345ed71168)), closes [#492](https://github.com/peaceiris/actions-hugo/issues/492)
+* update devDependencies (#498) ([9f50a3c](https://github.com/peaceiris/actions-hugo/commit/9f50a3c912f8d1b5be9d4ee06fb2e1e893ab0d20)), closes [#498](https://github.com/peaceiris/actions-hugo/issues/498)
+
+### docs
+
+* Add Non-ascii Filename section (#499) ([0590f91](https://github.com/peaceiris/actions-hugo/commit/0590f912fcce9b0c257424efc5e79075a0a88a0c)), closes [#499](https://github.com/peaceiris/actions-hugo/issues/499)
+* Add pull_request event ([65bdbf1](https://github.com/peaceiris/actions-hugo/commit/65bdbf15ab5818f14c718f27d5c769dc1a4fb32b))
+* Bump actions/setup-node from v1 to v2 ([e53f8d6](https://github.com/peaceiris/actions-hugo/commit/e53f8d69e59fe9a25e6f3c24717cfd0d51b57b0b))
+* Bump hugo from 0.79.1 to 0.81.0 ([fbae6cf](https://github.com/peaceiris/actions-hugo/commit/fbae6cf1c897ef7ec3e69991eee81e57e57e4898))
+* bump versions ([b0fb91b](https://github.com/peaceiris/actions-hugo/commit/b0fb91bc02638e5ca8f0139c91cbff931167f7a7))
+* update title position ([a7dd109](https://github.com/peaceiris/actions-hugo/commit/a7dd10985c1e5f8029577517cff546202a3b6e5f))
+
+### feat
+
+* Add support for different processor architectures (#518) ([6d30a88](https://github.com/peaceiris/actions-hugo/commit/6d30a88741382c063b723b98b1bad3a71b248f1b)), closes [#518](https://github.com/peaceiris/actions-hugo/issues/518)
+
+
+
 ## [2.4.13](https://github.com/peaceiris/actions-hugo/compare/v2.4.12...v2.4.13) (2020-10-06)
 
 

@@ -1,4 +1,9 @@
-export default function getURL(os: string, extended: string, version: string): string {
+export default function getURL(
+  os: string,
+  arch: string,
+  extended: string,
+  version: string
+): string {
   const extendedStr = (extended: string): string => {
     if (extended === 'true') {
       return 'extended_';
@@ -17,7 +22,7 @@ export default function getURL(os: string, extended: string, version: string): s
     }
   };
 
-  const hugoName = `hugo_${extendedStr(extended)}${version}_${os}-64bit`;
+  const hugoName = `hugo_${extendedStr(extended)}${version}_${os}-${arch}`;
   const baseURL = 'https://github.com/gohugoio/hugo/releases/download';
   const url = `${baseURL}/v${version}/${hugoName}.${ext(os)}`;
 

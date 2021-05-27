@@ -4,8 +4,8 @@ export enum Tool {
   Repo = 'hugo',
   CmdName = 'hugo',
   CmdOptVersion = 'version',
-  TestVersionLatest = '0.62.2',
-  TestVersionSpec = '0.61.0'
+  TestVersionLatest = '0.83.1',
+  TestVersionSpec = '0.82.1'
 }
 
 export enum Action {

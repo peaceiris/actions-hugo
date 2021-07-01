@@ -49,7 +49,7 @@
   "dependencies": {
     "@actions/core": "^1.2.7",
     "@actions/exec": "^1.0.4",
-    "@actions/io": "^1.1.0",
+    "@actions/io": "^1.1.1",
     "@actions/tool-cache": "^1.6.1",
     "node-fetch": "^2.6.1"
   },

@@ -78,6 +78,9 @@ on:
       - main  # Set a branch to deploy
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -90,7 +93,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.83.1'
+          hugo-version: '0.85.0'
           # extended: true
 
       - name: Build
@@ -120,7 +123,7 @@ Set `extended: true` to use a Hugo extended version.
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
   with:
-    hugo-version: '0.83.1'
+    hugo-version: '0.85.0'
     extended: true
 ```
 
@@ -173,7 +176,7 @@ How to sync a Hugo version between a Docker Compose and a GitHub Actions workflo
 Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
 
 ```sh
-HUGO_VERSION=0.83.1
+HUGO_VERSION=0.85.0
 ```
 
 Next, add a step to read a Hugo version from the `.env` file.
@@ -241,6 +244,9 @@ on:
       - main  # Set a branch to deploy
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -253,7 +259,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.83.1'
+          hugo-version: '0.85.0'
           extended: true
 
       - name: Setup Node
@@ -296,6 +302,9 @@ on:
       - main  # Set a branch to deploy
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -308,7 +317,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.83.1'
+          hugo-version: '0.85.0'
           extended: true
 
       - name: Setup Ruby
@@ -346,6 +355,9 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -360,7 +372,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.83.1'
+          hugo-version: '0.85.0'
 ```
 
 <div align="right">

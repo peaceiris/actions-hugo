@@ -14,8 +14,8 @@
     "test": "jest --coverage --verbose",
     "build": "ncc build ./src/index.ts -o lib",
     "tsc": "tsc",
-    "format": "prettier --write **/*.ts",
-    "format:check": "prettier --check **/*.ts",
+    "format": "prettier --write '**/*.ts'",
+    "format:check": "prettier --check '**/*.ts'",
     "release": "standard-version",
     "postinstall": "npx husky install"
   },

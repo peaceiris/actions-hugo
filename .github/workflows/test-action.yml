@@ -22,7 +22,7 @@ jobs:
           - true
           - false
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2.5.0

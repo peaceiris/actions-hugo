@@ -70,7 +70,7 @@ For the first deployment, we have to do this operation: [First Deployment with `
 [![peaceiris/actions-gh-pages - GitHub](https://gh-card.dev/repos/peaceiris/actions-gh-pages.svg?fullname)](https://github.com/peaceiris/actions-gh-pages)
 
 ```yaml
-name: github pages
+name: GitHub Pages
 
 on:
   push:
@@ -227,7 +227,7 @@ The alpine base Hugo Docker image is provided on the following repository.
 
 Here is an example workflow for the [google/docsy] Hugo theme.
 This theme needs `autoprefixer` and `postcss-cli` to build a project.
-The following workflow is tested on [google/docsy-example].
+The following workflow is tested with [google/docsy-example].
 
 [google/docsy]: https://github.com/google/docsy
 [google/docsy-example]: https://github.com/google/docsy-example
@@ -235,7 +235,7 @@ The following workflow is tested on [google/docsy-example].
 A workflow for the Hugo Babel pipeline is also the same as follows.
 
 ```yaml
-name: github pages
+name: GitHub Pages
 
 on:
   push:
@@ -266,7 +266,7 @@ jobs:
           node-version: '14'
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -292,7 +292,7 @@ jobs:
 Here is an example workflow for a Hugo project using `asciidoctor`.
 
 ```yaml
-name: github pages
+name: GitHub Pages
 
 on:
   push:
@@ -345,7 +345,7 @@ jobs:
 cf. [Gitinfo fails on unicode filename · Issue #3071 · gohugoio/hugo](https://github.com/gohugoio/hugo/issues/3071)
 
 ```yaml
-name: github pages
+name: GitHub Pages
 
 on:
   push:

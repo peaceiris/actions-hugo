@@ -25,7 +25,7 @@ jobs:
   dev-image-test:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - run: make build
       - run: make cirun cmd="npm ci"
       # - run: make ciall

@@ -1,11 +1,12 @@
-export default function getOS(platform: string): string {
+export default function getOS(platform: string, version: string): string {
+  const segments = version.split('.').map(s => parseInt(s));
   switch (platform) {
     case 'linux':
-      return 'Linux';
+      return (segments[0] >= 0 && segments[1] >= 103) ? 'linux' : 'Linux'
     case 'darwin':
-      return 'macOS';
+      return (segments[0] >= 0 && segments[1] >= 102) ? 'darwin' : 'macOS'
     case 'win32':
-      return 'Windows';
+      return (segments[0] >= 0 && segments[1] >= 103) ? 'windows' : 'Windows'
     default:
       throw new Error(`${platform} is not supported`);
   }

@@ -47,10 +47,10 @@ export async function installer(version: string): Promise<void> {
   const extended: string = core.getInput('extended');
   core.debug(`Hugo extended: ${extended}`);
 
-  const osName: string = getOS(process.platform);
+  const osName: string = getOS(process.platform, version);
   core.debug(`Operating System: ${osName}`);
 
-  const archName: string = getArch(process.arch);
+  const archName: string = getArch(process.arch, osName, version);
   core.debug(`Processor Architecture: ${archName}`);
 
   const toolURL: string = getURL(osName, archName, extended, version);

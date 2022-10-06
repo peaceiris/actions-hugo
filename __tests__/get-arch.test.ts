@@ -54,10 +54,10 @@ describe('getArch', () => {
   test('exception', () => {
     expect(() => {
       getArch('mips', 'linux', '0.101.0');
-    }).toThrowError('mips is not supported');
+    }).toThrow('mips is not supported');
 
     expect(() => {
       getArch('arm', 'linux', '0.102.0')
-    }).toThrowError('arm is not supported');
+    }).toThrow('arm is not supported');
   });
 });

@@ -1,6 +1,7 @@
 import * as core from '@actions/core';
 import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';
+import getConventions from './get-conventions';
 import getOS from './get-os';
 import getArch from './get-arch';
 import getURL from './get-url';
@@ -47,10 +48,12 @@ export async function installer(version: string): Promise<void> {
   const extended: string = core.getInput('extended');
   core.debug(`Hugo extended: ${extended}`);
 
-  const osName: string = getOS(process.platform, version);
+  const conventions = getConventions(version);
+
+  const osName: string = getOS(process.platform, conventions);
   core.debug(`Operating System: ${osName}`);
 
-  const archName: string = getArch(process.arch, osName, version);
+  const archName: string = getArch(process.arch, osName, conventions);
   core.debug(`Processor Architecture: ${archName}`);
 
   const toolURL: string = getURL(osName, archName, extended, version);

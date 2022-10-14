@@ -1,12 +1,14 @@
-export default function getOS(platform: string, version: string): string {
-  const segments = version.split('.').map(s => parseInt(s));
+import { conventions } from "./get-conventions";
+
+export default function getOS(platform: string, conventions: conventions): string {
+
   switch (platform) {
     case 'linux':
-      return (segments[0] >= 0 && segments[1] >= 103) ? 'linux' : 'Linux'
+      return conventions.os.downcasedAll ? 'linux' : 'Linux'
     case 'darwin':
-      return (segments[0] >= 0 && segments[1] >= 102) ? 'darwin' : 'macOS'
+      return conventions.os.renamedMacOS ? 'darwin' : 'macOS'
     case 'win32':
-      return (segments[0] >= 0 && segments[1] >= 103) ? 'windows' : 'Windows'
+      return conventions.os.downcasedAll ? 'windows' : 'Windows'
     default:
       throw new Error(`${platform} is not supported`);
   }

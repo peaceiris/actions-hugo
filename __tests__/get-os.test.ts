@@ -1,27 +1,96 @@
 import getOS from '../src/get-os';
 
 describe('getOS', () => {
-  test('os type', () => {
-    expect(getOS('linux', '0.101.0')).toBe('Linux');
-    expect(getOS('darwin', '0.101.0')).toBe('macOS');
-    expect(getOS('win32', '0.101.0')).toBe('Windows');
+  const groups = [
+    {
+      condition: 'when hugo version < 0.102.0',
+      conventions: {
+        arch: {
+          darwinUniversal: false,
+          dropped32BitSupport: false,
+          standardizedNaming: false,
+        },
+        os: {
+          renamedMacOS: false,
+          downcasedAll: false
+        }
+      },
+      tests: [
+        { os: 'linux', expected: 'Linux' },
+        { os: 'darwin', expected: 'macOS' },
+        { os: 'win32', expected: 'Windows' },
+      ],
+    },
+    {
+      condition: 'when hugo version === 0.102.z',
+      conventions: {
+        arch: {
+          darwinUniversal: true,
+          dropped32BitSupport: true,
+          standardizedNaming: false,
+        },
+        os: {
+          renamedMacOS: true,
+          downcasedAll: false
+        }
+      },
+      tests: [
+        { os: 'linux', expected: 'Linux' },
+        { os: 'darwin', expected: 'darwin' },
+        { os: 'win32', expected: 'Windows' },
+      ],
+    },
+    {
+      condition: 'when hugo version >= 0.103.0',
+      conventions: {
+        arch: {
+          darwinUniversal: true,
+          dropped32BitSupport: true,
+          standardizedNaming: true,
+        },
+        os: {
+          renamedMacOS: true,
+          downcasedAll: true
+        }
+      },
+      tests: [
+        { os: 'linux', expected: 'linux' },
+        { os: 'darwin', expected: 'darwin' },
+        { os: 'win32', expected: 'windows' },
+      ],
+    }
+  ].map(function (group) {
+    group.tests = group.tests.map(function (example) {
+      return Object.assign(example, {
+        toString: function () {
+          return `${example.os} returns ${example.expected}`
+        }
+      });
+    })
+    return Object.assign(group, { toString: function () { return group.condition } });
+  });
 
-    expect(getOS('linux', '0.102.0')).toBe('Linux');
-    expect(getOS('darwin', '0.102.0')).toBe('darwin');
-    expect(getOS('win32', '0.102.0')).toBe('Windows');
-
-    expect(getOS('linux', '0.103.0')).toBe('linux');
-    expect(getOS('darwin', '0.103.0')).toBe('darwin');
-    expect(getOS('win32', '0.103.0')).toBe('windows');
-
-    expect(getOS('linux', '0.104.0')).toBe('linux');
-    expect(getOS('darwin', '0.104.0')).toBe('darwin');
-    expect(getOS('win32', '0.104.0')).toBe('windows');
+  describe.each(groups)('%s', ({ conventions, tests }) => {
+    test.each(tests)('%s', ({ os, expected }) => {
+      expect(getOS(os, conventions)).toBe(expected);
+    })
   });
 
   test('exception', () => {
+    const conventions = {
+      arch: {
+        darwinUniversal: false,
+        dropped32BitSupport: false,
+        standardizedNaming: false,
+      },
+      os: {
+        renamedMacOS: false,
+        downcasedAll: false
+      }
+    }
+
     expect(() => {
-      getOS('centos', '0.101.0');
+      getOS('centos', conventions);
     }).toThrow('centos is not supported');
   });
 });

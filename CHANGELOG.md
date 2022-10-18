@@ -2,6 +2,77 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.0.0](https://github.com/peaceiris/actions-hugo/compare/v2.5.0...v3.0.0) (2022-10-17)
+
+
+### chore
+
+* Convert templates to YAML issue forms ([5fb41c8](https://github.com/peaceiris/actions-hugo/commit/5fb41c87da82b4f59a6198b0752b2bca9078d4a4))
+* Fix prettier (#535) ([5fa8f53](https://github.com/peaceiris/actions-hugo/commit/5fa8f53e895b6475798170197409983ae10d261c)), closes [#535](https://github.com/peaceiris/actions-hugo/issues/535)
+* fix year (#613) ([8da14cc](https://github.com/peaceiris/actions-hugo/commit/8da14cc542424be0081be3474ad36c74e34a7dfe)), closes [#613](https://github.com/peaceiris/actions-hugo/issues/613)
+* update url ([c1f39e2](https://github.com/peaceiris/actions-hugo/commit/c1f39e2b46476a13ad7e4a5eb06b8e2f582a2f13))
+
+### ci
+
+* add actions/dependency-review-action v1 ([4809af4](https://github.com/peaceiris/actions-hugo/commit/4809af4bd48eabfbb4c6be7588a9b3859dba454a))
+* add resolved ([101470c](https://github.com/peaceiris/actions-hugo/commit/101470c99f5450d86c10ea44c549fd267b317ffc))
+* bump actions/checkout from 2.3.4 to 2.3.5 (#546) ([3bb386e](https://github.com/peaceiris/actions-hugo/commit/3bb386ec5a21d7ae895f0880b0a2fb1ea189cd8b)), closes [#546](https://github.com/peaceiris/actions-hugo/issues/546)
+* bump actions/checkout from 2.3.5 to 2.4.0 (#548) ([86a3c30](https://github.com/peaceiris/actions-hugo/commit/86a3c300c730f9c35886afeca0af0c2ce031b0b4)), closes [#548](https://github.com/peaceiris/actions-hugo/issues/548)
+* bump actions/checkout from 2.4.0 to 3 (#565) ([a41bdb5](https://github.com/peaceiris/actions-hugo/commit/a41bdb53bd93ff61a324fffa43fab5b65bca4fdd)), closes [#565](https://github.com/peaceiris/actions-hugo/issues/565)
+* bump actions/dependency-review-action from 1 to 2 (#593) ([831547a](https://github.com/peaceiris/actions-hugo/commit/831547a4b23e8d07bbc73bdcc8423938d344bb4a)), closes [#593](https://github.com/peaceiris/actions-hugo/issues/593)
+* bump actions/setup-node from 2.1.5 to 2.2.0 (#529) ([497618b](https://github.com/peaceiris/actions-hugo/commit/497618ba62018779773217131791215872b92631)), closes [#529](https://github.com/peaceiris/actions-hugo/issues/529)
+* bump actions/setup-node from 2.2.0 to 2.3.0 (#531) ([781702e](https://github.com/peaceiris/actions-hugo/commit/781702ee9d9be2f39d1cc7971dfde041e1b17e1b)), closes [#531](https://github.com/peaceiris/actions-hugo/issues/531)
+* bump actions/setup-node from 2.3.0 to 2.3.2 (#537) ([239a50c](https://github.com/peaceiris/actions-hugo/commit/239a50c280a0b6595f3fd9f60f17d34e290a3ae4)), closes [#537](https://github.com/peaceiris/actions-hugo/issues/537)
+* bump actions/setup-node from 2.3.2 to 2.4.0 (#538) ([57272db](https://github.com/peaceiris/actions-hugo/commit/57272db01ca4c3253e4bb6163664a50a23a76cc5)), closes [#538](https://github.com/peaceiris/actions-hugo/issues/538)
+* bump actions/setup-node from 2.4.0 to 2.4.1 (#543) ([cebd001](https://github.com/peaceiris/actions-hugo/commit/cebd0015e0fbf4cdcd17422a1ba70f0c13b8b5c4)), closes [#543](https://github.com/peaceiris/actions-hugo/issues/543)
+* bump actions/setup-node from 2.4.1 to 2.5.0 (#551) ([008429a](https://github.com/peaceiris/actions-hugo/commit/008429aaabf87bac670904f069d682b7493ef9e1)), closes [#551](https://github.com/peaceiris/actions-hugo/issues/551)
+* bump actions/setup-node from 2.5.0 to 2.5.1 (#552) ([1575f40](https://github.com/peaceiris/actions-hugo/commit/1575f408aee0a92b8b324e1d7537fac7316d69d0)), closes [#552](https://github.com/peaceiris/actions-hugo/issues/552)
+* bump actions/setup-node from 2.5.1 to 3.0.0 (#557) ([550aee6](https://github.com/peaceiris/actions-hugo/commit/550aee6c368724015b790edca76711b5b6c8e781)), closes [#557](https://github.com/peaceiris/actions-hugo/issues/557)
+* bump actions/setup-node from 3.0.0 to 3.1.0 (#574) ([2f2b8d3](https://github.com/peaceiris/actions-hugo/commit/2f2b8d32b92379b30f0a4ad74d0cd6472c42e482)), closes [#574](https://github.com/peaceiris/actions-hugo/issues/574)
+* bump actions/setup-node from 3.1.0 to 3.1.1 (#577) ([25736cc](https://github.com/peaceiris/actions-hugo/commit/25736cc1c02fdd4b3eae34d261d2ad7fe45e135a)), closes [#577](https://github.com/peaceiris/actions-hugo/issues/577)
+* bump actions/setup-node from 3.1.1 to 3.4.1 (#598) ([11bede6](https://github.com/peaceiris/actions-hugo/commit/11bede66e7d1c36c4e39a5d1e32442056e41e7ef)), closes [#598](https://github.com/peaceiris/actions-hugo/issues/598)
+* bump actions/setup-node from 3.4.1 to 3.5.0 (#606) ([a2eba60](https://github.com/peaceiris/actions-hugo/commit/a2eba606985f706c754c8e4c283bc3d913897a31)), closes [#606](https://github.com/peaceiris/actions-hugo/issues/606)
+* bump actions/setup-node from 3.5.0 to 3.5.1 (#612) ([c0150f2](https://github.com/peaceiris/actions-hugo/commit/c0150f24bb3e706c93def97a4dae60b9b6fd23ff)), closes [#612](https://github.com/peaceiris/actions-hugo/issues/612)
+* bump actions/upload-artifact from 2 to 3 (#576) ([6ce18a7](https://github.com/peaceiris/actions-hugo/commit/6ce18a799f48752081f8aff7bdc21e0757b9f260)), closes [#576](https://github.com/peaceiris/actions-hugo/issues/576)
+* bump codecov/codecov-action from 1.5.0 to 1.5.2 (#526) ([ad8a667](https://github.com/peaceiris/actions-hugo/commit/ad8a66742861fb836a13187e2d66d126c2758296)), closes [#526](https://github.com/peaceiris/actions-hugo/issues/526)
+* bump codecov/codecov-action from 1.5.2 to 2.0.1 (#530) ([19b5ac8](https://github.com/peaceiris/actions-hugo/commit/19b5ac8979b2b5edfe306c9f3659b98effd6e285)), closes [#530](https://github.com/peaceiris/actions-hugo/issues/530)
+* bump codecov/codecov-action from 2.0.1 to 2.0.2 (#533) ([54f7007](https://github.com/peaceiris/actions-hugo/commit/54f7007102553a5e97014fbcb91aea3c0920db0b)), closes [#533](https://github.com/peaceiris/actions-hugo/issues/533)
+* bump codecov/codecov-action from 2.0.2 to 2.0.3 (#540) ([b911fb4](https://github.com/peaceiris/actions-hugo/commit/b911fb4dcf324e9f66c0553f61e037bead654e5d)), closes [#540](https://github.com/peaceiris/actions-hugo/issues/540)
+* bump codecov/codecov-action from 2.0.3 to 2.1.0 (#542) ([f93586e](https://github.com/peaceiris/actions-hugo/commit/f93586ef6c1a3a4f26eb0b6117e732507466d4de)), closes [#542](https://github.com/peaceiris/actions-hugo/issues/542)
+* bump codecov/codecov-action from 2.1.0 to 3 (#575) ([3c69ee1](https://github.com/peaceiris/actions-hugo/commit/3c69ee16122614bd86d8881c92e1e374669ca559)), closes [#575](https://github.com/peaceiris/actions-hugo/issues/575)
+* bump github/codeql-action from 1 to 2 (#581) ([808d10a](https://github.com/peaceiris/actions-hugo/commit/808d10a6aac88104619e8d47fca8a56eaeb71b12)), closes [#581](https://github.com/peaceiris/actions-hugo/issues/581)
+* bump peaceiris/actions-hugo from 2.4.13 to 2.5.0 (#521) ([6a16840](https://github.com/peaceiris/actions-hugo/commit/6a16840a8614e1d75a22df38f4a7555e7bb623ea)), closes [#521](https://github.com/peaceiris/actions-hugo/issues/521)
+* bump peaceiris/actions-label-commenter from 1.9.1 to 1.9.2 (#528) ([dead32d](https://github.com/peaceiris/actions-hugo/commit/dead32d58922938cb063b358881eb7df21e5b228)), closes [#528](https://github.com/peaceiris/actions-hugo/issues/528)
+* bump peaceiris/actions-label-commenter from 1.9.2 to 1.10.0 (#532) ([82ac7db](https://github.com/peaceiris/actions-hugo/commit/82ac7db7f2d5ece5824b40882acb6c9dbd31da56)), closes [#532](https://github.com/peaceiris/actions-hugo/issues/532)
+* Change event from published to released ([5d8b0b2](https://github.com/peaceiris/actions-hugo/commit/5d8b0b2005c61de25aa469e038efb717902a8500))
+* drop ubuntu-18.04, add ubuntu-22.04 and ubuntu-latest (#603) ([bd5a5ed](https://github.com/peaceiris/actions-hugo/commit/bd5a5edf1b6a534bee1c70bd49f0ba3ff435e597)), closes [#603](https://github.com/peaceiris/actions-hugo/issues/603)
+* Remove updating npm ([ba23c24](https://github.com/peaceiris/actions-hugo/commit/ba23c24d3ae3be77ed05b3c0ac9990b030648de0))
+
+### deps
+
+* bump @actions/core from 1.2.7 to 1.6.0 (#544) ([be79927](https://github.com/peaceiris/actions-hugo/commit/be79927858b2280c3c371f70e54a8f73fd17d931)), closes [#544](https://github.com/peaceiris/actions-hugo/issues/544)
+* bump @actions/exec from 1.0.4 to 1.1.1 (#571) ([7d27b3c](https://github.com/peaceiris/actions-hugo/commit/7d27b3ca0d7d3196371a1d3fb1575317d6099146)), closes [#571](https://github.com/peaceiris/actions-hugo/issues/571)
+* bump @actions/tool-cache from 1.6.1 to 1.7.2 (#570) ([616b5f1](https://github.com/peaceiris/actions-hugo/commit/616b5f11b689c6a3064f589815e8bfbc04c444e9)), closes [#570](https://github.com/peaceiris/actions-hugo/issues/570)
+* bump ansi-regex from 5.0.0 to 5.0.1 (#562) ([857689a](https://github.com/peaceiris/actions-hugo/commit/857689ab4c02dd173b4d9b2bc569b94f0bd56a11)), closes [#562](https://github.com/peaceiris/actions-hugo/issues/562)
+* bump glob-parent from 5.1.1 to 5.1.2 (#563) ([91a922c](https://github.com/peaceiris/actions-hugo/commit/91a922ca60edf9a5dd9466dae065fcbd8e02efc2)), closes [#563](https://github.com/peaceiris/actions-hugo/issues/563)
+* bump minimist from 1.2.5 to 1.2.6 (#572) ([b2630b1](https://github.com/peaceiris/actions-hugo/commit/b2630b1c8ff9200bde342ec33b98c1ede4c03473)), closes [#572](https://github.com/peaceiris/actions-hugo/issues/572)
+* bump path-parse from 1.0.6 to 1.0.7 (#559) ([dee3925](https://github.com/peaceiris/actions-hugo/commit/dee39257f51c6bfbeffdc8b475029fad02299a5a)), closes [#559](https://github.com/peaceiris/actions-hugo/issues/559)
+* bump shelljs from 0.8.4 to 0.8.5 (#561) ([26d3d6b](https://github.com/peaceiris/actions-hugo/commit/26d3d6b6560f1131c4f9ae9622a7558ac9a2c19d)), closes [#561](https://github.com/peaceiris/actions-hugo/issues/561)
+* bump tmpl from 1.0.4 to 1.0.5 (#558) ([8f469b1](https://github.com/peaceiris/actions-hugo/commit/8f469b17c39a96eeffd077531bf8db8b9f22e916)), closes [#558](https://github.com/peaceiris/actions-hugo/issues/558)
+* bump trim-off-newlines from 1.0.1 to 1.0.3 (#560) ([f90a733](https://github.com/peaceiris/actions-hugo/commit/f90a73305c9f1a235a04a6dd16b8d728f72c623c)), closes [#560](https://github.com/peaceiris/actions-hugo/issues/560)
+* bump ws from 7.4.0 to 7.5.7 (#573) ([b15a5c7](https://github.com/peaceiris/actions-hugo/commit/b15a5c70d3e8c52cb88b2cc6786611441c83e9d4)), closes [#573](https://github.com/peaceiris/actions-hugo/issues/573)
+* node 12.22.4 ([4083be1](https://github.com/peaceiris/actions-hugo/commit/4083be136338c4140b03cbe12fe046a46c38dbdd))
+
+### docs
+
+* Add concurrency ([8d746f0](https://github.com/peaceiris/actions-hugo/commit/8d746f09e2808a6e250393fde3d471d7cf53a047))
+* Improve concurrency usage ([20d6724](https://github.com/peaceiris/actions-hugo/commit/20d6724b2ce2fbb34442e0a950796050e21e054d))
+* Improve if syntax ([068938a](https://github.com/peaceiris/actions-hugo/commit/068938ab2245aee69d3120f8b120f009345713a8))
+* use setup-node cache-dependency-path (#602) ([46553ea](https://github.com/peaceiris/actions-hugo/commit/46553eae11dc4ca2d07de9f176dc4fa4c2c50c10)), closes [#602](https://github.com/peaceiris/actions-hugo/issues/602)
+* Use ubuntu-20.04 ([903b945](https://github.com/peaceiris/actions-hugo/commit/903b94526d6bc9980c3ed3de99ba63dad5209b10))
+
+
+
 # [2.5.0](https://github.com/peaceiris/actions-hugo/compare/v2.4.13...v2.5.0) (2021-05-27)
 
 

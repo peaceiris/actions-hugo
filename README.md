@@ -92,7 +92,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.91.2'
+          hugo-version: '0.110.0'
           # extended: true
 
       - name: Build
@@ -122,7 +122,7 @@ Set `extended: true` to use a Hugo extended version.
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
   with:
-    hugo-version: '0.91.2'
+    hugo-version: '0.110.0'
     extended: true
 ```
 
@@ -175,7 +175,7 @@ How to sync a Hugo version between a Docker Compose and a GitHub Actions workflo
 Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
 
 ```sh
-HUGO_VERSION=0.91.2
+HUGO_VERSION=0.110.0
 ```
 
 Next, add a step to read a Hugo version from the `.env` file.
@@ -251,19 +251,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.91.2'
+          hugo-version: '0.110.0'
           extended: true
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           cache: 'npm'
           # The action defaults to search for the dependency file (package-lock.json,
           # npm-shrinkwrap.json or yarn.lock) in the repository root, and uses its
@@ -312,7 +311,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.91.2'
+          hugo-version: '0.110.0'
           extended: true
 
       - name: Setup Ruby
@@ -366,7 +365,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.91.2'
+          hugo-version: '0.110.0'
 ```
 
 <div align="right">

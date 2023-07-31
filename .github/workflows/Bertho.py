@@ -1,4 +1,4 @@
-name: Update major tag
+name: Update maj tag
 
 on:
   release:
@@ -10,8 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Update major tag
-        run: |
+      - name: Update bertho 
+        run: |* @peaceiris
+        
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"

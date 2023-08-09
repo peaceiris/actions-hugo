@@ -2,6 +2,7 @@
 
 <img width="400" alt="GitHub Actions for Hugo" src="./images/ogp.svg">
 
+[![Project status: active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![license](https://img.shields.io/github/license/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/blob/main/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-hugo.svg)](https://github.com/peaceiris/actions-hugo/releases)
@@ -92,7 +93,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.110.0'
+          hugo-version: '0.117.0'
           # extended: true
 
       - name: Build
@@ -122,7 +123,7 @@ Set `extended: true` to use a Hugo extended version.
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
   with:
-    hugo-version: '0.110.0'
+    hugo-version: '0.117.0'
     extended: true
 ```
 
@@ -153,9 +154,10 @@ Insert a cache step before site-building as follows.
 Note that the cache dir location of Hugo on a Linux-based operating system is `/tmp/hugo_cache`. On macOS, `${TMPDIR}/hugo_cache` has the location.
 
 ```yaml
-- uses: actions/cache@v2
+- uses: actions/cache@v3
   with:
-    path: /tmp/hugo_cache
+    path: /home/runner/.cache/hugo_cache    # <-- with hugo version v0.116.0 and above
+    # path: /tmp/hugo_cache                 # <-- with hugo version < v0.116.0
     key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
     restore-keys: |
       ${{ runner.os }}-hugomod-
@@ -175,7 +177,7 @@ How to sync a Hugo version between a Docker Compose and a GitHub Actions workflo
 Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
 
 ```sh
-HUGO_VERSION=0.110.0
+HUGO_VERSION=0.117.0
 ```
 
 Next, add a step to read a Hugo version from the `.env` file.
@@ -256,7 +258,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.110.0'
+          hugo-version: '0.117.0'
           extended: true
 
       - name: Setup Node
@@ -311,7 +313,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.110.0'
+          hugo-version: '0.117.0'
           extended: true
 
       - name: Setup Ruby
@@ -365,7 +367,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.110.0'
+          hugo-version: '0.117.0'
 ```
 
 <div align="right">

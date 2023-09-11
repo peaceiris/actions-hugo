@@ -85,7 +85,7 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
@@ -93,7 +93,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.117.0'
+          hugo-version: '0.119.0'
           # extended: true
 
       - name: Build
@@ -123,7 +123,7 @@ Set `extended: true` to use a Hugo extended version.
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
   with:
-    hugo-version: '0.117.0'
+    hugo-version: '0.119.0'
     extended: true
 ```
 
@@ -151,7 +151,7 @@ This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](htt
 ### ⭐️ Caching Hugo Modules
 
 Insert a cache step before site-building as follows.
-Note that the cache dir location of Hugo on a Linux-based operating system is `/tmp/hugo_cache`. On macOS, `${TMPDIR}/hugo_cache` has the location.
+Note that with latest hugo version, the [cache dir location](https://gohugo.io/getting-started/configuration/#configure-cachedir) on a Linux-based operating system is `${HOME}/.cache`. On macOS, `${HOME}/Library/Caches` has the location.
 
 ```yaml
 - uses: actions/cache@v3
@@ -177,7 +177,7 @@ How to sync a Hugo version between a Docker Compose and a GitHub Actions workflo
 Write a `HUGO_VERSION` to the `.env` file like the following and push it to a remote branch.
 
 ```sh
-HUGO_VERSION=0.117.0
+HUGO_VERSION=0.119.0
 ```
 
 Next, add a step to read a Hugo version from the `.env` file.
@@ -251,14 +251,14 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@4
         with:
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.117.0'
+          hugo-version: '0.119.0'
           extended: true
 
       - name: Setup Node
@@ -305,7 +305,7 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
@@ -313,7 +313,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.117.0'
+          hugo-version: '0.119.0'
           extended: true
 
       - name: Setup Ruby
@@ -357,7 +357,7 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -367,7 +367,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.117.0'
+          hugo-version: '0.119.0'
 ```
 
 <div align="right">

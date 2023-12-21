@@ -4,8 +4,8 @@
   "description": "GitHub Actions for Hugo",
   "main": "lib/index.js",
   "engines": {
-    "node": ">=16.18.0",
-    "npm": ">=8.19.0"
+    "node": ">=20.10.0",
+    "npm": ">=10.2.3"
   },
   "scripts": {
     "all": "npm run format:check && npm run lint && npm test",

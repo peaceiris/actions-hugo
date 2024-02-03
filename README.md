@@ -24,7 +24,7 @@ We no longer build or pull a Hugo docker image.
 Thanks to this change, we can complete this action in less than a few seconds.
 (A docker base action was taking about 1 min or more execution time to build and pull a docker image.)
 
-| OS (runs-on) | ubuntu-latest, ubuntu-20.04, ubuntu-22.04 | macos-latest | windows-2019 |
+| OS (runs-on) | ubuntu-latest, ubuntu-20.04 | macos-latest | windows-latest |
 |---|:---:|:---:|:---:|
 | Support | ✅️ | ✅️ | ✅️ |
 
@@ -81,7 +81,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -154,7 +154,7 @@ Insert a cache step before site-building as follows.
 Note that with latest hugo version, the [cache dir location](https://gohugo.io/getting-started/configuration/#configure-cachedir) on a Linux-based operating system is `${HOME}/.cache`. On macOS, `${HOME}/Library/Caches` has the location.
 
 ```yaml
-- uses: actions/cache@v3
+- uses: actions/cache@v4
   with:
     path: /home/runner/.cache/hugo_cache    # <-- with hugo version v0.116.0 and above
     # path: /tmp/hugo_cache                 # <-- with hugo version < v0.116.0
@@ -247,7 +247,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -262,7 +262,7 @@ jobs:
           extended: true
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -301,7 +301,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -353,7 +353,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:

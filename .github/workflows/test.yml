@@ -17,7 +17,6 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - 'ubuntu-22.04'
           - 'ubuntu-20.04'
           - 'ubuntu-latest'
           - 'macos-latest'
@@ -33,23 +32,23 @@ jobs:
       - run: npm ci
 
       - name: Run prettier
-        if: startsWith(matrix.os, 'ubuntu-22.04')
+        if: startsWith(matrix.os, 'ubuntu-latest')
         run: npm run format:check
 
       - name: Run eslint
-        if: startsWith(matrix.os, 'ubuntu-22.04')
+        if: startsWith(matrix.os, 'ubuntu-latest')
         run: npm run lint
 
       - name: Run ncc
-        if: startsWith(matrix.os, 'ubuntu-22.04')
+        if: startsWith(matrix.os, 'ubuntu-latest')
         run: npm run build
 
       - run: npm test
 
       - name: Upload test coverage as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-${{ matrix.os }}
           path: coverage
 
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4

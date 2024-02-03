@@ -24,7 +24,7 @@ We no longer build or pull a Hugo docker image.
 Thanks to this change, we can complete this action in less than a few seconds.
 (A docker base action was taking about 1 min or more execution time to build and pull a docker image.)
 
-| OS (runs-on) | ubuntu-latest, ubuntu-20.04, ubuntu-22.04 | macos-latest | windows-2019 |
+| OS (runs-on) | ubuntu-latest, ubuntu-20.04 | macos-latest | windows-latest |
 |---|:---:|:---:|:---:|
 | Support | ✅️ | ✅️ | ✅️ |
 
@@ -81,7 +81,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -151,13 +151,27 @@ This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](htt
 ### ⭐️ Caching Hugo Modules
 
 Insert a cache step before site-building as follows.
-Note that with latest hugo version, the [cache dir location](https://gohugo.io/getting-started/configuration/#configure-cachedir) on a Linux-based operating system is `${HOME}/.cache`. On macOS, `${HOME}/Library/Caches` has the location.
+
+First, to maximize compatibility with all Hugo versions, let's define the variable `HUGO_CACHEDIR`:
+
+```yaml
+# * ...
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    env:
+      HUGO_CACHEDIR: /tmp/hugo_cache # <- Define the env variable here, so that Hugo's cache dir is now predictible in your workflow and doesn't depend on the Hugo's version you're using.
+
+# * ...
+```
+
+Now, let's add the cache action call just above the _Build_ step:
 
 ```yaml
 - uses: actions/cache@v4
   with:
-    path: /home/runner/.cache/hugo_cache    # <-- with hugo version v0.116.0 and above
-    # path: /tmp/hugo_cache                 # <-- with hugo version < v0.116.0
+    path: ${{ env.HUGO_CACHEDIR }} # <- Use the same env variable just right here
     key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
     restore-keys: |
       ${{ runner.os }}-hugomod-
@@ -247,7 +261,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -300,7 +314,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -352,7 +366,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:

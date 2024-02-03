@@ -5,6 +5,7 @@ import * as main from './main';
   try {
     await main.run();
   } catch (e) {
+    // eslint-ignore-next-line
     core.setFailed(`Action failed with error ${e.message}`);
   }
 })();

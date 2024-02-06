@@ -1,11 +1,11 @@
 {
   "name": "actions-hugo",
-  "version": "2.6.0",
+  "version": "3.0.0",
   "description": "GitHub Actions for Hugo",
   "main": "lib/index.js",
   "engines": {
-    "node": ">=16.18.0",
-    "npm": ">=8.19.0"
+    "node": ">=20.10.0",
+    "npm": ">=10.2.3"
   },
   "scripts": {
     "all": "npm run format:check && npm run lint && npm test",
@@ -55,11 +55,11 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
-    "@types/node": "~12",
+    "@types/node": "~20",
     "@types/node-fetch": "^2.5.8",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
-    "@vercel/ncc": "^0.27.0",
+    "@vercel/ncc": "^0.38.1",
     "eslint": "^7.21.0",
     "eslint-plugin-jest": "^24.1.5",
     "husky": "^5.1.3",

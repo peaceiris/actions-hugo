@@ -14,6 +14,7 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os:
           - 'ubuntu-20.04'
@@ -23,14 +24,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Read .nvmrc
-        run: echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_OUTPUT
-        id: nvm
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
       - run: npm ci
 

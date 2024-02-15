@@ -15,7 +15,7 @@ export default function getURL(
   };
 
   const ext = (os: string): string => {
-    if (os === 'Windows') {
+    if (os === 'windows') {
       return 'zip';
     } else {
       return 'tar.gz';

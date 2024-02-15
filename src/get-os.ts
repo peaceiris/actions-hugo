@@ -1,11 +1,11 @@
 export default function getOS(platform: string): string {
   switch (platform) {
     case 'linux':
-      return 'Linux';
+      return 'linux';
     case 'darwin':
-      return 'macOS';
+      return 'darwin';
     case 'win32':
-      return 'Windows';
+      return 'windows';
     default:
       throw new Error(`${platform} is not supported`);
   }

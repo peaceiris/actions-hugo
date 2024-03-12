@@ -156,7 +156,7 @@ Note that with latest hugo version, the [cache dir location](https://gohugo.io/g
 ```yaml
 - uses: actions/cache@v3
   with:
-    path: /home/runner/.cache/hugo_cache    # <-- with hugo version v0.116.0 and above
+    path: /tmp/hugo_cache_runner            # <-- with hugo version v0.116.0 and above
     # path: /tmp/hugo_cache                 # <-- with hugo version < v0.116.0
     key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
     restore-keys: |

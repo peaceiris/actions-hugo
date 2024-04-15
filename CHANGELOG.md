@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.0.0](https://github.com/peaceiris/actions-hugo/compare/v2.6.0...v3.0.0) (2024-04-02)
+
+
+### build
+
+* node 20.11.1 ([01bd2b1](https://github.com/peaceiris/actions-hugo/commit/01bd2b16cc6cadbc63cba9bddb36c689f462c2db))
+
+### chore
+
+* npm audit fix ([966dfad](https://github.com/peaceiris/actions-hugo/commit/966dfad3859a5cfc80b6e36761b0b4c7b3dd5e0c))
+* revert version ([d85452e](https://github.com/peaceiris/actions-hugo/commit/d85452eadfba7065bf8c0601c8c22e427982d108))
+
+### ci
+
+* bump actions/dependency-review-action from 2 to 3 (#622) ([844f873](https://github.com/peaceiris/actions-hugo/commit/844f8735f61722d43677c23cbeae4283af7b554a)), closes [#622](https://github.com/peaceiris/actions-hugo/issues/622)
+* bump actions/setup-node from 3.5.1 to 3.6.0 (#625) ([3fa8fd6](https://github.com/peaceiris/actions-hugo/commit/3fa8fd6cee4e03774c4e900dca8b766d1cdcae93)), closes [#625](https://github.com/peaceiris/actions-hugo/issues/625)
+* bump checkout to v4 (#639) ([aadc3a9](https://github.com/peaceiris/actions-hugo/commit/aadc3a98dfd3437f8f97d436ea91b82a73dc85dd)), closes [#639](https://github.com/peaceiris/actions-hugo/issues/639)
+* bump peaceiris/actions-hugo from 2.5.0 to 2.6.0 (#621) ([b1822b6](https://github.com/peaceiris/actions-hugo/commit/b1822b6abe1a489f9ba7b9b664d916aeafd3e592)), closes [#621](https://github.com/peaceiris/actions-hugo/issues/621)
+
+### docs
+
+* bump ruby version to 3.2 (#629) ([7c4b9f1](https://github.com/peaceiris/actions-hugo/commit/7c4b9f1f99c72728600c292c1f0e7138cc3a8865)), closes [#629](https://github.com/peaceiris/actions-hugo/issues/629)
+* bump versions (#628) ([7652d53](https://github.com/peaceiris/actions-hugo/commit/7652d5336914f4ecd975baff70cd3c4b5070678b)), closes [#628](https://github.com/peaceiris/actions-hugo/issues/628)
+* remove braces (#634) ([31c4654](https://github.com/peaceiris/actions-hugo/commit/31c46541ceabb0656cd9e943914ab1701da3e788)), closes [#634](https://github.com/peaceiris/actions-hugo/issues/634)
+* replace set-output with GITHUB_OUTPUT ([3d92e2f](https://github.com/peaceiris/actions-hugo/commit/3d92e2fd556bef7470d7e2a6aea63141183c20a6))
+* update cache usage (#636) ([c0084b0](https://github.com/peaceiris/actions-hugo/commit/c0084b0763db3a37f864755d9174f2a6f3e0c1c5)), closes [#636](https://github.com/peaceiris/actions-hugo/issues/636)
+
+### feat
+
+* bump to use node20 runtime (#641) ([c57490a](https://github.com/peaceiris/actions-hugo/commit/c57490a8b04136ae58ab5866a93d3db2f0fa0945)), closes [#641](https://github.com/peaceiris/actions-hugo/issues/641)
+
+
+
 # [2.6.0](https://github.com/peaceiris/actions-hugo/compare/v2.5.0...v2.6.0) (2022-10-23)
 
 

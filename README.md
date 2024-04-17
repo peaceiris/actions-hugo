@@ -154,7 +154,7 @@ Insert a cache step before site-building as follows.
 Note that with latest hugo version, the [cache dir location](https://gohugo.io/getting-started/configuration/#configure-cachedir) on a Linux-based operating system is `${HOME}/.cache`. On macOS, `${HOME}/Library/Caches` has the location.
 
 ```yaml
-- uses: actions/cache@v3
+- uses: actions/cache@v4
   with:
     path: /home/runner/.cache/hugo_cache    # <-- with hugo version v0.116.0 and above
     # path: /tmp/hugo_cache                 # <-- with hugo version < v0.116.0

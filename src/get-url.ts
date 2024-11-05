@@ -2,6 +2,7 @@ export default function getURL(
   os: string,
   arch: string,
   extended: string,
+  withdeploy: string,
   version: string
 ): string {
   const extendedStr = (extended: string): string => {
@@ -14,6 +15,16 @@ export default function getURL(
     }
   };
 
+  const withdeployStr = (withdeploy: string): string => {
+    if (withdeploy === 'true') {
+      return 'withdeploy_';
+    } else {
+      return '';
+      // } else {
+      //   throw new Error(`Invalid input (withdeploy): ${withdeploy}`);
+    }
+  };
+
   const ext = (os: string): string => {
     if (os === 'Windows') {
       return 'zip';
@@ -22,7 +33,7 @@ export default function getURL(
     }
   };
 
-  const hugoName = `hugo_${extendedStr(extended)}${version}_${os}-${arch}`;
+  const hugoName = `hugo_${extendedStr(extended)}${withdeployStr(withdeploy)}${version}_${os}-${arch}`;
   const baseURL = 'https://github.com/gohugoio/hugo/releases/download';
   const url = `${baseURL}/v${version}/${hugoName}.${ext(os)}`;
 

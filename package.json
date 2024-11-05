@@ -1,6 +1,6 @@
 {
   "name": "actions-hugo",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "GitHub Actions for Hugo",
   "main": "lib/index.js",
   "engines": {

@@ -21,6 +21,9 @@ jobs:
         extended:
           - true
           - false
+        withdeploy:
+          - true
+          - false
     steps:
       - uses: actions/checkout@v4
 
@@ -29,6 +32,7 @@ jobs:
         with:
           hugo-version: ${{ matrix.hugo-version }}
           extended: ${{ matrix.extended }}
+          withdeploy: ${{ matrix.withdeploy }}
 
       - name: Run hugo version
         run: echo "::set-output name=hugo_version::$(hugo version)"

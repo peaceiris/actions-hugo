@@ -56,7 +56,10 @@ export async function installer(version: string): Promise<void> {
   const archName: string = getArch(process.arch);
   core.debug(`Processor Architecture: ${archName}`);
 
-  const toolURL: string = getURL(osName, archName, extended, withdeploy, version);
+  const system = { os: osName, arch: archName };
+  const options = { extended: extended, withdeploy: withdeploy, version: version }
+
+  const toolURL: string = getURL(system, options);
   core.debug(`toolURL: ${toolURL}`);
 
   const workDir = await createWorkDir();

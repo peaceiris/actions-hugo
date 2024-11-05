@@ -14,7 +14,7 @@ export default function getURL(
     extendedStr = 'extended_';
   }
   let withdeployStr = '';
-  if (options..withdeploy === 'true') {
+  if (options.withdeploy === 'true') {
     withdeployStr = 'withdeploy_';
   }
   let ext = 'tar.gz';

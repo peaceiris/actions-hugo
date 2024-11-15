@@ -1,5 +1,5 @@
 name: 'Hugo setup'
-description: 'GitHub Actions for Hugo ⚡️ Setup Hugo quickly and build your site fast. Hugo extended and Hugo Modules are supported.'
+description: 'GitHub Actions for Hugo ⚡️ Setup Hugo quickly and build your site fast. Hugo extended, Hugo deploy and Hugo Modules are supported.'
 author: 'peaceiris'
 inputs:
   hugo-version:
@@ -8,6 +8,10 @@ inputs:
     default: 'latest'
   extended:
     description: 'Download (if necessary) and use Hugo extended version. Example: true'
+    required: false
+    default: 'false'
+  withdeploy:
+    description: 'Download (if necessary) and use Hugo deploy feature. Example: true'
     required: false
     default: 'false'
 runs:

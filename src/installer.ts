@@ -47,13 +47,19 @@ export async function installer(version: string): Promise<void> {
   const extended: string = core.getInput('extended');
   core.debug(`Hugo extended: ${extended}`);
 
+  const withdeploy: string = core.getInput('withdeploy');
+  core.debug(`Hugo withdeploy: ${withdeploy}`);
+
   const osName: string = getOS(process.platform);
   core.debug(`Operating System: ${osName}`);
 
   const archName: string = getArch(process.arch);
   core.debug(`Processor Architecture: ${archName}`);
 
-  const toolURL: string = getURL(osName, archName, extended, version);
+  const system = { os: osName, arch: archName };
+  const options = { extended: extended, withdeploy: withdeploy, version: version }
+
+  const toolURL: string = getURL(system, options);
   core.debug(`toolURL: ${toolURL}`);
 
   const workDir = await createWorkDir();

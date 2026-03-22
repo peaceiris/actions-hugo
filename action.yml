@@ -4,11 +4,11 @@ author: 'peaceiris'
 inputs:
   hugo-version:
     description: 'The Hugo version to download (if necessary) and use. Example: 0.58.2'
-    required: false
+    required: true
     default: 'latest'
   extended:
     description: 'Download (if necessary) and use Hugo extended version. Example: true'
-    required: false
+    required: true
     default: 'false'
 runs:
   using: 'node20'

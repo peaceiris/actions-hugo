@@ -1,9 +1,9 @@
 name: 'DESIGNCONSTANT'
 description: 'GitHub Actions for Hugo ⚡️ Setup Hugo quickly and build your site fast. Hugo extended and Hugo Modules are supported.'
-author: 'peaceiris'
+author: 'michael hall'
 inputs:
   hugo-version:
-    description: 'The Hugo version to download (if necessary) and use. Example: 0.58.2'
+    description: 'The Hugo version to download (if necessary) and use. Example: 0.58.2
     required: true
     default: 'latest'
   extended:

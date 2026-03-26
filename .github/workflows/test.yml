@@ -41,6 +41,7 @@ jobs:
         run: npm run lint
 
       - name: Run ncc
+      [![Daily Test](https://github.com/Apostles1/actions-hugo/actions/workflows/test-action.yml/badge.svg?event=check_run)](https://github.com/Apostles1/actions-hugo/actions/workflows/test-action.yml)
         if: startsWith(matrix.os, 'ubuntu-22.04')
         run: npm run build
 

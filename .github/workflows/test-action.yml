@@ -1,38 +1,26 @@
-name: Daily Test
+name: Test Action
 
 on:
-  schedule:
-    - cron: '13 13 * * *'
+  push:
+    branches: [main, feat/node24]
+  pull_request:
   workflow_dispatch:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os:
-          - 'ubuntu-20.04'
-          - 'ubuntu-latest'
-          - 'macos-latest'
-          - 'windows-latest'
-        hugo-version:
-          - 'latest'
-          - '0.61.0'
-        extended:
-          - true
-          - false
+        hugo-version: ['latest', '0.160.1']
+        extended: [true, false]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3.0.0
+        uses: ./
         with:
           hugo-version: ${{ matrix.hugo-version }}
           extended: ${{ matrix.extended }}
 
-      - name: Run hugo version
-        run: echo "::set-output name=hugo_version::$(hugo version)"
-        id: hugo_version
-
-      - name: '${{ steps.hugo_version.outputs.hugo_version }}'
-        run: echo '${{ steps.hugo_version.outputs.hugo_version }}'
+      - name: Verify Hugo
+        run: hugo version

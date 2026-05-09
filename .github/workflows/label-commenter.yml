@@ -10,16 +10,21 @@ on:
   #     - labeled
   #     - unlabeled
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   comment:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: main
 
       - name: Label Commenter
-        uses: peaceiris/actions-label-commenter@v1.10.0
+        uses: peaceiris/actions-label-commenter@c74c602750041f04c2bb68d200fc2fdae169a044 # v1.10.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # config_file: .github/label-commenter-config.yml

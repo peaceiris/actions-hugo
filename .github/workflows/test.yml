@@ -10,22 +10,24 @@ on:
     paths-ignore:
       - '**.md'
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
         os:
-          - 'ubuntu-22.04'
-          - 'ubuntu-20.04'
-          - 'ubuntu-latest'
+          - 'ubuntu-24.04'
           - 'macos-latest'
           - 'windows-latest'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -33,23 +35,23 @@ jobs:
       - run: npm ci
 
       - name: Run prettier
-        if: startsWith(matrix.os, 'ubuntu-22.04')
+        if: matrix.os == 'ubuntu-24.04'
         run: npm run format:check
 
       - name: Run eslint
-        if: startsWith(matrix.os, 'ubuntu-22.04')
+        if: matrix.os == 'ubuntu-24.04'
         run: npm run lint
 
       - name: Run ncc
-        if: startsWith(matrix.os, 'ubuntu-22.04')
+        if: matrix.os == 'ubuntu-24.04'
         run: npm run build
 
       - run: npm test
 
       - name: Upload test coverage as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: coverage-${{ matrix.os }}
           path: coverage
 
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@aa56896cf108bd10b5eb883cd1d24196da57f695 # v5.5.4

@@ -25,6 +25,7 @@ describe('Integration testing run()', () => {
   test('succeed in installing a custom version', async () => {
     const testVersion = Tool.TestVersionSpec;
     process.env['INPUT_HUGO-VERSION'] = testVersion;
+    process.env['INPUT_EXTENDED'] = 'false';
     const result: main.ActionResult = await main.run();
     expect(result.exitcode).toBe(0);
     expect(result.output).toMatch(`hugo v${testVersion}`);
@@ -43,6 +44,7 @@ describe('Integration testing run()', () => {
   test('succeed in installing the latest version', async () => {
     const testVersion = 'latest';
     process.env['INPUT_HUGO-VERSION'] = testVersion;
+    process.env['INPUT_EXTENDED'] = 'false';
     nock('https://formulae.brew.sh').get(`/api/formula/${Tool.Repo}.json`).reply(200, jsonTestBrew);
     const result: main.ActionResult = await main.run();
     expect(result.exitcode).toBe(0);
@@ -62,8 +64,8 @@ describe('Integration testing run()', () => {
 
   test('fail to install the latest version due to 404 of brew', async () => {
     process.env['INPUT_HUGO-VERSION'] = 'latest';
+    process.env['INPUT_EXTENDED'] = 'false';
     nock('https://formulae.brew.sh').get(`/api/formula/${Tool.Repo}.json`).reply(404);
-
     await expect(main.run()).rejects.toThrowError(FetchError);
   });
 });

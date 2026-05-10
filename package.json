@@ -56,7 +56,6 @@
   "devDependencies": {
     "@types/jest": "30.0.0",
     "@types/node": "25.6.2",
-    "@types/node-fetch": "2.6.13",
     "@typescript-eslint/eslint-plugin": "8.59.2",
     "@typescript-eslint/parser": "8.59.2",
     "@vercel/ncc": "0.38.4",

@@ -5,6 +5,7 @@ import * as main from './main';
   try {
     await main.run();
   } catch (e) {
-    core.setFailed(`Action failed with error ${e.message}`);
+    const message = e instanceof Error ? e.message : String(e);
+    core.setFailed(`Action failed with error ${message}`);
   }
 })();

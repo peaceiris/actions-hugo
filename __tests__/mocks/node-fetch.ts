@@ -22,8 +22,35 @@ interface ResponseLike {
   json: () => Promise<unknown>;
 }
 
+interface MockResponse {
+  body?: unknown;
+  status: number;
+}
+
+const mockResponses = new Map<string, MockResponse>();
+
+export function mockFetchResponse(url: string, status: number, body?: unknown): void {
+  mockResponses.set(url, {
+    body,
+    status
+  });
+}
+
+export function clearMockFetchResponses(): void {
+  mockResponses.clear();
+}
+
 export default async function fetch(url: string | URL): Promise<ResponseLike> {
   const target = url.toString();
+  const mockResponse = mockResponses.get(target);
+  if (mockResponse) {
+    return {
+      ok: mockResponse.status >= 200 && mockResponse.status < 300,
+      status: mockResponse.status,
+      json: async () => mockResponse.body as unknown
+    };
+  }
+
   const client = target.startsWith('https:') ? https : http;
 
   return new Promise((resolve, reject) => {

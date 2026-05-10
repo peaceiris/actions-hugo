@@ -6,11 +6,12 @@ on:
 
 jobs:
   purge:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    permissions: {}
     steps:
-
-    - run: >
-        curl -sL https://github.com/${GITHUB_REPOSITORY} |
-        grep -oE '<img src="https?://camo.githubusercontent.com/[^"]+' |
-        sed -e 's/<img src="//' |
-        xargs -I % curl -sX PURGE %
+      - run: |
+          curl -sL "https://github.com/${GITHUB_REPOSITORY}" |
+          grep -oE '<img src="https?://camo.githubusercontent.com/[^"]+' |
+          sed -e 's/<img src="//' |
+          xargs -r -I % curl -sX PURGE %

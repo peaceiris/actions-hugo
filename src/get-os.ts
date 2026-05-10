@@ -1,11 +1,14 @@
-export default function getOS(platform: string): string {
+import { conventions } from "./get-conventions";
+
+export default function getOS(platform: string, conventions: conventions): string {
+
   switch (platform) {
     case 'linux':
-      return 'Linux';
+      return conventions.os.downcasedAll ? 'linux' : 'Linux'
     case 'darwin':
-      return 'macOS';
+      return conventions.os.renamedMacOS ? 'darwin' : 'macOS'
     case 'win32':
-      return 'Windows';
+      return conventions.os.downcasedAll ? 'windows' : 'Windows'
     default:
       throw new Error(`${platform} is not supported`);
   }

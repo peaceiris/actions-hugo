@@ -8,7 +8,7 @@ describe('getConventions()', () => {
       expected: {
         arch: {
           darwinUniversal: false,
-          dropped32BitSupport: false,
+          droppedWindowsArmSupport: false,
           standardizedNaming: false
         },
         os: {
@@ -23,11 +23,11 @@ describe('getConventions()', () => {
       expected: {
         arch: {
           darwinUniversal: true,
-          dropped32BitSupport: true,
+          droppedWindowsArmSupport: true,
           standardizedNaming: false
         },
         os: {
-          renamedMacOS: true,
+          renamedMacOS: false,
           downcasedAll: false
         }
       }
@@ -38,7 +38,7 @@ describe('getConventions()', () => {
       expected: {
         arch: {
           darwinUniversal: true,
-          dropped32BitSupport: true,
+          droppedWindowsArmSupport: true,
           standardizedNaming: true
         },
         os: {

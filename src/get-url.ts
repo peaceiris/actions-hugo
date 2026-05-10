@@ -49,22 +49,34 @@ export default function getURL(
     );
   }
 
-  if (os === 'Windows') {
+  if (os === 'darwin') {
     return assetURLs(
       assetBases.flatMap(assetBase => [
-        `${assetBase}Windows-${arch}.zip`,
-        `${assetBase}windows-${lowerArch(arch)}.zip`
+        `${assetBase}darwin-${arch}.tar.gz`,
+        `${assetBase}darwin-${arch}.pkg`
       ])
     );
   }
 
-  if (os === 'Linux') {
+  if (os === 'Windows' || os === 'windows') {
+    const assetPatterns =
+      os === 'windows'
+        ? [`windows-${lowerArch(arch)}.zip`, `Windows-${arch}.zip`]
+        : [`Windows-${arch}.zip`, `windows-${lowerArch(arch)}.zip`];
+
     return assetURLs(
-      assetBases.flatMap(assetBase => [
-        `${assetBase}Linux-${arch}.tar.gz`,
-        `${assetBase}Linux_${arch}.tar.gz`,
-        `${assetBase}linux-${lowerArch(arch)}.tar.gz`
-      ])
+      assetBases.flatMap(assetBase => assetPatterns.map(asset => `${assetBase}${asset}`))
+    );
+  }
+
+  if (os === 'Linux' || os === 'linux') {
+    const assetPatterns =
+      os === 'linux'
+        ? [`linux-${lowerArch(arch)}.tar.gz`, `Linux-${arch}.tar.gz`, `Linux_${arch}.tar.gz`]
+        : [`Linux-${arch}.tar.gz`, `Linux_${arch}.tar.gz`, `linux-${lowerArch(arch)}.tar.gz`];
+
+    return assetURLs(
+      assetBases.flatMap(assetBase => assetPatterns.map(asset => `${assetBase}${asset}`))
     );
   }
 

@@ -49,6 +49,32 @@ describe('getURL()', () => {
     ]);
   });
 
+  test('get URLs to macOS 0.102 universal assets', () => {
+    const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.102.0';
+    expect(getURL('macOS', 'universal', 'false', '0.102.0')).toEqual([
+      `${baseURL}/hugo_0.102.0_macOS-universal.tar.gz`,
+      `${baseURL}/hugo_0.102.0_macOS-universal.zip`,
+      `${baseURL}/hugo_0.102.0_macOS-all.tar.gz`,
+      `${baseURL}/hugo_0.102.0_darwin-universal.tar.gz`,
+      `${baseURL}/hugo_0.102.0_darwin-universal.pkg`,
+      `${baseURL}/hugo_v0.102.0_macOS-universal.tar.gz`,
+      `${baseURL}/hugo_v0.102.0_macOS-universal.zip`,
+      `${baseURL}/hugo_v0.102.0_macOS-all.tar.gz`,
+      `${baseURL}/hugo_v0.102.0_darwin-universal.tar.gz`,
+      `${baseURL}/hugo_v0.102.0_darwin-universal.pkg`
+    ]);
+  });
+
+  test('get URLs to darwin assets', () => {
+    const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.103.0';
+    expect(getURL('darwin', 'universal', 'false', '0.103.0')).toEqual([
+      `${baseURL}/hugo_0.103.0_darwin-universal.tar.gz`,
+      `${baseURL}/hugo_0.103.0_darwin-universal.pkg`,
+      `${baseURL}/hugo_v0.103.0_darwin-universal.tar.gz`,
+      `${baseURL}/hugo_v0.103.0_darwin-universal.pkg`
+    ]);
+  });
+
   test('get URLs to legacy macOS assets', () => {
     const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.20.2';
     expect(getURL('macOS', '64bit', 'false', '0.20.2')).toEqual([
@@ -81,6 +107,16 @@ describe('getURL()', () => {
     ]);
   });
 
+  test('get URLs to downcased Windows assets', () => {
+    const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.103.0';
+    expect(getURL('windows', 'amd64', 'false', '0.103.0')).toEqual([
+      `${baseURL}/hugo_0.103.0_windows-amd64.zip`,
+      `${baseURL}/hugo_0.103.0_Windows-amd64.zip`,
+      `${baseURL}/hugo_v0.103.0_windows-amd64.zip`,
+      `${baseURL}/hugo_v0.103.0_Windows-amd64.zip`
+    ]);
+  });
+
   test('get URLs to legacy Windows assets', () => {
     const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.20.3';
     expect(getURL('Windows', '64bit', 'false', '0.20.3')).toEqual([
@@ -88,6 +124,18 @@ describe('getURL()', () => {
       `${baseURL}/hugo_0.20.3_windows-amd64.zip`,
       `${baseURL}/hugo_v0.20.3_Windows-64bit.zip`,
       `${baseURL}/hugo_v0.20.3_windows-amd64.zip`
+    ]);
+  });
+
+  test('get URLs to downcased Linux assets', () => {
+    const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.103.0';
+    expect(getURL('linux', 'arm', 'false', '0.103.0')).toEqual([
+      `${baseURL}/hugo_0.103.0_linux-arm.tar.gz`,
+      `${baseURL}/hugo_0.103.0_Linux-arm.tar.gz`,
+      `${baseURL}/hugo_0.103.0_Linux_arm.tar.gz`,
+      `${baseURL}/hugo_v0.103.0_linux-arm.tar.gz`,
+      `${baseURL}/hugo_v0.103.0_Linux-arm.tar.gz`,
+      `${baseURL}/hugo_v0.103.0_Linux_arm.tar.gz`
     ]);
   });
 

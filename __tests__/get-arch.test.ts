@@ -7,7 +7,7 @@ describe('getArch', () => {
       conventions: {
         arch: {
           darwinUniversal: false,
-          dropped32BitSupport: false,
+          droppedWindowsArmSupport: false,
           standardizedNaming: false
         },
         os: {
@@ -32,7 +32,7 @@ describe('getArch', () => {
       conventions: {
         arch: {
           darwinUniversal: true,
-          dropped32BitSupport: true,
+          droppedWindowsArmSupport: true,
           standardizedNaming: false
         },
         os: {
@@ -44,7 +44,7 @@ describe('getArch', () => {
         {arch: 'x64', os: 'linux', expected: '64bit'},
         {arch: 'x64', os: 'macOS', expected: 'universal'},
         {arch: 'x64', os: 'windows', expected: '64bit'},
-        {arch: 'arm', os: 'linux', throws: true},
+        {arch: 'arm', os: 'linux', expected: 'ARM'},
         {arch: 'arm', os: 'macOS', expected: 'universal'},
         {arch: 'arm', os: 'windows', throws: true},
         {arch: 'arm64', os: 'linux', expected: 'ARM64'},
@@ -57,7 +57,7 @@ describe('getArch', () => {
       conventions: {
         arch: {
           darwinUniversal: true,
-          dropped32BitSupport: true,
+          droppedWindowsArmSupport: true,
           standardizedNaming: true
         },
         os: {
@@ -69,7 +69,7 @@ describe('getArch', () => {
         {arch: 'x64', os: 'linux', expected: 'amd64'},
         {arch: 'x64', os: 'macOS', expected: 'universal'},
         {arch: 'x64', os: 'windows', expected: 'amd64'},
-        {arch: 'arm', os: 'linux', throws: true},
+        {arch: 'arm', os: 'linux', expected: 'arm'},
         {arch: 'arm', os: 'macOS', expected: 'universal'},
         {arch: 'arm', os: 'windows', throws: true},
         {arch: 'arm64', os: 'linux', expected: 'arm64'},
@@ -82,7 +82,7 @@ describe('getArch', () => {
       conventions: {
         arch: {
           darwinUniversal: false,
-          dropped32BitSupport: false,
+          droppedWindowsArmSupport: false,
           standardizedNaming: false
         },
         os: {

@@ -1,7 +1,7 @@
 export interface conventions {
   arch: {
     darwinUniversal: boolean;
-    dropped32BitSupport: boolean;
+    droppedWindowsArmSupport: boolean;
     standardizedNaming: boolean;
   };
   os: {
@@ -18,11 +18,11 @@ export default function getConventions(version: string): conventions {
   return {
     arch: {
       darwinUniversal: newerThan102,
-      dropped32BitSupport: newerThan102,
+      droppedWindowsArmSupport: newerThan102,
       standardizedNaming: newerThan103
     },
     os: {
-      renamedMacOS: newerThan102,
+      renamedMacOS: newerThan103,
       downcasedAll: newerThan103
     }
   };

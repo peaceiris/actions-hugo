@@ -7,7 +7,7 @@ describe('getOS', () => {
       conventions: {
         arch: {
           darwinUniversal: false,
-          dropped32BitSupport: false,
+          droppedWindowsArmSupport: false,
           standardizedNaming: false
         },
         os: {
@@ -26,17 +26,17 @@ describe('getOS', () => {
       conventions: {
         arch: {
           darwinUniversal: true,
-          dropped32BitSupport: true,
+          droppedWindowsArmSupport: true,
           standardizedNaming: false
         },
         os: {
-          renamedMacOS: true,
+          renamedMacOS: false,
           downcasedAll: false
         }
       },
       tests: [
         {os: 'linux', expected: 'Linux'},
-        {os: 'darwin', expected: 'darwin'},
+        {os: 'darwin', expected: 'macOS'},
         {os: 'win32', expected: 'Windows'}
       ]
     },
@@ -45,7 +45,7 @@ describe('getOS', () => {
       conventions: {
         arch: {
           darwinUniversal: true,
-          dropped32BitSupport: true,
+          droppedWindowsArmSupport: true,
           standardizedNaming: true
         },
         os: {
@@ -84,7 +84,7 @@ describe('getOS', () => {
     const conventions = {
       arch: {
         darwinUniversal: false,
-        dropped32BitSupport: false,
+        droppedWindowsArmSupport: false,
         standardizedNaming: false
       },
       os: {

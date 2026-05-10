@@ -4,8 +4,8 @@
   "description": "GitHub Actions for Hugo",
   "main": "lib/index.js",
   "engines": {
-    "node": ">=20.10.0",
-    "npm": ">=10.2.3"
+    "node": ">=24.15.0",
+    "npm": ">=11.12.1"
   },
   "scripts": {
     "all": "npm run format:check && npm run lint && npm test",
@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
-    "@types/node": "~20",
+    "@types/node": "~24",
     "@types/node-fetch": "^2.5.8",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",

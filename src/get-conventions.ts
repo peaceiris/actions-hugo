@@ -10,7 +10,7 @@ export interface conventions {
   };
 }
 
-export default function getConventions(version: string): conventions {
+export function getConventions(version: string): conventions {
   const segments = version.split('.').map(s => parseInt(s));
   const stableOrNewer = segments[0] > 0;
   const newerThan103 = stableOrNewer || segments[1] >= 103;

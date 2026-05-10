@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';
 import * as exec from '@actions/exec';
-import getConventions from './get-conventions';
+import {getConventions} from './get-conventions';
 import getOS from './get-os';
 import getArch from './get-arch';
 import getURL from './get-url';

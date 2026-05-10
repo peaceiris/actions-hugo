@@ -1,4 +1,4 @@
-import getConventions from '../src/get-conventions';
+import {getConventions} from '../src/get-conventions';
 
 describe('getConventions()', () => {
   const groups = [

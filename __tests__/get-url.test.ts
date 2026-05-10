@@ -1,4 +1,4 @@
-import getURL from '../src/get-url';
+import getURL, {getDownloadVersion} from '../src/get-url';
 
 describe('getURL()', () => {
   test('get URLs to Linux assets', () => {
@@ -136,6 +136,19 @@ describe('getURL()', () => {
       `${baseURL}/hugo_v0.103.0_linux-arm.tar.gz`,
       `${baseURL}/hugo_v0.103.0_Linux-arm.tar.gz`,
       `${baseURL}/hugo_v0.103.0_Linux_arm.tar.gz`
+    ]);
+  });
+
+  test('get URLs to Hugo 0.139.5 archive alias', () => {
+    const baseURL = 'https://github.com/gohugoio/hugo/releases/download/v0.139.4';
+    expect(getDownloadVersion('0.139.5')).toBe('0.139.4');
+    expect(getURL('linux', 'amd64', 'true', '0.139.5')).toEqual([
+      `${baseURL}/hugo_extended_0.139.4_linux-amd64.tar.gz`,
+      `${baseURL}/hugo_extended_0.139.4_Linux-amd64.tar.gz`,
+      `${baseURL}/hugo_extended_0.139.4_Linux_amd64.tar.gz`,
+      `${baseURL}/hugo_extended_v0.139.4_linux-amd64.tar.gz`,
+      `${baseURL}/hugo_extended_v0.139.4_Linux-amd64.tar.gz`,
+      `${baseURL}/hugo_extended_v0.139.4_Linux_amd64.tar.gz`
     ]);
   });
 

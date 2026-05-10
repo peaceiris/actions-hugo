@@ -4,6 +4,8 @@ export default function getURL(
   extended: string,
   version: string
 ): string[] {
+  const downloadVersion = getDownloadVersion(version);
+
   const extendedStr = (extended: string): string => {
     if (extended === 'true') {
       return 'extended_';
@@ -28,12 +30,12 @@ export default function getURL(
   };
 
   const baseURL = 'https://github.com/gohugoio/hugo/releases/download';
-  const assetBase = `hugo_${extendedStr(extended)}${version}_`;
-  const legacyVersionedAssetBase = `hugo_${extendedStr(extended)}v${version}_`;
+  const assetBase = `hugo_${extendedStr(extended)}${downloadVersion}_`;
+  const legacyVersionedAssetBase = `hugo_${extendedStr(extended)}v${downloadVersion}_`;
   const assetBases = [assetBase, legacyVersionedAssetBase];
   const assetURLs = (assetNames: string[]): string[] => {
     return Array.from(new Set(assetNames)).map(assetName => {
-      return `${baseURL}/v${version}/${assetName}`;
+      return `${baseURL}/v${downloadVersion}/${assetName}`;
     });
   };
 
@@ -81,4 +83,13 @@ export default function getURL(
   }
 
   return assetURLs([`${assetBase}${os}-${arch}.tar.gz`]);
+}
+
+export function getDownloadVersion(version: string): string {
+  if (version === '0.139.5') {
+    // v0.139.5 has no release archives; Hugo publishes the same archives under v0.139.4.
+    return '0.139.4';
+  }
+
+  return version;
 }

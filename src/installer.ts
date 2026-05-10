@@ -5,7 +5,7 @@ import * as exec from '@actions/exec';
 import {getConventions} from './get-conventions';
 import getOS from './get-os';
 import getArch from './get-arch';
-import getURL from './get-url';
+import getURL, {getDownloadVersion} from './get-url';
 import * as path from 'path';
 import {Tool, Action} from './constants';
 
@@ -123,6 +123,12 @@ export async function installer(version: string): Promise<void> {
   core.debug(`Processor Architecture: ${archName}`);
 
   const toolURLs: string[] = getURL(osName, archName, extended, version);
+  const downloadVersion = getDownloadVersion(version);
+  if (downloadVersion !== version) {
+    core.info(
+      `Hugo ${version} release does not publish archives; downloading v${downloadVersion} archives instead.`
+    );
+  }
 
   const workDir = await createWorkDir();
   const binDir = await createBinDir(workDir);

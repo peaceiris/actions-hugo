@@ -36,7 +36,7 @@ describe('getArch', () => {
           standardizedNaming: false
         },
         os: {
-          renamedMacOS: true,
+          renamedMacOS: false,
           downcasedAll: false
         }
       },
@@ -92,32 +92,41 @@ describe('getArch', () => {
       },
       tests: [{arch: 'mips', os: 'linux', throws: true}]
     }
-  ].map(function (group) {
-    group.tests = group.tests.map(function (example) {
-      return Object.assign(example, {
-        toString: function () {
-          let name = `${example.os} on ${example.arch} `;
-          name += example?.throws ? 'throws as not supported' : `returns ${example.expected}`;
-          return name;
-        }
-      });
-    });
-    return Object.assign(group, {
-      toString: function () {
-        return group.condition;
-      }
-    });
-  });
+  ];
 
-  describe.each(groups)('%s', ({conventions, tests}) => {
-    test.each(tests)('%s', ({arch, os, throws, expected}) => {
-      if (throws) {
-        expect(() => {
-          getArch(arch, os, conventions);
-        }).toThrow(`${arch} is not supported`);
-      } else {
-        expect(getArch(arch, os, conventions)).toBe(expected);
-      }
-    });
-  });
+  const passingTests = groups.flatMap(group =>
+    group.tests
+      .filter(example => !example.throws)
+      .map(example => ({
+        ...example,
+        condition: group.condition,
+        conventions: group.conventions
+      }))
+  );
+
+  const throwingTests = groups.flatMap(group =>
+    group.tests
+      .filter(example => example.throws)
+      .map(example => ({
+        ...example,
+        condition: group.condition,
+        conventions: group.conventions
+      }))
+  );
+
+  test.each(passingTests)(
+    '$condition: $os on $arch returns $expected',
+    ({arch, os, conventions, expected}) => {
+      expect(getArch(arch, os, conventions)).toBe(expected);
+    }
+  );
+
+  test.each(throwingTests)(
+    '$condition: $os on $arch throws as not supported',
+    ({arch, os, conventions}) => {
+      expect(() => {
+        getArch(arch, os, conventions);
+      }).toThrow(`${arch} is not supported`);
+    }
+  );
 });

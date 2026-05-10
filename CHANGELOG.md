@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.1.0](https://github.com/peaceiris/actions-hugo/compare/v3.0.0...v3.1.0) (2026-05-10)
+
+
+### chore
+
+* add .codex/ ([fd1a667](https://github.com/peaceiris/actions-hugo/commit/fd1a6670898ca2ebf1a2c7f921f3eaf59eb75878))
+
+### ci
+
+* bump actions/dependency-review-action from 3 to 4 (#656) ([711df4e](https://github.com/peaceiris/actions-hugo/commit/711df4ed6415b013fd3ce424f98c5720d36d19e0)), closes [#656](https://github.com/peaceiris/actions-hugo/issues/656)
+* bump actions/upload-artifact from 3 to 4 (#654) ([764796d](https://github.com/peaceiris/actions-hugo/commit/764796d276c5a0094764d3fb3fbc3bb6fefb19e6)), closes [#654](https://github.com/peaceiris/actions-hugo/issues/654)
+* bump codecov/codecov-action from 3 to 4 (#655) ([e177dc3](https://github.com/peaceiris/actions-hugo/commit/e177dc33cb0d5866aa77a82d4cdfdda3a5cd76a3)), closes [#655](https://github.com/peaceiris/actions-hugo/issues/655)
+* bump codecov/codecov-action from 4 to 5 (#660) ([3a28794](https://github.com/peaceiris/actions-hugo/commit/3a287949d38134f0920e6ac20032acef6d4a23c4)), closes [#660](https://github.com/peaceiris/actions-hugo/issues/660)
+* bump github/codeql-action from 2 to 3 (#657) ([9d57878](https://github.com/peaceiris/actions-hugo/commit/9d57878417d5429540d059b1dbf19e0717797912)), closes [#657](https://github.com/peaceiris/actions-hugo/issues/657)
+* bump peaceiris/actions-hugo from 2.6.0 to 3.0.0 (#653) ([3b44307](https://github.com/peaceiris/actions-hugo/commit/3b443076f02aa9537a31bdcaa0c971cdd41eb022)), closes [#653](https://github.com/peaceiris/actions-hugo/issues/653)
+* harden workflows and update Node.js (#686) ([64e0f66](https://github.com/peaceiris/actions-hugo/commit/64e0f66acbd8b134359e19b06e518ceb2734de14)), closes [#686](https://github.com/peaceiris/actions-hugo/issues/686)
+
+### docs
+
+* add contributor guidelines ([ba5146c](https://github.com/peaceiris/actions-hugo/commit/ba5146cb8a90074a91c351b17a4206ffd8594cd5))
+* add env.HUGO_CACHEDIR (#650) ([288264f](https://github.com/peaceiris/actions-hugo/commit/288264f9c9c4a54b634fdbfdc119faefe699d549)), closes [#650](https://github.com/peaceiris/actions-hugo/issues/650)
+* bump actions/cache to v4 ([7db63f5](https://github.com/peaceiris/actions-hugo/commit/7db63f5e7f65f5c06a64fd56106389606f84a976))
+
+### feat
+
+* upgrade action runtime from Node 20 to 24 (#684) ([83259d8](https://github.com/peaceiris/actions-hugo/commit/83259d800c0f56b05d14cb0b320d8e4034770d68)), closes [#684](https://github.com/peaceiris/actions-hugo/issues/684)
+
+
+
 # [3.0.0](https://github.com/peaceiris/actions-hugo/compare/v2.6.0...v3.0.0) (2024-04-02)
 
 

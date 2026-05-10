@@ -19,6 +19,7 @@ describe('Integration testing run()', () => {
     await io.rmRF(workDir);
 
     delete process.env['INPUT_HUGO-VERSION'];
+    delete process.env['INPUT_EXTENDED'];
     nock.cleanAll();
   });
 

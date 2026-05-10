@@ -11,7 +11,7 @@ This repository contains a TypeScript GitHub Action for installing Hugo. Runtime
 - `npm test`: run Jest with coverage and verbose output.
 - `npm run lint` / `npm run lint:fix`: check or fix TypeScript lint issues.
 - `npm run format:check` / `npm run format`: check or apply Prettier formatting for `*.ts`.
-- `npm run build`: bundle `src/index.ts` into `lib/` with `ncc`.
+- `npm run build`: bundle `src/index.ts` into `lib/` with `ncc`; do not regenerate `lib/index.js` except for release work.
 - `make build`, `make test`, `make all`: run the Docker-based development image and test flow.
 
 ## Coding Style & Naming Conventions

@@ -45,6 +45,6 @@ describe('getLatestVersion()', () => {
   test('return exception 404', async () => {
     nock('https://formulae.brew.sh').get(`/api/formula/${Tool.Repo}.json`).reply(404);
 
-    await expect(getLatestVersion(Tool.Org, Tool.Repo, 'brew')).rejects.toThrowError(FetchError);
+    await expect(getLatestVersion(Tool.Org, Tool.Repo, 'brew')).rejects.toThrow(FetchError);
   });
 });

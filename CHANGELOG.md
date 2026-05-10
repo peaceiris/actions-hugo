@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.2.0](https://github.com/peaceiris/actions-hugo/compare/v3.1.0...v3.2.0) (2026-05-10)
+
+
+### build
+
+* update npm dependencies (#689) ([189731e](https://github.com/peaceiris/actions-hugo/commit/189731ef0083fa5500ca268865b02bd8eb3e7050)), closes [#689](https://github.com/peaceiris/actions-hugo/issues/689)
+
+### chore
+
+* delete lib/index.js ([8a69ba5](https://github.com/peaceiris/actions-hugo/commit/8a69ba55a596c78f65c6feef166e2eb2aebc2f2f))
+
+### ci
+
+* bump actions/checkout from 4.3.1 to 6.0.2 (#691) ([71c032c](https://github.com/peaceiris/actions-hugo/commit/71c032c9dcb44d6b93dd8910811cb1b6ea450bd5)), closes [#691](https://github.com/peaceiris/actions-hugo/issues/691)
+* bump actions/setup-node from 4.4.0 to 6.4.0 (#690) ([66080d4](https://github.com/peaceiris/actions-hugo/commit/66080d4abbf3e0d1bcfc83914cbbb18f90efcf00)), closes [#690](https://github.com/peaceiris/actions-hugo/issues/690) [actions/setup-node#1525](https://github.com/actions/setup-node/issues/1525) [actions/setup-node#1533](https://github.com/actions/setup-node/issues/1533) [actions/setup-node#1525](https://github.com/actions/setup-node/issues/1525) [actions/setup-node#1283](https://github.com/actions/setup-node/issues/1283) [actions/setup-node#1491](https://github.com/actions/setup-node/issues/1491) [actions/setup-node#1378](https://github.com/actions/setup-node/issues/1378) [actions/setup-node#1498](https://github.com/actions/setup-node/issues/1498) [actions/setup-node#1467](https://github.com/actions/setup-node/issues/1467) [actions/setup-node#1495](https://github.com/actions/setup-node/issues/1495) [actions/setup-node#1283](https://github.com/actions/setup-node/issues/1283) [actions/setup-node#1454](https://github.com/actions/setup-node/issues/1454) [actions/setup-node#1442](https://github.com/actions/setup-node/issues/1442) [actions/setup-node#1446](https://github.com/actions/setup-node/issues/1446) [actions/setup-node#1226](https://github.com/actions/setup-node/issues/1226) [actions/setup-node#1468](https://github.com/actions/setup-node/issues/1468) [actions/setup-node#1449](https://github.com/actions/setup-node/issues/1449) [actions/setup-node#1454](https://github.com/actions/setup-node/issues/1454) [actions/setup-node#1442](https://github.com/actions/setup-node/issues/1442) [actions/setup-node#1446](https://github.com/actions/setup-node/issues/1446) [#1533](https://github.com/peaceiris/actions-hugo/issues/1533) [#1525](https://github.com/peaceiris/actions-hugo/issues/1525) [#1498](https://github.com/peaceiris/actions-hugo/issues/1498) [#1495](https://github.com/peaceiris/actions-hugo/issues/1495) [#1378](https://github.com/peaceiris/actions-hugo/issues/1378) [#1283](https://github.com/peaceiris/actions-hugo/issues/1283) [#1467](https://github.com/peaceiris/actions-hugo/issues/1467) [#1491](https://github.com/peaceiris/actions-hugo/issues/1491) [#1468](https://github.com/peaceiris/actions-hugo/issues/1468) [#1226](https://github.com/peaceiris/actions-hugo/issues/1226)
+* bump actions/upload-artifact from 4.6.2 to 7.0.1 (#692) ([27f9d4a](https://github.com/peaceiris/actions-hugo/commit/27f9d4ab073f98ceaee353f893283fd6da81cb6d)), closes [#692](https://github.com/peaceiris/actions-hugo/issues/692)
+* bump github/codeql-action from 3.35.4 to 4.35.4 (#694) ([681f914](https://github.com/peaceiris/actions-hugo/commit/681f914d18cf3aefb972de7c4f1ac75dfff38e5d)), closes [#694](https://github.com/peaceiris/actions-hugo/issues/694)
+* bump peaceiris/actions-hugo from 3.0.0 to 3.1.0 (#693) ([7c673b8](https://github.com/peaceiris/actions-hugo/commit/7c673b8b9ebc5b359f3f4dd4eca150830f1fea5e)), closes [#693](https://github.com/peaceiris/actions-hugo/issues/693)
+
+### docs
+
+* add pull request template ([d488e4d](https://github.com/peaceiris/actions-hugo/commit/d488e4d9876f0cb74ace1aac7bbf14fcf52868d9))
+* document build artifact constraint ([e3c35ac](https://github.com/peaceiris/actions-hugo/commit/e3c35ac635d46e1fc932dd524c5490fff7d235a9))
+
+### feat
+
+* support renamed Hugo release assets (#687) ([187a5ef](https://github.com/peaceiris/actions-hugo/commit/187a5efe8178fbcd0f0969d3db97b33d4f89d8ab)), closes [#687](https://github.com/peaceiris/actions-hugo/issues/687)
+
+### fix
+
+* Hugo package naming fix (#688) ([b1937e1](https://github.com/peaceiris/actions-hugo/commit/b1937e141c2b829e9913293bb8044aec5ef28dd2)), closes [#688](https://github.com/peaceiris/actions-hugo/issues/688) [#609](https://github.com/peaceiris/actions-hugo/issues/609) [#687](https://github.com/peaceiris/actions-hugo/issues/687)
+
+
+
 # [3.1.0](https://github.com/peaceiris/actions-hugo/compare/v3.0.0...v3.1.0) (2026-05-10)
 
 

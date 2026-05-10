@@ -17,12 +17,15 @@ describe('getArch', () => {
       },
       tests: [
         {arch: 'x64', os: 'linux', expected: '64bit'},
+        {arch: 'x64', os: 'darwin', expected: '64bit'},
         {arch: 'x64', os: 'macOS', expected: '64bit'},
         {arch: 'x64', os: 'windows', expected: '64bit'},
         {arch: 'arm', os: 'linux', expected: 'ARM'},
+        {arch: 'arm', os: 'darwin', expected: 'ARM'},
         {arch: 'arm', os: 'macOS', expected: 'ARM'},
         {arch: 'arm', os: 'windows', expected: 'ARM'},
         {arch: 'arm64', os: 'linux', expected: 'ARM64'},
+        {arch: 'arm64', os: 'darwin', expected: 'ARM64'},
         {arch: 'arm64', os: 'macOS', expected: 'ARM64'},
         {arch: 'arm64', os: 'windows', expected: 'ARM64'}
       ]

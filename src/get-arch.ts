@@ -1,7 +1,7 @@
 import {conventions} from './get-conventions';
 
 export default function getArch(arch: string, os: string, conventions: conventions): string {
-  if (os === 'darwin' || (os === 'macOS' && conventions.arch.darwinUniversal)) {
+  if (conventions.arch.darwinUniversal && (os === 'darwin' || os === 'macOS')) {
     return 'universal';
   }
 

@@ -10,6 +10,6 @@ describe('getArch', () => {
   test('exception', () => {
     expect(() => {
       getArch('mips');
-    }).toThrowError('mips is not supported');
+    }).toThrow('mips is not supported');
   });
 });

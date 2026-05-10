@@ -1,4 +1,14 @@
-import fetch from 'node-fetch';
+import fetch, {FetchError} from 'node-fetch';
+
+interface BrewFormulaResponse {
+  versions: {
+    stable: string;
+  };
+}
+
+interface GitHubReleaseResponse {
+  tag_name: string;
+}
 
 export function getURL(org: string, repo: string, api: string): string {
   let url = '';
@@ -15,12 +25,16 @@ export function getURL(org: string, repo: string, api: string): string {
 export async function getLatestVersion(org: string, repo: string, api: string): Promise<string> {
   const url = getURL(org, repo, api);
   const response = await fetch(url);
+  if (!response.ok) {
+    throw new FetchError(`request to ${url} failed with status ${response.status}`, 'system');
+  }
+
   const json = await response.json();
   let latestVersion = '';
   if (api === 'brew') {
-    latestVersion = json.versions.stable;
+    latestVersion = (json as BrewFormulaResponse).versions.stable;
   } else if (api === 'github') {
-    latestVersion = json.tag_name;
+    latestVersion = (json as GitHubReleaseResponse).tag_name;
   }
   return latestVersion;
 }

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.1](https://github.com/peaceiris/actions-hugo/compare/v3.2.0...v3.2.1) (2026-05-10)
+
+
+### fix
+
+* handle Hugo 0.139.5 archive fallback (#696) ([4e5bf41](https://github.com/peaceiris/actions-hugo/commit/4e5bf412f00ba628ed366436825de7226933f80d)), closes [#696](https://github.com/peaceiris/actions-hugo/issues/696)
+
+
+
 # [3.2.0](https://github.com/peaceiris/actions-hugo/compare/v3.1.0...v3.2.0) (2026-05-10)
 
 

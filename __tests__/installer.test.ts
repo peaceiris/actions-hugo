@@ -2,7 +2,7 @@ import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';
 import * as exec from '@actions/exec';
 import path from 'path';
-import {downloadHugoAsset, extractHugoAsset} from '../src/installer';
+import {downloadHugoAsset, extractHugoAsset, isWindowsAsset} from '../src/installer';
 
 jest.mock('@actions/tool-cache', () => ({
   downloadTool: jest.fn(),
@@ -85,10 +85,29 @@ describe('extractHugoAsset()', () => {
   test('extract a zip asset', async () => {
     mockedTC.extractZip.mockResolvedValue('/tmp/extracted');
 
-    await extractHugoAsset('/tmp/tool', 'https://example.com/hugo.zip', '/tmp/temp', '/tmp/bin');
+    await extractHugoAsset(
+      '/tmp/tool',
+      'https://example.com/hugo_0.58.2_Windows-64bit.zip',
+      '/tmp/temp',
+      '/tmp/bin'
+    );
 
     expect(mockedTC.extractZip).toHaveBeenCalledWith('/tmp/tool', '/tmp/temp');
     expect(mockedIO.mv).toHaveBeenCalledWith(path.join('/tmp/extracted', 'hugo.exe'), '/tmp/bin');
+  });
+
+  test('extract a macOS zip asset', async () => {
+    mockedTC.extractZip.mockResolvedValue('/tmp/extracted');
+
+    await extractHugoAsset(
+      '/tmp/tool',
+      'https://example.com/hugo_0.20.2_macOS-64bit.zip',
+      '/tmp/temp',
+      '/tmp/bin'
+    );
+
+    expect(mockedTC.extractZip).toHaveBeenCalledWith('/tmp/tool', '/tmp/temp');
+    expect(mockedIO.mv).toHaveBeenCalledWith(path.join('/tmp/extracted', 'hugo'), '/tmp/bin');
   });
 
   test('extract a macOS pkg asset', async () => {
@@ -105,5 +124,13 @@ describe('extractHugoAsset()', () => {
       path.join('/tmp/temp', 'pkg', 'Payload', 'hugo'),
       '/tmp/bin'
     );
+  });
+});
+
+describe('isWindowsAsset()', () => {
+  test('detect Windows asset URLs', () => {
+    expect(isWindowsAsset('https://example.com/hugo_0.58.2_Windows-64bit.zip')).toBe(true);
+    expect(isWindowsAsset('https://example.com/hugo_0.119.0_windows-amd64.zip')).toBe(true);
+    expect(isWindowsAsset('https://example.com/hugo_0.20.2_macOS-64bit.zip')).toBe(false);
   });
 });

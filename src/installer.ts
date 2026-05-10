@@ -58,6 +58,10 @@ export function isRetryableDownloadError(error: unknown): boolean {
   );
 }
 
+export function isWindowsAsset(assetURL: string): boolean {
+  return /(?:Windows[-_]|windows[-_])/.test(assetURL);
+}
+
 export async function downloadHugoAsset(toolURLs: string[]): Promise<DownloadedAsset> {
   for (const toolURL of toolURLs) {
     core.debug(`toolURL: ${toolURL}`);
@@ -91,7 +95,8 @@ export async function extractHugoAsset(
 
   if (assetURL.endsWith('.zip')) {
     const toolExtractedFolder: string = await tc.extractZip(assetPath, tempDir);
-    toolBin = path.join(toolExtractedFolder, `${Tool.CmdName}.exe`);
+    const toolCmd = isWindowsAsset(assetURL) ? `${Tool.CmdName}.exe` : Tool.CmdName;
+    toolBin = path.join(toolExtractedFolder, toolCmd);
   } else if (assetURL.endsWith('.pkg')) {
     const pkgExtractedFolder = path.join(tempDir, 'pkg');
     await exec.exec('pkgutil', ['--expand-full', assetPath, pkgExtractedFolder]);

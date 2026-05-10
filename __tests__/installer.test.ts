@@ -1,6 +1,7 @@
 import * as tc from '@actions/tool-cache';
 import * as io from '@actions/io';
 import * as exec from '@actions/exec';
+import path from 'path';
 import {downloadHugoAsset, extractHugoAsset} from '../src/installer';
 
 jest.mock('@actions/tool-cache', () => ({
@@ -78,7 +79,7 @@ describe('extractHugoAsset()', () => {
     await extractHugoAsset('/tmp/tool', 'https://example.com/hugo.tar.gz', '/tmp/temp', '/tmp/bin');
 
     expect(mockedTC.extractTar).toHaveBeenCalledWith('/tmp/tool', '/tmp/temp');
-    expect(mockedIO.mv).toHaveBeenCalledWith('/tmp/extracted/hugo', '/tmp/bin');
+    expect(mockedIO.mv).toHaveBeenCalledWith(path.join('/tmp/extracted', 'hugo'), '/tmp/bin');
   });
 
   test('extract a zip asset', async () => {
@@ -87,7 +88,7 @@ describe('extractHugoAsset()', () => {
     await extractHugoAsset('/tmp/tool', 'https://example.com/hugo.zip', '/tmp/temp', '/tmp/bin');
 
     expect(mockedTC.extractZip).toHaveBeenCalledWith('/tmp/tool', '/tmp/temp');
-    expect(mockedIO.mv).toHaveBeenCalledWith('/tmp/extracted/hugo.exe', '/tmp/bin');
+    expect(mockedIO.mv).toHaveBeenCalledWith(path.join('/tmp/extracted', 'hugo.exe'), '/tmp/bin');
   });
 
   test('extract a macOS pkg asset', async () => {
@@ -98,8 +99,11 @@ describe('extractHugoAsset()', () => {
     expect(mockedExec.exec).toHaveBeenCalledWith('pkgutil', [
       '--expand-full',
       '/tmp/tool',
-      '/tmp/temp/pkg'
+      path.join('/tmp/temp', 'pkg')
     ]);
-    expect(mockedIO.mv).toHaveBeenCalledWith('/tmp/temp/pkg/Payload/hugo', '/tmp/bin');
+    expect(mockedIO.mv).toHaveBeenCalledWith(
+      path.join('/tmp/temp', 'pkg', 'Payload', 'hugo'),
+      '/tmp/bin'
+    );
   });
 });

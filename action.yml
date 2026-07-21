@@ -10,6 +10,10 @@ inputs:
     description: 'Download (if necessary) and use Hugo extended version. Example: true'
     required: false
     default: 'false'
+  sha256:
+    description: 'Pin the expected SHA-256 checksum of the downloaded Hugo archive. By default, the archive is verified against the hugo_X.Y.Z_checksums.txt file of the release. Example: c2a724ac3c8e949fca56dd438b868b2128837754420c20a6e7ae345616c4e625'
+    required: false
+    default: ''
 runs:
   using: 'node24'
   main: 'lib/index.js'

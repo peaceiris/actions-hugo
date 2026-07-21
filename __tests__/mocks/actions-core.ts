@@ -15,3 +15,7 @@ export function debug(message: string): void {
 export function info(message: string): void {
   void message;
 }
+
+export function warning(message: string): void {
+  void message;
+}

@@ -23,3 +23,7 @@ updates:
   - "CI/CD"
   commit-message:
     prefix: ci
+  groups:
+    codeql:
+      patterns:
+      - "github/codeql-action*"

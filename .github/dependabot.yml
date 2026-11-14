@@ -2,6 +2,8 @@ version: 2
 updates:
 - package-ecosystem: npm
   directory: "/"
+  cooldown:
+    default-days: 7
   schedule:
     interval: daily
     time: '11:00'
@@ -15,6 +17,8 @@ updates:
 
 - package-ecosystem: "github-actions"
   directory: "/"
+  cooldown:
+    default-days: 7
   schedule:
     interval: "daily"
     time: '11:00'

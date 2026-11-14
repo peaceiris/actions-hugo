@@ -20,6 +20,7 @@ interface ResponseLike {
   ok: boolean;
   status: number;
   json: () => Promise<unknown>;
+  text: () => Promise<string>;
 }
 
 interface MockResponse {
@@ -28,6 +29,7 @@ interface MockResponse {
 }
 
 const mockResponses = new Map<string, MockResponse>();
+const mockErrors = new Map<string, Error>();
 
 export function mockFetchResponse(url: string, status: number, body?: unknown): void {
   mockResponses.set(url, {
@@ -36,18 +38,29 @@ export function mockFetchResponse(url: string, status: number, body?: unknown): 
   });
 }
 
+export function mockFetchError(url: string, error: Error): void {
+  mockErrors.set(url, error);
+}
+
 export function clearMockFetchResponses(): void {
   mockResponses.clear();
+  mockErrors.clear();
 }
 
 export default async function fetch(url: string | URL): Promise<ResponseLike> {
   const target = url.toString();
+  const mockError = mockErrors.get(target);
+  if (mockError) {
+    throw mockError;
+  }
+
   const mockResponse = mockResponses.get(target);
   if (mockResponse) {
     return {
       ok: mockResponse.status >= 200 && mockResponse.status < 300,
       status: mockResponse.status,
-      json: async () => mockResponse.body as unknown
+      json: async () => mockResponse.body as unknown,
+      text: async () => `${mockResponse.body ?? ''}`
     };
   }
 
@@ -68,7 +81,8 @@ export default async function fetch(url: string | URL): Promise<ResponseLike> {
         resolve({
           ok: status >= 200 && status < 300,
           status,
-          json: async () => JSON.parse(body) as unknown
+          json: async () => JSON.parse(body) as unknown,
+          text: async () => body
         });
       });
     });

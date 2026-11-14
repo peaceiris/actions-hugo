@@ -6,6 +6,7 @@ import {getConventions} from './get-conventions';
 import getOS from './get-os';
 import getArch from './get-arch';
 import getURL, {getDownloadVersion} from './get-url';
+import {fetchReleaseChecksum, verifyChecksum} from './verify-checksum';
 import * as path from 'path';
 import {Tool, Action} from './constants';
 
@@ -114,6 +115,8 @@ export async function installer(version: string): Promise<void> {
   const extended: string = core.getInput('extended');
   core.debug(`Hugo extended: ${extended}`);
 
+  const expectedSHA256: string = core.getInput('sha256');
+
   const conventions = getConventions(version);
 
   const osName: string = getOS(process.platform, conventions);
@@ -135,5 +138,15 @@ export async function installer(version: string): Promise<void> {
   const tempDir = await createTempDir(workDir);
 
   const toolAsset: DownloadedAsset = await downloadHugoAsset(toolURLs);
+  if (expectedSHA256 !== '') {
+    await verifyChecksum(toolAsset.path, toolAsset.url, expectedSHA256);
+  } else {
+    const releaseSHA256 = await fetchReleaseChecksum(downloadVersion, toolAsset.url);
+    if (releaseSHA256 === '') {
+      core.warning('skipping SHA-256 checksum verification');
+    } else {
+      await verifyChecksum(toolAsset.path, toolAsset.url, releaseSHA256);
+    }
+  }
   await extractHugoAsset(toolAsset.path, toolAsset.url, tempDir, binDir);
 }

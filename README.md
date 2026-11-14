@@ -44,6 +44,7 @@ Thanks to this change, we can complete this action in less than a few seconds.
 - [Options](#options)
   - [⭐️ Use Hugo extended](#%EF%B8%8F-use-hugo-extended)
   - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
+  - [⭐️ Verify the archive checksum](#%EF%B8%8F-verify-the-archive-checksum)
 - [Tips](#tips)
   - [⭐️ Caching Hugo Modules](#%EF%B8%8F-caching-hugo-modules)
   - [⭐️ Read Hugo version from file](#%EF%B8%8F-read-hugo-version-from-file)
@@ -138,7 +139,22 @@ Set `hugo-version: 'latest'` to use the latest version of Hugo.
     hugo-version: 'latest'
 ```
 
-This action fetches the latest version of Hugo by [hugo | Homebrew Formulae](https://formulae.brew.sh/formula/hugo)
+### ⭐️ Verify the archive checksum
+
+By default, the action verifies the SHA-256 checksum of the downloaded Hugo archive against the `hugo_X.Y.Z_checksums.txt` file published with the release, and fails before extraction if they do not match. If the release has no checksums file or the archive is not listed in it, the action logs a warning and skips verification.
+
+To also protect against the release assets themselves being replaced (GitHub release assets are mutable), set `sha256` to pin the expected checksum of the archive:
+
+```yaml
+- name: Setup Hugo
+  uses: peaceiris/actions-hugo@v3
+  with:
+    hugo-version: '0.158.0'
+    extended: true
+    sha256: 'c2a724ac3c8e949fca56dd438b868b2128837754420c20a6e7ae345616c4e625'
+```
+
+Take the value from the `hugo_X.Y.Z_checksums.txt` file on the [Hugo release page](https://github.com/gohugoio/hugo/releases) for the archive that matches your runner's OS and architecture (the example above is `hugo_extended_0.158.0_linux-amd64.tar.gz`). Note that the pinned checksum is OS/arch-specific, so a matrix build needs a different `sha256` per runner, and combining `sha256` with `hugo-version: 'latest'` will fail as soon as a new Hugo version is released.
 
 <div align="right">
 <a href="#table-of-contents">Back to TOC ☝️</a>

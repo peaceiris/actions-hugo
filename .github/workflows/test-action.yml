@@ -47,6 +47,10 @@ jobs:
         os: [ubuntu-24.04, ubuntu-24.04-arm, macos-15-intel, macos-15, windows-2025, windows-11-arm]
         extended: [false, true]
         hugo-version: ['0.160.1']
+        exclude:
+          # Hugo 0.160.1 has no Windows arm64 extended archive.
+          - os: windows-11-arm
+            extended: true
         include:
           - os: ubuntu-24.04
             extended: false

@@ -1,0 +1,5 @@
+@use 'sass:math';
+$width: math.div(12px, 3);
+.dart-sass-fixture {
+  width: $width;
+}

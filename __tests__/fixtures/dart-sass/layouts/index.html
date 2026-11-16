@@ -1,0 +1,2 @@
+{{ $css := resources.Get "main.scss" | css.Sass (dict "transpiler" "dartsass" "targetPath" "css/main.css") }}
+<!doctype html><html><head><link rel="stylesheet" href="{{ $css.RelPermalink }}"></head><body>Dart Sass integration</body></html>

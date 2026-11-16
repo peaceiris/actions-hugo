@@ -10,6 +10,10 @@ inputs:
     description: 'Download (if necessary) and use Hugo extended version. Example: true'
     required: false
     default: 'false'
+  dart-sass-version:
+    description: 'Optional fixed standalone Dart Sass version (e.g. 1.108.2). Requires a GitHub API SHA-256 digest.'
+    required: false
+    default: ''
 runs:
   using: 'node24'
   main: 'lib/index.js'

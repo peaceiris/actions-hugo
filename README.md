@@ -42,6 +42,7 @@ Thanks to this change, we can complete this action in less than a few seconds.
 - [Getting started](#getting-started)
   - [⭐️ Create your workflow](#%EF%B8%8F-create-your-workflow)
 - [Options](#options)
+  - [⭐️ Install Dart Sass](#%EF%B8%8F-install-dart-sass)
   - [⭐️ Use Hugo extended](#%EF%B8%8F-use-hugo-extended)
   - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
 - [Tips](#tips)
@@ -114,6 +115,52 @@ jobs:
 
 
 ## Options
+
+### ⭐️ Install Dart Sass
+
+Set `dart-sass-version` to a fixed standalone [Dart Sass](https://github.com/sass/dart-sass) release version:
+
+```yaml
+- uses: peaceiris/actions-hugo@v3
+  with:
+    hugo-version: '0.160.1'
+    dart-sass-version: '1.108.2'
+- run: hugo --minify
+```
+
+In your Hugo template, select the Dart Sass transpiler:
+
+```go-html-template
+{{ $css := resources.Get "scss/main.scss" | css.Sass (dict "transpiler" "dartsass") }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+```
+
+For Hugo versions before `css.Sass` was introduced, use `resources.ToCSS` instead.
+
+This requires Hugo **0.114.0 or later** and works independently of `extended`.
+The old `dart-sass-embedded` executable/protocol is not supported. Omitting
+`dart-sass-version` (or leaving it empty) preserves existing behavior: no Sass
+network requests, installation, or PATH changes. Only `major.minor.patch` versions
+are accepted; `latest`, ranges, `v` prefixes, prereleases, and URLs are rejected.
+
+Supported runners are Linux **glibc**, macOS, and Windows on **x64 or arm64**, when
+the selected release publishes that exact asset. Linux musl (including Alpine),
+unknown libc, and other architectures are rejected without fallback. The complete
+standalone `dart-sass` directory, including its runtime, is kept together and
+added to PATH, making `sass` available to subsequent steps.
+
+Installation requires the official release asset's GitHub API `sha256` digest.
+The downloaded archive is verified **before extraction or execution**. Missing or
+invalid digests, mismatches, API failures (including rate limits), and missing
+assets fail the action. Older releases often have no digest (including 1.89.0
+and earlier); choose a release with digest-bearing assets, such as 1.108.2.
+The actual release metadata is checked rather than assuming availability from
+a version number. There is no manual checksum input or unverified fallback.
+
+This provides integrity checking against metadata from the same publisher. It is
+not a signature, provenance attestation, or an independent immutable checksum pin.
+Both metadata and archives come from GitHub; release asset replacement and API
+availability remain part of that trust and availability model.
 
 ### ⭐️ Use Hugo extended
 

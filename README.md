@@ -135,38 +135,22 @@ In your Hugo template, select the Dart Sass transpiler:
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 ```
 
-For Hugo versions before `css.Sass` was introduced, use `resources.ToCSS` instead.
+Requires **Hugo 0.114.0 or later**; on older template APIs, use `resources.ToCSS`
+instead of `css.Sass`. Dart Sass works independently of `extended`. The old
+`dart-sass-embedded` protocol is not supported.
 
-This requires Hugo **0.114.0 or later** and works independently of `extended`.
-The old `dart-sass-embedded` executable/protocol is not supported. Omitting
-`dart-sass-version` (or leaving it empty) preserves existing behavior: no Sass
-network requests, installation, or PATH changes. Only `major.minor.patch` versions
-are accepted; `latest`, ranges, `v` prefixes, prereleases, and URLs are rejected.
+Use a fixed `major.minor.patch` version. Omitting `dart-sass-version` or leaving it
+empty skips Sass entirely. Linux **glibc**, macOS, and Windows runners on **x64 or arm64** are
+supported when the selected release has the matching asset; musl is unsupported.
+The `github-token` input defaults to `${{ github.token }}`; read-only permissions suffice.
 
-Supported runners are Linux **glibc**, macOS, and Windows on **x64 or arm64**, when
-the selected release publishes that exact asset. Linux musl (including Alpine),
-unknown libc, and other architectures are rejected without fallback. The complete
-standalone `dart-sass` directory, including its runtime, is kept together and
-added to PATH, making `sass` available to subsequent steps.
+Archives must have a valid GitHub API SHA-256 digest and pass verification before
+extraction or execution. Missing digests or assets, API errors, and mismatches fail
+the action. This checks integrity against the same publisher, not a signature or
+an independent immutable checksum pin.
 
-Installation requires the official release asset's GitHub API `sha256` digest.
-The downloaded archive is verified **before extraction or execution**. Missing or
-invalid digests, mismatches, API failures (including rate limits), and missing
-assets fail the action. Older releases often have no digest (including 1.89.0
-and earlier); choose a release with digest-bearing assets, such as 1.108.2.
-The `github-token` input defaults to `${{ github.token }}` to authenticate release
-metadata requests. Read-only permissions suffice. You may override it with another
-token or explicitly set `github-token: ''` for unauthenticated requests (with lower
-API rate limits). The action never falls back to a token from the environment.
-The token is sent only to the exact GitHub metadata endpoint, with redirects
-disabled, never to archive downloads or logs. API errors still fail closed.
-The actual release metadata is checked rather than assuming availability from
-a version number. There is no manual checksum input or unverified fallback.
-
-This provides integrity checking against metadata from the same publisher. It is
-not a signature, provenance attestation, or an independent immutable checksum pin.
-Both metadata and archives come from GitHub; release asset replacement and API
-availability remain part of that trust and availability model.
+See [Dart Sass details](docs/dart-sass.md) for version and platform selection,
+token overrides, failure modes, and the security trust model.
 
 ### ⭐️ Use Hugo extended
 

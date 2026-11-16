@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.3.0](https://github.com/peaceiris/actions-hugo/compare/v3.2.1...v3.3.0) (2026-11-16)
+
+
+### chore
+
+* add dotfiles ([1ed797b](https://github.com/peaceiris/actions-hugo/commit/1ed797ba5bcf71a08f0a1e6c86fa48edd605d7e5))
+
+### ci
+
+* add seven-day Dependabot cooldowns (#768) ([e455011](https://github.com/peaceiris/actions-hugo/commit/e4550112cd731d345bd34f1f2157e59dd10b8ea5)), closes [#768](https://github.com/peaceiris/actions-hugo/issues/768)
+* bump actions/checkout from 6.0.2 to 6.0.3 (#705) ([89ca553](https://github.com/peaceiris/actions-hugo/commit/89ca553e6cce579728b83911a0a0de59c7773132)), closes [#705](https://github.com/peaceiris/actions-hugo/issues/705)
+* bump actions/checkout from 6.0.3 to 7.0.0 (#708) ([1574db7](https://github.com/peaceiris/actions-hugo/commit/1574db77a986d47976ec5e3c86830ab2ef7e5b21)), closes [#708](https://github.com/peaceiris/actions-hugo/issues/708)
+* bump actions/checkout from 7.0.0 to 7.0.1 (#720) ([c53e8f0](https://github.com/peaceiris/actions-hugo/commit/c53e8f0d96986117de3365a97c251a0e7bb28d54)), closes [#720](https://github.com/peaceiris/actions-hugo/issues/720)
+* bump actions/dependency-review-action from 4.9.0 to 5.0.0 (#698) ([9c46f58](https://github.com/peaceiris/actions-hugo/commit/9c46f58a580354d979917a06a0036ea45fd18c46)), closes [#698](https://github.com/peaceiris/actions-hugo/issues/698)
+* bump actions/setup-node from 6.4.0 to 7.0.0 (#716) ([c582c0a](https://github.com/peaceiris/actions-hugo/commit/c582c0a7644f87ab057e61045fde02d26d067006)), closes [#716](https://github.com/peaceiris/actions-hugo/issues/716)
+* bump actions/setup-node from 7.0.0 to 7.1.0 (#757) ([d64889d](https://github.com/peaceiris/actions-hugo/commit/d64889d521862d67e513c05c3dfeb9d200f01376)), closes [#757](https://github.com/peaceiris/actions-hugo/issues/757)
+* bump actions/upload-artifact from 7.0.1 to 7.0.2 (#763) ([151819a](https://github.com/peaceiris/actions-hugo/commit/151819a2d5fa327582d39302e20ada6acba0909d)), closes [#763](https://github.com/peaceiris/actions-hugo/issues/763)
+* bump codecov/codecov-action from 5.5.4 to 6.0.0 (#700) ([412dd91](https://github.com/peaceiris/actions-hugo/commit/412dd9124a017948e82471ffce56bb69fc068cd9)), closes [#700](https://github.com/peaceiris/actions-hugo/issues/700)
+* bump codecov/codecov-action from 6.0.0 to 6.0.1 (#702) ([7845c37](https://github.com/peaceiris/actions-hugo/commit/7845c37f7f909e6d7ca8902ae5117b01e77d92f1)), closes [#702](https://github.com/peaceiris/actions-hugo/issues/702)
+* bump codecov/codecov-action from 6.0.1 to 7.0.0 (#707) ([940247d](https://github.com/peaceiris/actions-hugo/commit/940247d08e49bd08fdbf94e0294d90305f6cb6f9)), closes [#707](https://github.com/peaceiris/actions-hugo/issues/707)
+* bump codecov/codecov-action from 7.0.0 to 7.1.1 (#753) ([6a4925d](https://github.com/peaceiris/actions-hugo/commit/6a4925d6c2eaa6396e5b1de8844dc36af322888b)), closes [#753](https://github.com/peaceiris/actions-hugo/issues/753)
+* bump github/codeql-action from 4.35.4 to 4.35.5 (#701) ([8d04cd0](https://github.com/peaceiris/actions-hugo/commit/8d04cd051001b32e12bf6cb92426191ec3314829)), closes [#701](https://github.com/peaceiris/actions-hugo/issues/701)
+* bump github/codeql-action from 4.35.5 to 4.36.0 (#703) ([18deeac](https://github.com/peaceiris/actions-hugo/commit/18deeac04c148059823e83c0d7db71f66a0a5e8d)), closes [#703](https://github.com/peaceiris/actions-hugo/issues/703)
+* bump github/codeql-action from 4.36.0 to 4.36.1 (#704) ([c4a9c2d](https://github.com/peaceiris/actions-hugo/commit/c4a9c2db4197708e4c4e0b55ac5f742b2ef8cac5)), closes [#704](https://github.com/peaceiris/actions-hugo/issues/704)
+* bump github/codeql-action from 4.36.1 to 4.36.2 (#706) ([d17f2aa](https://github.com/peaceiris/actions-hugo/commit/d17f2aa363b769f5f33799d2bfd3238bd348a2ea)), closes [#706](https://github.com/peaceiris/actions-hugo/issues/706)
+* bump peaceiris/actions-hugo from 3.1.0 to 3.2.1 (#699) ([1f043ee](https://github.com/peaceiris/actions-hugo/commit/1f043ee5457267b61e88d5a3f14010c4964981c4)), closes [#699](https://github.com/peaceiris/actions-hugo/issues/699)
+* bump the codeql group with 3 updates (#766) ([c0cb134](https://github.com/peaceiris/actions-hugo/commit/c0cb13408983fa6ea75f5aa5bb2cf93aac963f5a)), closes [#766](https://github.com/peaceiris/actions-hugo/issues/766)
+* delete .github/workflows/purge-readme-image-cache.yml ([3715a15](https://github.com/peaceiris/actions-hugo/commit/3715a155b85f6e00574e5e4179a3f450b11fded9))
+* replace hub with gh for releases (#767) ([c91aeba](https://github.com/peaceiris/actions-hugo/commit/c91aeba70bff8f26385ceea61a344df0a5637ad6)), closes [#767](https://github.com/peaceiris/actions-hugo/issues/767)
+* update CodeQL to 4.39.0 and group future updates (#762) ([7e5fbec](https://github.com/peaceiris/actions-hugo/commit/7e5fbec1a9c1b61336aeb2d5a25dd950e4dfddf4)), closes [#762](https://github.com/peaceiris/actions-hugo/issues/762)
+
+### deps
+
+* bump the npm_and_yarn group across 1 directory with 2 updates (#745) ([c21c4c2](https://github.com/peaceiris/actions-hugo/commit/c21c4c2f1d819b78a69ebb6868b2df2b305ca668)), closes [#745](https://github.com/peaceiris/actions-hugo/issues/745)
+* bump the npm_and_yarn group across 1 directory with 2 updates (#765) ([1df2a73](https://github.com/peaceiris/actions-hugo/commit/1df2a73aebbb5596f5ad2e6154135eac8aa335fd)), closes [#765](https://github.com/peaceiris/actions-hugo/issues/765)
+
+### docs
+
+* remove Verification ([4a56969](https://github.com/peaceiris/actions-hugo/commit/4a56969a09b27c128c1a1eaf013ff9aacec295dd))
+
+### feat
+
+* add optional verified Dart Sass installation (#769) ([c02355f](https://github.com/peaceiris/actions-hugo/commit/c02355f4dfec642ae0895990bfdf5f7f5d14cd3b)), closes [#769](https://github.com/peaceiris/actions-hugo/issues/769)
+
+
+
 ## [3.2.1](https://github.com/peaceiris/actions-hugo/compare/v3.2.0...v3.2.1) (2026-05-10)
 
 

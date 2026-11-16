@@ -61,6 +61,8 @@ jobs:
       - run: npm run build
       - name: Setup Hugo and Dart Sass from this PR
         uses: ./
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           hugo-version: ${{ matrix.hugo-version }}
           extended: ${{ matrix.extended }}
@@ -68,9 +70,10 @@ jobs:
       - name: Use the legacy template API on Hugo 0.114.0
         if: matrix.hugo-version == '0.114.0'
         run: node -e "const fs = require('fs'); const p = '__tests__/fixtures/dart-sass/layouts/index.html'; fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replace('css.Sass', 'resources.ToCSS'));"
+      - name: Verify standalone Dart Sass
+        run: sass --version
       - name: Compile SCSS with Hugo and verify CSS
         shell: bash
         run: |
-          sass --version
           hugo --source __tests__/fixtures/dart-sass --destination "$RUNNER_TEMP/dart-sass-site"
           node -e "const fs = require('fs'); const css = fs.readFileSync(process.env.RUNNER_TEMP + '/dart-sass-site/css/main.css', 'utf8'); if (!/\.dart-sass-fixture\s*\{\s*width: 4px;\s*\}/.test(css)) throw new Error(css);"

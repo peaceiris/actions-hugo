@@ -67,11 +67,16 @@ export async function installDartSass(version: string): Promise<void> {
     process.arch,
     header?.glibcVersionRuntime
   );
+  const headers: Record<string, string> = {
+    'User-Agent': 'peaceiris/actions-hugo',
+    Accept: 'application/vnd.github+json'
+  };
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
   const response = await fetch(
     `https://api.github.com/repos/sass/dart-sass/releases/tags/${version}`,
-    {
-      headers: {'User-Agent': 'peaceiris/actions-hugo', Accept: 'application/vnd.github+json'}
-    }
+    {headers, redirect: 'error'}
   );
   if (!response.ok) {
     throw new Error(

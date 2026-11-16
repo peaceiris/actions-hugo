@@ -241,3 +241,23 @@ test('does not add PATH if extraction fails', async () => {
   await expect(installDartSass(version)).rejects.toThrow('extraction failed');
   expect(core.addPath).not.toHaveBeenCalled();
 });
+
+test('uses an optional token only for metadata and refuses redirects', async () => {
+  const original = process.env.GITHUB_TOKEN;
+  process.env.GITHUB_TOKEN = 'test-token';
+  try {
+    metadata();
+    await installDartSass(version);
+    expect(fetch).toHaveBeenCalledWith(
+      `https://api.github.com/repos/sass/dart-sass/releases/tags/${version}`,
+      expect.objectContaining({
+        headers: expect.objectContaining({Authorization: 'Bearer test-token'}),
+        redirect: 'error'
+      })
+    );
+    expect(jest.mocked(tc.downloadTool).mock.calls[0]).toHaveLength(1);
+  } finally {
+    if (original === undefined) delete process.env.GITHUB_TOKEN;
+    else process.env.GITHUB_TOKEN = original;
+  }
+});

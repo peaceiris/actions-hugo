@@ -3,6 +3,7 @@ import * as exec from '@actions/exec';
 import {getLatestVersion} from './get-latest-version';
 import {installer} from './installer';
 import {Tool} from './constants';
+import {installDartSass} from './install-dart-sass';
 
 export interface ActionResult {
   exitcode: number;
@@ -47,6 +48,7 @@ export async function run(): Promise<ActionResult> {
 
   core.info(`${Tool.Name} version: ${installVersion}`);
   await installer(installVersion);
+  await installDartSass(core.getInput('dart-sass-version'), core.getInput('github-token'));
   result = await showVersion(Tool.CmdName, [Tool.CmdOptVersion]);
 
   return result;

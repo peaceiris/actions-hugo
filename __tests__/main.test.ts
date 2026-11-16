@@ -1,4 +1,7 @@
 import * as main from '../src/main';
+import * as core from '@actions/core';
+import * as sass from '../src/install-dart-sass';
+import {readFileSync} from 'fs';
 import * as io from '@actions/io';
 import path from 'path';
 import {Tool, Action} from '../src/constants';
@@ -84,4 +87,30 @@ describe('showVersion()', () => {
   test('return not found', async () => {
     await expect(main.showVersion('gitgit', ['--version'])).rejects.toThrow('spawn gitgit ENOENT');
   });
+});
+
+describe('Dart Sass token input plumbing', () => {
+  afterEach(() => jest.restoreAllMocks());
+
+  test('declares the runner-resolved GitHub token as the default', () => {
+    const metadata = readFileSync(path.join(__dirname, '..', 'action.yml'), 'utf8');
+    expect(metadata).toMatch(/github-token:[\s\S]*?default: \$\{\{ github.token \}\}/);
+  });
+
+  test.each(['runner-resolved-default-token', 'explicit-token', ''])(
+    'passes the resolved github-token input %j explicitly to Sass',
+    async token => {
+      jest.spyOn(core, 'getInput').mockImplementation(name => {
+        const inputs: Record<string, string> = {
+          'hugo-version': Tool.TestVersionSpec,
+          'dart-sass-version': '1.108.2',
+          'github-token': token
+        };
+        return inputs[name] || '';
+      });
+      const install = jest.spyOn(sass, 'installDartSass').mockResolvedValue();
+      await main.run();
+      expect(install).toHaveBeenCalledWith('1.108.2', token);
+    }
+  );
 });

@@ -42,6 +42,7 @@ Thanks to this change, we can complete this action in less than a few seconds.
 - [Getting started](#getting-started)
   - [⭐️ Create your workflow](#%EF%B8%8F-create-your-workflow)
 - [Options](#options)
+  - [⭐️ Install Dart Sass](#%EF%B8%8F-install-dart-sass)
   - [⭐️ Use Hugo extended](#%EF%B8%8F-use-hugo-extended)
   - [⭐️ Use the latest version of Hugo](#%EF%B8%8F-use-the-latest-version-of-hugo)
 - [Tips](#tips)
@@ -114,6 +115,42 @@ jobs:
 
 
 ## Options
+
+### ⭐️ Install Dart Sass
+
+Set `dart-sass-version` to a fixed standalone [Dart Sass](https://github.com/sass/dart-sass) release version:
+
+```yaml
+- uses: peaceiris/actions-hugo@v3
+  with:
+    hugo-version: '0.160.1'
+    dart-sass-version: '1.108.2'
+- run: hugo --minify
+```
+
+In your Hugo template, select the Dart Sass transpiler:
+
+```go-html-template
+{{ $css := resources.Get "scss/main.scss" | css.Sass (dict "transpiler" "dartsass") }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+```
+
+Requires **Hugo 0.114.0 or later**; on older template APIs, use `resources.ToCSS`
+instead of `css.Sass`. Dart Sass works independently of `extended`. The old
+`dart-sass-embedded` protocol is not supported.
+
+Use a fixed `major.minor.patch` version. Omitting `dart-sass-version` or leaving it
+empty skips Sass entirely. Linux **glibc**, macOS, and Windows runners on **x64 or arm64** are
+supported when the selected release has the matching asset; musl is unsupported.
+The `github-token` input defaults to `${{ github.token }}`; read-only permissions suffice.
+
+Archives must have a valid GitHub API SHA-256 digest and pass verification before
+extraction or execution. Missing digests or assets, API errors, and mismatches fail
+the action. This checks integrity against the same publisher, not a signature or
+an independent immutable checksum pin.
+
+See [Dart Sass details](docs/dart-sass.md) for version and platform selection,
+token overrides, failure modes, and the security trust model.
 
 ### ⭐️ Use Hugo extended
 

@@ -19,11 +19,63 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run build
+
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3.2.1
+        uses: ./
         with:
           hugo-version: ${{ matrix.hugo-version }}
           extended: ${{ matrix.extended }}
 
       - name: Verify Hugo
         run: hugo version
+
+  dart-sass:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, ubuntu-24.04-arm, macos-15-intel, macos-15, windows-2025, windows-11-arm]
+        extended: [false, true]
+        hugo-version: ['0.160.1']
+        exclude:
+          # Hugo 0.160.1 has no Windows arm64 extended archive.
+          - os: windows-11-arm
+            extended: true
+        include:
+          - os: ubuntu-24.04
+            extended: false
+            hugo-version: '0.114.0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - name: Setup Hugo and Dart Sass from this PR
+        uses: ./
+        with:
+          hugo-version: ${{ matrix.hugo-version }}
+          extended: ${{ matrix.extended }}
+          dart-sass-version: '1.108.2'
+      - name: Use the legacy template API on Hugo 0.114.0
+        if: matrix.hugo-version == '0.114.0'
+        run: node -e "const fs = require('fs'); const p = '__tests__/fixtures/dart-sass/layouts/index.html'; fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replace('css.Sass', 'resources.ToCSS'));"
+      - name: Verify standalone Dart Sass
+        run: sass --version
+      - name: Compile SCSS with Hugo and verify CSS
+        shell: bash
+        run: |
+          hugo --source __tests__/fixtures/dart-sass --destination "$RUNNER_TEMP/dart-sass-site"
+          node -e "const fs = require('fs'); const css = fs.readFileSync(process.env.RUNNER_TEMP + '/dart-sass-site/css/main.css', 'utf8'); if (!/\.dart-sass-fixture\s*\{\s*width: 4px;\s*\}/.test(css)) throw new Error(css);"

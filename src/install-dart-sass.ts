@@ -50,7 +50,7 @@ export async function verifyDartSassArchive(archive: string, digest: string): Pr
   }
 }
 
-export async function installDartSass(version: string): Promise<void> {
+export async function installDartSass(version: string, token = ''): Promise<void> {
   if (version === '') {
     return;
   }
@@ -71,19 +71,30 @@ export async function installDartSass(version: string): Promise<void> {
     'User-Agent': 'peaceiris/actions-hugo',
     Accept: 'application/vnd.github+json'
   };
-  if (process.env.GITHUB_TOKEN) {
-    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
   }
-  const response = await fetch(
-    `https://api.github.com/repos/sass/dart-sass/releases/tags/${version}`,
-    {headers, redirect: 'error'}
-  );
+  let response;
+  try {
+    response = await fetch(`https://api.github.com/repos/sass/dart-sass/releases/tags/${version}`, {
+      headers,
+      redirect: 'error'
+    });
+  } catch {
+    // Do not surface transport errors that may contain request headers.
+    throw new Error(`Unable to fetch Dart Sass ${version} release metadata.`);
+  }
   if (!response.ok) {
     throw new Error(
       `Unable to fetch Dart Sass ${version} release metadata: HTTP ${response.status}.`
     );
   }
-  const release = (await response.json()) as Release | null;
+  let release: Release | null;
+  try {
+    release = (await response.json()) as Release | null;
+  } catch {
+    throw new Error(`Invalid Dart Sass ${version} release metadata.`);
+  }
   if (release?.tag_name !== version || !Array.isArray(release.assets)) {
     throw new Error(`Invalid Dart Sass ${version} release metadata.`);
   }

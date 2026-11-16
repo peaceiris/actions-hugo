@@ -68,7 +68,7 @@ function expectNoInstallation(): void {
 }
 
 test('empty input makes no network calls or PATH changes', async () => {
-  await installDartSass('');
+  await installDartSass('', 'unused-token');
   expect(fetch).not.toHaveBeenCalled();
   expect(tc.downloadTool).not.toHaveBeenCalled();
   expectNoInstallation();
@@ -158,7 +158,7 @@ test.each([403, 404, 429, 500])('fails closed on API HTTP %s', async status => {
 
 test('fails closed on network error', async () => {
   mockedFetch.mockRejectedValue(new Error('network failed'));
-  await expect(installDartSass(version)).rejects.toThrow('network failed');
+  await expect(installDartSass(version)).rejects.toThrow('Unable to fetch Dart Sass');
   expectNoInstallation();
 });
 
@@ -181,7 +181,7 @@ test('fails closed on invalid JSON', async () => {
       throw new Error('invalid JSON');
     }
   } as Awaited<ReturnType<typeof fetch>>);
-  await expect(installDartSass(version)).rejects.toThrow('invalid JSON');
+  await expect(installDartSass(version)).rejects.toThrow('Invalid Dart Sass');
   expectNoInstallation();
 });
 
@@ -242,22 +242,57 @@ test('does not add PATH if extraction fails', async () => {
   expect(core.addPath).not.toHaveBeenCalled();
 });
 
-test('uses an optional token only for metadata and refuses redirects', async () => {
-  const original = process.env.GITHUB_TOKEN;
-  process.env.GITHUB_TOKEN = 'test-token';
-  try {
-    metadata();
-    await installDartSass(version);
-    expect(fetch).toHaveBeenCalledWith(
-      `https://api.github.com/repos/sass/dart-sass/releases/tags/${version}`,
-      expect.objectContaining({
-        headers: expect.objectContaining({Authorization: 'Bearer test-token'}),
-        redirect: 'error'
-      })
-    );
-    expect(jest.mocked(tc.downloadTool).mock.calls[0]).toHaveLength(1);
-  } finally {
-    if (original === undefined) delete process.env.GITHUB_TOKEN;
-    else process.env.GITHUB_TOKEN = original;
+test('uses the explicit token only for exact-origin metadata and refuses redirects', async () => {
+  metadata();
+  const info = jest.spyOn(core, 'info');
+  const debug = jest.spyOn(core, 'debug');
+  await installDartSass(version, 'test-token');
+  expect(fetch).toHaveBeenCalledWith(
+    `https://api.github.com/repos/sass/dart-sass/releases/tags/${version}`,
+    expect.objectContaining({
+      headers: expect.objectContaining({Authorization: 'Bearer test-token'}),
+      redirect: 'error'
+    })
+  );
+  expect(jest.mocked(tc.downloadTool).mock.calls[0]).toHaveLength(1);
+  expect(JSON.stringify(jest.mocked(tc.downloadTool).mock.calls)).not.toContain('test-token');
+  expect(JSON.stringify(info.mock.calls)).not.toContain('test-token');
+  expect(JSON.stringify(debug.mock.calls)).not.toContain('test-token');
+});
+
+test.each(['', 'explicit-token'])(
+  'never uses a stale environment token with input %j',
+  async token => {
+    const original = process.env.GITHUB_TOKEN;
+    process.env.GITHUB_TOKEN = 'stale-environment-token';
+    try {
+      metadata();
+      await installDartSass(version, token);
+      const headers = mockedFetch.mock.calls[0][1]?.headers;
+      expect((headers as Record<string, string>).Authorization).toBe(
+        token ? 'Bearer explicit-token' : undefined
+      );
+      expect(JSON.stringify(mockedFetch.mock.calls)).not.toContain('stale-environment-token');
+    } finally {
+      if (original === undefined) delete process.env.GITHUB_TOKEN;
+      else process.env.GITHUB_TOKEN = original;
+    }
   }
+);
+
+test('does not expose token-bearing transport or parsing errors', async () => {
+  mockedFetch.mockRejectedValueOnce(new Error('transport error containing secret-token'));
+  await expect(installDartSass(version, 'secret-token')).rejects.toEqual(
+    new Error(`Unable to fetch Dart Sass ${version} release metadata.`)
+  );
+  mockedFetch.mockResolvedValueOnce({
+    ok: true,
+    json: async (): Promise<unknown> => {
+      throw new Error('parse error containing secret-token');
+    }
+  } as Awaited<ReturnType<typeof fetch>>);
+  await expect(installDartSass(version, 'secret-token')).rejects.toEqual(
+    new Error(`Invalid Dart Sass ${version} release metadata.`)
+  );
+  expectNoInstallation();
 });

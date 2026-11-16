@@ -48,7 +48,7 @@ export async function run(): Promise<ActionResult> {
 
   core.info(`${Tool.Name} version: ${installVersion}`);
   await installer(installVersion);
-  await installDartSass(core.getInput('dart-sass-version'));
+  await installDartSass(core.getInput('dart-sass-version'), core.getInput('github-token'));
   result = await showVersion(Tool.CmdName, [Tool.CmdOptVersion]);
 
   return result;

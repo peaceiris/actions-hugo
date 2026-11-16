@@ -65,8 +65,6 @@ jobs:
       - run: npm run build
       - name: Setup Hugo and Dart Sass from this PR
         uses: ./
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         with:
           hugo-version: ${{ matrix.hugo-version }}
           extended: ${{ matrix.extended }}

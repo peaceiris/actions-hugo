@@ -125,8 +125,6 @@ Set `dart-sass-version` to a fixed standalone [Dart Sass](https://github.com/sas
   with:
     hugo-version: '0.160.1'
     dart-sass-version: '1.108.2'
-  env:
-    GITHUB_TOKEN: ${{ github.token }}
 - run: hugo --minify
 ```
 
@@ -156,9 +154,12 @@ The downloaded archive is verified **before extraction or execution**. Missing o
 invalid digests, mismatches, API failures (including rate limits), and missing
 assets fail the action. Older releases often have no digest (including 1.89.0
 and earlier); choose a release with digest-bearing assets, such as 1.108.2.
-Optionally set `GITHUB_TOKEN` as above to avoid the lower unauthenticated API rate
-limit; the token is sent only to the GitHub release metadata endpoint, never to
-archive downloads. A read-only token is sufficient. API errors still fail closed.
+The `github-token` input defaults to `${{ github.token }}` to authenticate release
+metadata requests. Read-only permissions suffice. You may override it with another
+token or explicitly set `github-token: ''` for unauthenticated requests (with lower
+API rate limits). The action never falls back to a token from the environment.
+The token is sent only to the exact GitHub metadata endpoint, with redirects
+disabled, never to archive downloads or logs. API errors still fail closed.
 The actual release metadata is checked rather than assuming availability from
 a version number. There is no manual checksum input or unverified fallback.
 
